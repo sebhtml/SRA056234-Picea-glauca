@@ -1,5 +1,5 @@
 #!/bin/sh
-# @ job_name           = SRA056234-Picea-glauca-2012-12-18-1
+# @ job_name           = SRA056234-Picea-glauca-2012-12-18-2
 # @ job_type           = bluegene
 # @ comment            = "white spruce for the win !"
 # @ output             = $(job_name).$(Host).$(jobid).out
