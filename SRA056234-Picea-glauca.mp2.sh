@@ -1,0 +1,6455 @@
+#!/bin/bash
+#PBS -N SRA056234-Picea-glauca-2012-12-25-mp2-1
+#PBS -o SRA056234-Picea-glauca-2012-12-25-mp2-1.stdout
+#PBS -e SRA056234-Picea-glauca-2012-12-25-mp2-1.stderr
+#PBS -q qwork@mp2
+#PBS -l nodes=171:ppn=1
+#PBS -l walltime=120:00:00
+#PBS -M sebastien.boisvert.3@ulaval.ca
+#PBS -m bea
+cd $PBS_O_WORKDIR
+
+# 64*64 = 4096
+# 171*24 = 4104
+# 63*2 = 126
+
+. /mnt/scratch_mp2/corbeil/corbeil_group/software/NGS-Pipelines/LoadModules.sh
+
+mpiexec -n 4096 -bynode -bind-to-core \
+Ray -k 31 -o SRA056234-Picea-glauca-2012-12-25-mp2-1 \
+-read-write-checkpoints blocks.ray-k31-4096 \
+-route-messages -connection-type polytope -routing-graph-degree 126 \
+-p \
+    blocks/SRR525188_1-block-0.fastq \
+    blocks/SRR525188_2-block-0.fastq \
+-p \
+    blocks/SRR525188_1-block-1.fastq \
+    blocks/SRR525188_2-block-1.fastq \
+-p \
+    blocks/SRR525188_1-block-10.fastq \
+    blocks/SRR525188_2-block-10.fastq \
+-p \
+    blocks/SRR525188_1-block-11.fastq \
+    blocks/SRR525188_2-block-11.fastq \
+-p \
+    blocks/SRR525188_1-block-12.fastq \
+    blocks/SRR525188_2-block-12.fastq \
+-p \
+    blocks/SRR525188_1-block-13.fastq \
+    blocks/SRR525188_2-block-13.fastq \
+-p \
+    blocks/SRR525188_1-block-14.fastq \
+    blocks/SRR525188_2-block-14.fastq \
+-p \
+    blocks/SRR525188_1-block-15.fastq \
+    blocks/SRR525188_2-block-15.fastq \
+-p \
+    blocks/SRR525188_1-block-16.fastq \
+    blocks/SRR525188_2-block-16.fastq \
+-p \
+    blocks/SRR525188_1-block-17.fastq \
+    blocks/SRR525188_2-block-17.fastq \
+-p \
+    blocks/SRR525188_1-block-18.fastq \
+    blocks/SRR525188_2-block-18.fastq \
+-p \
+    blocks/SRR525188_1-block-19.fastq \
+    blocks/SRR525188_2-block-19.fastq \
+-p \
+    blocks/SRR525188_1-block-2.fastq \
+    blocks/SRR525188_2-block-2.fastq \
+-p \
+    blocks/SRR525188_1-block-20.fastq \
+    blocks/SRR525188_2-block-20.fastq \
+-p \
+    blocks/SRR525188_1-block-21.fastq \
+    blocks/SRR525188_2-block-21.fastq \
+-p \
+    blocks/SRR525188_1-block-22.fastq \
+    blocks/SRR525188_2-block-22.fastq \
+-p \
+    blocks/SRR525188_1-block-23.fastq \
+    blocks/SRR525188_2-block-23.fastq \
+-p \
+    blocks/SRR525188_1-block-24.fastq \
+    blocks/SRR525188_2-block-24.fastq \
+-p \
+    blocks/SRR525188_1-block-25.fastq \
+    blocks/SRR525188_2-block-25.fastq \
+-p \
+    blocks/SRR525188_1-block-26.fastq \
+    blocks/SRR525188_2-block-26.fastq \
+-p \
+    blocks/SRR525188_1-block-27.fastq \
+    blocks/SRR525188_2-block-27.fastq \
+-p \
+    blocks/SRR525188_1-block-28.fastq \
+    blocks/SRR525188_2-block-28.fastq \
+-p \
+    blocks/SRR525188_1-block-29.fastq \
+    blocks/SRR525188_2-block-29.fastq \
+-p \
+    blocks/SRR525188_1-block-3.fastq \
+    blocks/SRR525188_2-block-3.fastq \
+-p \
+    blocks/SRR525188_1-block-30.fastq \
+    blocks/SRR525188_2-block-30.fastq \
+-p \
+    blocks/SRR525188_1-block-31.fastq \
+    blocks/SRR525188_2-block-31.fastq \
+-p \
+    blocks/SRR525188_1-block-32.fastq \
+    blocks/SRR525188_2-block-32.fastq \
+-p \
+    blocks/SRR525188_1-block-33.fastq \
+    blocks/SRR525188_2-block-33.fastq \
+-p \
+    blocks/SRR525188_1-block-34.fastq \
+    blocks/SRR525188_2-block-34.fastq \
+-p \
+    blocks/SRR525188_1-block-35.fastq \
+    blocks/SRR525188_2-block-35.fastq \
+-p \
+    blocks/SRR525188_1-block-36.fastq \
+    blocks/SRR525188_2-block-36.fastq \
+-p \
+    blocks/SRR525188_1-block-37.fastq \
+    blocks/SRR525188_2-block-37.fastq \
+-p \
+    blocks/SRR525188_1-block-38.fastq \
+    blocks/SRR525188_2-block-38.fastq \
+-p \
+    blocks/SRR525188_1-block-39.fastq \
+    blocks/SRR525188_2-block-39.fastq \
+-p \
+    blocks/SRR525188_1-block-4.fastq \
+    blocks/SRR525188_2-block-4.fastq \
+-p \
+    blocks/SRR525188_1-block-40.fastq \
+    blocks/SRR525188_2-block-40.fastq \
+-p \
+    blocks/SRR525188_1-block-41.fastq \
+    blocks/SRR525188_2-block-41.fastq \
+-p \
+    blocks/SRR525188_1-block-42.fastq \
+    blocks/SRR525188_2-block-42.fastq \
+-p \
+    blocks/SRR525188_1-block-43.fastq \
+    blocks/SRR525188_2-block-43.fastq \
+-p \
+    blocks/SRR525188_1-block-44.fastq \
+    blocks/SRR525188_2-block-44.fastq \
+-p \
+    blocks/SRR525188_1-block-45.fastq \
+    blocks/SRR525188_2-block-45.fastq \
+-p \
+    blocks/SRR525188_1-block-46.fastq \
+    blocks/SRR525188_2-block-46.fastq \
+-p \
+    blocks/SRR525188_1-block-47.fastq \
+    blocks/SRR525188_2-block-47.fastq \
+-p \
+    blocks/SRR525188_1-block-48.fastq \
+    blocks/SRR525188_2-block-48.fastq \
+-p \
+    blocks/SRR525188_1-block-49.fastq \
+    blocks/SRR525188_2-block-49.fastq \
+-p \
+    blocks/SRR525188_1-block-5.fastq \
+    blocks/SRR525188_2-block-5.fastq \
+-p \
+    blocks/SRR525188_1-block-50.fastq \
+    blocks/SRR525188_2-block-50.fastq \
+-p \
+    blocks/SRR525188_1-block-51.fastq \
+    blocks/SRR525188_2-block-51.fastq \
+-p \
+    blocks/SRR525188_1-block-52.fastq \
+    blocks/SRR525188_2-block-52.fastq \
+-p \
+    blocks/SRR525188_1-block-53.fastq \
+    blocks/SRR525188_2-block-53.fastq \
+-p \
+    blocks/SRR525188_1-block-54.fastq \
+    blocks/SRR525188_2-block-54.fastq \
+-p \
+    blocks/SRR525188_1-block-55.fastq \
+    blocks/SRR525188_2-block-55.fastq \
+-p \
+    blocks/SRR525188_1-block-56.fastq \
+    blocks/SRR525188_2-block-56.fastq \
+-p \
+    blocks/SRR525188_1-block-57.fastq \
+    blocks/SRR525188_2-block-57.fastq \
+-p \
+    blocks/SRR525188_1-block-58.fastq \
+    blocks/SRR525188_2-block-58.fastq \
+-p \
+    blocks/SRR525188_1-block-59.fastq \
+    blocks/SRR525188_2-block-59.fastq \
+-p \
+    blocks/SRR525188_1-block-6.fastq \
+    blocks/SRR525188_2-block-6.fastq \
+-p \
+    blocks/SRR525188_1-block-60.fastq \
+    blocks/SRR525188_2-block-60.fastq \
+-p \
+    blocks/SRR525188_1-block-61.fastq \
+    blocks/SRR525188_2-block-61.fastq \
+-p \
+    blocks/SRR525188_1-block-62.fastq \
+    blocks/SRR525188_2-block-62.fastq \
+-p \
+    blocks/SRR525188_1-block-63.fastq \
+    blocks/SRR525188_2-block-63.fastq \
+-p \
+    blocks/SRR525188_1-block-64.fastq \
+    blocks/SRR525188_2-block-64.fastq \
+-p \
+    blocks/SRR525188_1-block-65.fastq \
+    blocks/SRR525188_2-block-65.fastq \
+-p \
+    blocks/SRR525188_1-block-66.fastq \
+    blocks/SRR525188_2-block-66.fastq \
+-p \
+    blocks/SRR525188_1-block-67.fastq \
+    blocks/SRR525188_2-block-67.fastq \
+-p \
+    blocks/SRR525188_1-block-68.fastq \
+    blocks/SRR525188_2-block-68.fastq \
+-p \
+    blocks/SRR525188_1-block-69.fastq \
+    blocks/SRR525188_2-block-69.fastq \
+-p \
+    blocks/SRR525188_1-block-7.fastq \
+    blocks/SRR525188_2-block-7.fastq \
+-p \
+    blocks/SRR525188_1-block-70.fastq \
+    blocks/SRR525188_2-block-70.fastq \
+-p \
+    blocks/SRR525188_1-block-71.fastq \
+    blocks/SRR525188_2-block-71.fastq \
+-p \
+    blocks/SRR525188_1-block-72.fastq \
+    blocks/SRR525188_2-block-72.fastq \
+-p \
+    blocks/SRR525188_1-block-73.fastq \
+    blocks/SRR525188_2-block-73.fastq \
+-p \
+    blocks/SRR525188_1-block-74.fastq \
+    blocks/SRR525188_2-block-74.fastq \
+-p \
+    blocks/SRR525188_1-block-75.fastq \
+    blocks/SRR525188_2-block-75.fastq \
+-p \
+    blocks/SRR525188_1-block-76.fastq \
+    blocks/SRR525188_2-block-76.fastq \
+-p \
+    blocks/SRR525188_1-block-77.fastq \
+    blocks/SRR525188_2-block-77.fastq \
+-p \
+    blocks/SRR525188_1-block-78.fastq \
+    blocks/SRR525188_2-block-78.fastq \
+-p \
+    blocks/SRR525188_1-block-79.fastq \
+    blocks/SRR525188_2-block-79.fastq \
+-p \
+    blocks/SRR525188_1-block-8.fastq \
+    blocks/SRR525188_2-block-8.fastq \
+-p \
+    blocks/SRR525188_1-block-80.fastq \
+    blocks/SRR525188_2-block-80.fastq \
+-p \
+    blocks/SRR525188_1-block-81.fastq \
+    blocks/SRR525188_2-block-81.fastq \
+-p \
+    blocks/SRR525188_1-block-82.fastq \
+    blocks/SRR525188_2-block-82.fastq \
+-p \
+    blocks/SRR525188_1-block-83.fastq \
+    blocks/SRR525188_2-block-83.fastq \
+-p \
+    blocks/SRR525188_1-block-84.fastq \
+    blocks/SRR525188_2-block-84.fastq \
+-p \
+    blocks/SRR525188_1-block-85.fastq \
+    blocks/SRR525188_2-block-85.fastq \
+-p \
+    blocks/SRR525188_1-block-86.fastq \
+    blocks/SRR525188_2-block-86.fastq \
+-p \
+    blocks/SRR525188_1-block-87.fastq \
+    blocks/SRR525188_2-block-87.fastq \
+-p \
+    blocks/SRR525188_1-block-88.fastq \
+    blocks/SRR525188_2-block-88.fastq \
+-p \
+    blocks/SRR525188_1-block-89.fastq \
+    blocks/SRR525188_2-block-89.fastq \
+-p \
+    blocks/SRR525188_1-block-9.fastq \
+    blocks/SRR525188_2-block-9.fastq \
+-p \
+    blocks/SRR525188_1-block-90.fastq \
+    blocks/SRR525188_2-block-90.fastq \
+-p \
+    blocks/SRR525188_1-block-91.fastq \
+    blocks/SRR525188_2-block-91.fastq \
+-p \
+    blocks/SRR525188_1-block-92.fastq \
+    blocks/SRR525188_2-block-92.fastq \
+-p \
+    blocks/SRR525189_1-block-0.fastq \
+    blocks/SRR525189_2-block-0.fastq \
+-p \
+    blocks/SRR525189_1-block-1.fastq \
+    blocks/SRR525189_2-block-1.fastq \
+-p \
+    blocks/SRR525189_1-block-10.fastq \
+    blocks/SRR525189_2-block-10.fastq \
+-p \
+    blocks/SRR525189_1-block-11.fastq \
+    blocks/SRR525189_2-block-11.fastq \
+-p \
+    blocks/SRR525189_1-block-12.fastq \
+    blocks/SRR525189_2-block-12.fastq \
+-p \
+    blocks/SRR525189_1-block-13.fastq \
+    blocks/SRR525189_2-block-13.fastq \
+-p \
+    blocks/SRR525189_1-block-14.fastq \
+    blocks/SRR525189_2-block-14.fastq \
+-p \
+    blocks/SRR525189_1-block-15.fastq \
+    blocks/SRR525189_2-block-15.fastq \
+-p \
+    blocks/SRR525189_1-block-16.fastq \
+    blocks/SRR525189_2-block-16.fastq \
+-p \
+    blocks/SRR525189_1-block-17.fastq \
+    blocks/SRR525189_2-block-17.fastq \
+-p \
+    blocks/SRR525189_1-block-18.fastq \
+    blocks/SRR525189_2-block-18.fastq \
+-p \
+    blocks/SRR525189_1-block-19.fastq \
+    blocks/SRR525189_2-block-19.fastq \
+-p \
+    blocks/SRR525189_1-block-2.fastq \
+    blocks/SRR525189_2-block-2.fastq \
+-p \
+    blocks/SRR525189_1-block-20.fastq \
+    blocks/SRR525189_2-block-20.fastq \
+-p \
+    blocks/SRR525189_1-block-21.fastq \
+    blocks/SRR525189_2-block-21.fastq \
+-p \
+    blocks/SRR525189_1-block-22.fastq \
+    blocks/SRR525189_2-block-22.fastq \
+-p \
+    blocks/SRR525189_1-block-23.fastq \
+    blocks/SRR525189_2-block-23.fastq \
+-p \
+    blocks/SRR525189_1-block-24.fastq \
+    blocks/SRR525189_2-block-24.fastq \
+-p \
+    blocks/SRR525189_1-block-25.fastq \
+    blocks/SRR525189_2-block-25.fastq \
+-p \
+    blocks/SRR525189_1-block-26.fastq \
+    blocks/SRR525189_2-block-26.fastq \
+-p \
+    blocks/SRR525189_1-block-27.fastq \
+    blocks/SRR525189_2-block-27.fastq \
+-p \
+    blocks/SRR525189_1-block-28.fastq \
+    blocks/SRR525189_2-block-28.fastq \
+-p \
+    blocks/SRR525189_1-block-29.fastq \
+    blocks/SRR525189_2-block-29.fastq \
+-p \
+    blocks/SRR525189_1-block-3.fastq \
+    blocks/SRR525189_2-block-3.fastq \
+-p \
+    blocks/SRR525189_1-block-30.fastq \
+    blocks/SRR525189_2-block-30.fastq \
+-p \
+    blocks/SRR525189_1-block-31.fastq \
+    blocks/SRR525189_2-block-31.fastq \
+-p \
+    blocks/SRR525189_1-block-32.fastq \
+    blocks/SRR525189_2-block-32.fastq \
+-p \
+    blocks/SRR525189_1-block-33.fastq \
+    blocks/SRR525189_2-block-33.fastq \
+-p \
+    blocks/SRR525189_1-block-34.fastq \
+    blocks/SRR525189_2-block-34.fastq \
+-p \
+    blocks/SRR525189_1-block-35.fastq \
+    blocks/SRR525189_2-block-35.fastq \
+-p \
+    blocks/SRR525189_1-block-36.fastq \
+    blocks/SRR525189_2-block-36.fastq \
+-p \
+    blocks/SRR525189_1-block-37.fastq \
+    blocks/SRR525189_2-block-37.fastq \
+-p \
+    blocks/SRR525189_1-block-38.fastq \
+    blocks/SRR525189_2-block-38.fastq \
+-p \
+    blocks/SRR525189_1-block-39.fastq \
+    blocks/SRR525189_2-block-39.fastq \
+-p \
+    blocks/SRR525189_1-block-4.fastq \
+    blocks/SRR525189_2-block-4.fastq \
+-p \
+    blocks/SRR525189_1-block-40.fastq \
+    blocks/SRR525189_2-block-40.fastq \
+-p \
+    blocks/SRR525189_1-block-41.fastq \
+    blocks/SRR525189_2-block-41.fastq \
+-p \
+    blocks/SRR525189_1-block-42.fastq \
+    blocks/SRR525189_2-block-42.fastq \
+-p \
+    blocks/SRR525189_1-block-43.fastq \
+    blocks/SRR525189_2-block-43.fastq \
+-p \
+    blocks/SRR525189_1-block-44.fastq \
+    blocks/SRR525189_2-block-44.fastq \
+-p \
+    blocks/SRR525189_1-block-45.fastq \
+    blocks/SRR525189_2-block-45.fastq \
+-p \
+    blocks/SRR525189_1-block-46.fastq \
+    blocks/SRR525189_2-block-46.fastq \
+-p \
+    blocks/SRR525189_1-block-47.fastq \
+    blocks/SRR525189_2-block-47.fastq \
+-p \
+    blocks/SRR525189_1-block-48.fastq \
+    blocks/SRR525189_2-block-48.fastq \
+-p \
+    blocks/SRR525189_1-block-49.fastq \
+    blocks/SRR525189_2-block-49.fastq \
+-p \
+    blocks/SRR525189_1-block-5.fastq \
+    blocks/SRR525189_2-block-5.fastq \
+-p \
+    blocks/SRR525189_1-block-50.fastq \
+    blocks/SRR525189_2-block-50.fastq \
+-p \
+    blocks/SRR525189_1-block-51.fastq \
+    blocks/SRR525189_2-block-51.fastq \
+-p \
+    blocks/SRR525189_1-block-52.fastq \
+    blocks/SRR525189_2-block-52.fastq \
+-p \
+    blocks/SRR525189_1-block-53.fastq \
+    blocks/SRR525189_2-block-53.fastq \
+-p \
+    blocks/SRR525189_1-block-54.fastq \
+    blocks/SRR525189_2-block-54.fastq \
+-p \
+    blocks/SRR525189_1-block-55.fastq \
+    blocks/SRR525189_2-block-55.fastq \
+-p \
+    blocks/SRR525189_1-block-56.fastq \
+    blocks/SRR525189_2-block-56.fastq \
+-p \
+    blocks/SRR525189_1-block-57.fastq \
+    blocks/SRR525189_2-block-57.fastq \
+-p \
+    blocks/SRR525189_1-block-58.fastq \
+    blocks/SRR525189_2-block-58.fastq \
+-p \
+    blocks/SRR525189_1-block-59.fastq \
+    blocks/SRR525189_2-block-59.fastq \
+-p \
+    blocks/SRR525189_1-block-6.fastq \
+    blocks/SRR525189_2-block-6.fastq \
+-p \
+    blocks/SRR525189_1-block-60.fastq \
+    blocks/SRR525189_2-block-60.fastq \
+-p \
+    blocks/SRR525189_1-block-61.fastq \
+    blocks/SRR525189_2-block-61.fastq \
+-p \
+    blocks/SRR525189_1-block-62.fastq \
+    blocks/SRR525189_2-block-62.fastq \
+-p \
+    blocks/SRR525189_1-block-63.fastq \
+    blocks/SRR525189_2-block-63.fastq \
+-p \
+    blocks/SRR525189_1-block-64.fastq \
+    blocks/SRR525189_2-block-64.fastq \
+-p \
+    blocks/SRR525189_1-block-65.fastq \
+    blocks/SRR525189_2-block-65.fastq \
+-p \
+    blocks/SRR525189_1-block-66.fastq \
+    blocks/SRR525189_2-block-66.fastq \
+-p \
+    blocks/SRR525189_1-block-67.fastq \
+    blocks/SRR525189_2-block-67.fastq \
+-p \
+    blocks/SRR525189_1-block-68.fastq \
+    blocks/SRR525189_2-block-68.fastq \
+-p \
+    blocks/SRR525189_1-block-69.fastq \
+    blocks/SRR525189_2-block-69.fastq \
+-p \
+    blocks/SRR525189_1-block-7.fastq \
+    blocks/SRR525189_2-block-7.fastq \
+-p \
+    blocks/SRR525189_1-block-70.fastq \
+    blocks/SRR525189_2-block-70.fastq \
+-p \
+    blocks/SRR525189_1-block-71.fastq \
+    blocks/SRR525189_2-block-71.fastq \
+-p \
+    blocks/SRR525189_1-block-72.fastq \
+    blocks/SRR525189_2-block-72.fastq \
+-p \
+    blocks/SRR525189_1-block-73.fastq \
+    blocks/SRR525189_2-block-73.fastq \
+-p \
+    blocks/SRR525189_1-block-74.fastq \
+    blocks/SRR525189_2-block-74.fastq \
+-p \
+    blocks/SRR525189_1-block-75.fastq \
+    blocks/SRR525189_2-block-75.fastq \
+-p \
+    blocks/SRR525189_1-block-76.fastq \
+    blocks/SRR525189_2-block-76.fastq \
+-p \
+    blocks/SRR525189_1-block-77.fastq \
+    blocks/SRR525189_2-block-77.fastq \
+-p \
+    blocks/SRR525189_1-block-78.fastq \
+    blocks/SRR525189_2-block-78.fastq \
+-p \
+    blocks/SRR525189_1-block-79.fastq \
+    blocks/SRR525189_2-block-79.fastq \
+-p \
+    blocks/SRR525189_1-block-8.fastq \
+    blocks/SRR525189_2-block-8.fastq \
+-p \
+    blocks/SRR525189_1-block-80.fastq \
+    blocks/SRR525189_2-block-80.fastq \
+-p \
+    blocks/SRR525189_1-block-81.fastq \
+    blocks/SRR525189_2-block-81.fastq \
+-p \
+    blocks/SRR525189_1-block-82.fastq \
+    blocks/SRR525189_2-block-82.fastq \
+-p \
+    blocks/SRR525189_1-block-83.fastq \
+    blocks/SRR525189_2-block-83.fastq \
+-p \
+    blocks/SRR525189_1-block-84.fastq \
+    blocks/SRR525189_2-block-84.fastq \
+-p \
+    blocks/SRR525189_1-block-85.fastq \
+    blocks/SRR525189_2-block-85.fastq \
+-p \
+    blocks/SRR525189_1-block-86.fastq \
+    blocks/SRR525189_2-block-86.fastq \
+-p \
+    blocks/SRR525189_1-block-87.fastq \
+    blocks/SRR525189_2-block-87.fastq \
+-p \
+    blocks/SRR525189_1-block-88.fastq \
+    blocks/SRR525189_2-block-88.fastq \
+-p \
+    blocks/SRR525189_1-block-89.fastq \
+    blocks/SRR525189_2-block-89.fastq \
+-p \
+    blocks/SRR525189_1-block-9.fastq \
+    blocks/SRR525189_2-block-9.fastq \
+-p \
+    blocks/SRR525189_1-block-90.fastq \
+    blocks/SRR525189_2-block-90.fastq \
+-p \
+    blocks/SRR525189_1-block-91.fastq \
+    blocks/SRR525189_2-block-91.fastq \
+-p \
+    blocks/SRR525190_1-block-0.fastq \
+    blocks/SRR525190_2-block-0.fastq \
+-p \
+    blocks/SRR525190_1-block-1.fastq \
+    blocks/SRR525190_2-block-1.fastq \
+-p \
+    blocks/SRR525190_1-block-10.fastq \
+    blocks/SRR525190_2-block-10.fastq \
+-p \
+    blocks/SRR525190_1-block-11.fastq \
+    blocks/SRR525190_2-block-11.fastq \
+-p \
+    blocks/SRR525190_1-block-12.fastq \
+    blocks/SRR525190_2-block-12.fastq \
+-p \
+    blocks/SRR525190_1-block-13.fastq \
+    blocks/SRR525190_2-block-13.fastq \
+-p \
+    blocks/SRR525190_1-block-14.fastq \
+    blocks/SRR525190_2-block-14.fastq \
+-p \
+    blocks/SRR525190_1-block-15.fastq \
+    blocks/SRR525190_2-block-15.fastq \
+-p \
+    blocks/SRR525190_1-block-16.fastq \
+    blocks/SRR525190_2-block-16.fastq \
+-p \
+    blocks/SRR525190_1-block-17.fastq \
+    blocks/SRR525190_2-block-17.fastq \
+-p \
+    blocks/SRR525190_1-block-18.fastq \
+    blocks/SRR525190_2-block-18.fastq \
+-p \
+    blocks/SRR525190_1-block-19.fastq \
+    blocks/SRR525190_2-block-19.fastq \
+-p \
+    blocks/SRR525190_1-block-2.fastq \
+    blocks/SRR525190_2-block-2.fastq \
+-p \
+    blocks/SRR525190_1-block-20.fastq \
+    blocks/SRR525190_2-block-20.fastq \
+-p \
+    blocks/SRR525190_1-block-21.fastq \
+    blocks/SRR525190_2-block-21.fastq \
+-p \
+    blocks/SRR525190_1-block-22.fastq \
+    blocks/SRR525190_2-block-22.fastq \
+-p \
+    blocks/SRR525190_1-block-23.fastq \
+    blocks/SRR525190_2-block-23.fastq \
+-p \
+    blocks/SRR525190_1-block-24.fastq \
+    blocks/SRR525190_2-block-24.fastq \
+-p \
+    blocks/SRR525190_1-block-25.fastq \
+    blocks/SRR525190_2-block-25.fastq \
+-p \
+    blocks/SRR525190_1-block-26.fastq \
+    blocks/SRR525190_2-block-26.fastq \
+-p \
+    blocks/SRR525190_1-block-27.fastq \
+    blocks/SRR525190_2-block-27.fastq \
+-p \
+    blocks/SRR525190_1-block-28.fastq \
+    blocks/SRR525190_2-block-28.fastq \
+-p \
+    blocks/SRR525190_1-block-29.fastq \
+    blocks/SRR525190_2-block-29.fastq \
+-p \
+    blocks/SRR525190_1-block-3.fastq \
+    blocks/SRR525190_2-block-3.fastq \
+-p \
+    blocks/SRR525190_1-block-30.fastq \
+    blocks/SRR525190_2-block-30.fastq \
+-p \
+    blocks/SRR525190_1-block-31.fastq \
+    blocks/SRR525190_2-block-31.fastq \
+-p \
+    blocks/SRR525190_1-block-32.fastq \
+    blocks/SRR525190_2-block-32.fastq \
+-p \
+    blocks/SRR525190_1-block-33.fastq \
+    blocks/SRR525190_2-block-33.fastq \
+-p \
+    blocks/SRR525190_1-block-34.fastq \
+    blocks/SRR525190_2-block-34.fastq \
+-p \
+    blocks/SRR525190_1-block-35.fastq \
+    blocks/SRR525190_2-block-35.fastq \
+-p \
+    blocks/SRR525190_1-block-36.fastq \
+    blocks/SRR525190_2-block-36.fastq \
+-p \
+    blocks/SRR525190_1-block-37.fastq \
+    blocks/SRR525190_2-block-37.fastq \
+-p \
+    blocks/SRR525190_1-block-38.fastq \
+    blocks/SRR525190_2-block-38.fastq \
+-p \
+    blocks/SRR525190_1-block-39.fastq \
+    blocks/SRR525190_2-block-39.fastq \
+-p \
+    blocks/SRR525190_1-block-4.fastq \
+    blocks/SRR525190_2-block-4.fastq \
+-p \
+    blocks/SRR525190_1-block-40.fastq \
+    blocks/SRR525190_2-block-40.fastq \
+-p \
+    blocks/SRR525190_1-block-41.fastq \
+    blocks/SRR525190_2-block-41.fastq \
+-p \
+    blocks/SRR525190_1-block-42.fastq \
+    blocks/SRR525190_2-block-42.fastq \
+-p \
+    blocks/SRR525190_1-block-43.fastq \
+    blocks/SRR525190_2-block-43.fastq \
+-p \
+    blocks/SRR525190_1-block-44.fastq \
+    blocks/SRR525190_2-block-44.fastq \
+-p \
+    blocks/SRR525190_1-block-45.fastq \
+    blocks/SRR525190_2-block-45.fastq \
+-p \
+    blocks/SRR525190_1-block-46.fastq \
+    blocks/SRR525190_2-block-46.fastq \
+-p \
+    blocks/SRR525190_1-block-47.fastq \
+    blocks/SRR525190_2-block-47.fastq \
+-p \
+    blocks/SRR525190_1-block-48.fastq \
+    blocks/SRR525190_2-block-48.fastq \
+-p \
+    blocks/SRR525190_1-block-49.fastq \
+    blocks/SRR525190_2-block-49.fastq \
+-p \
+    blocks/SRR525190_1-block-5.fastq \
+    blocks/SRR525190_2-block-5.fastq \
+-p \
+    blocks/SRR525190_1-block-50.fastq \
+    blocks/SRR525190_2-block-50.fastq \
+-p \
+    blocks/SRR525190_1-block-51.fastq \
+    blocks/SRR525190_2-block-51.fastq \
+-p \
+    blocks/SRR525190_1-block-52.fastq \
+    blocks/SRR525190_2-block-52.fastq \
+-p \
+    blocks/SRR525190_1-block-53.fastq \
+    blocks/SRR525190_2-block-53.fastq \
+-p \
+    blocks/SRR525190_1-block-54.fastq \
+    blocks/SRR525190_2-block-54.fastq \
+-p \
+    blocks/SRR525190_1-block-55.fastq \
+    blocks/SRR525190_2-block-55.fastq \
+-p \
+    blocks/SRR525190_1-block-56.fastq \
+    blocks/SRR525190_2-block-56.fastq \
+-p \
+    blocks/SRR525190_1-block-57.fastq \
+    blocks/SRR525190_2-block-57.fastq \
+-p \
+    blocks/SRR525190_1-block-58.fastq \
+    blocks/SRR525190_2-block-58.fastq \
+-p \
+    blocks/SRR525190_1-block-59.fastq \
+    blocks/SRR525190_2-block-59.fastq \
+-p \
+    blocks/SRR525190_1-block-6.fastq \
+    blocks/SRR525190_2-block-6.fastq \
+-p \
+    blocks/SRR525190_1-block-60.fastq \
+    blocks/SRR525190_2-block-60.fastq \
+-p \
+    blocks/SRR525190_1-block-61.fastq \
+    blocks/SRR525190_2-block-61.fastq \
+-p \
+    blocks/SRR525190_1-block-62.fastq \
+    blocks/SRR525190_2-block-62.fastq \
+-p \
+    blocks/SRR525190_1-block-63.fastq \
+    blocks/SRR525190_2-block-63.fastq \
+-p \
+    blocks/SRR525190_1-block-64.fastq \
+    blocks/SRR525190_2-block-64.fastq \
+-p \
+    blocks/SRR525190_1-block-65.fastq \
+    blocks/SRR525190_2-block-65.fastq \
+-p \
+    blocks/SRR525190_1-block-66.fastq \
+    blocks/SRR525190_2-block-66.fastq \
+-p \
+    blocks/SRR525190_1-block-67.fastq \
+    blocks/SRR525190_2-block-67.fastq \
+-p \
+    blocks/SRR525190_1-block-68.fastq \
+    blocks/SRR525190_2-block-68.fastq \
+-p \
+    blocks/SRR525190_1-block-69.fastq \
+    blocks/SRR525190_2-block-69.fastq \
+-p \
+    blocks/SRR525190_1-block-7.fastq \
+    blocks/SRR525190_2-block-7.fastq \
+-p \
+    blocks/SRR525190_1-block-70.fastq \
+    blocks/SRR525190_2-block-70.fastq \
+-p \
+    blocks/SRR525190_1-block-71.fastq \
+    blocks/SRR525190_2-block-71.fastq \
+-p \
+    blocks/SRR525190_1-block-72.fastq \
+    blocks/SRR525190_2-block-72.fastq \
+-p \
+    blocks/SRR525190_1-block-73.fastq \
+    blocks/SRR525190_2-block-73.fastq \
+-p \
+    blocks/SRR525190_1-block-74.fastq \
+    blocks/SRR525190_2-block-74.fastq \
+-p \
+    blocks/SRR525190_1-block-75.fastq \
+    blocks/SRR525190_2-block-75.fastq \
+-p \
+    blocks/SRR525190_1-block-8.fastq \
+    blocks/SRR525190_2-block-8.fastq \
+-p \
+    blocks/SRR525190_1-block-9.fastq \
+    blocks/SRR525190_2-block-9.fastq \
+-p \
+    blocks/SRR525191_1-block-0.fastq \
+    blocks/SRR525191_2-block-0.fastq \
+-p \
+    blocks/SRR525191_1-block-1.fastq \
+    blocks/SRR525191_2-block-1.fastq \
+-p \
+    blocks/SRR525191_1-block-10.fastq \
+    blocks/SRR525191_2-block-10.fastq \
+-p \
+    blocks/SRR525191_1-block-11.fastq \
+    blocks/SRR525191_2-block-11.fastq \
+-p \
+    blocks/SRR525191_1-block-12.fastq \
+    blocks/SRR525191_2-block-12.fastq \
+-p \
+    blocks/SRR525191_1-block-13.fastq \
+    blocks/SRR525191_2-block-13.fastq \
+-p \
+    blocks/SRR525191_1-block-14.fastq \
+    blocks/SRR525191_2-block-14.fastq \
+-p \
+    blocks/SRR525191_1-block-15.fastq \
+    blocks/SRR525191_2-block-15.fastq \
+-p \
+    blocks/SRR525191_1-block-16.fastq \
+    blocks/SRR525191_2-block-16.fastq \
+-p \
+    blocks/SRR525191_1-block-17.fastq \
+    blocks/SRR525191_2-block-17.fastq \
+-p \
+    blocks/SRR525191_1-block-18.fastq \
+    blocks/SRR525191_2-block-18.fastq \
+-p \
+    blocks/SRR525191_1-block-19.fastq \
+    blocks/SRR525191_2-block-19.fastq \
+-p \
+    blocks/SRR525191_1-block-2.fastq \
+    blocks/SRR525191_2-block-2.fastq \
+-p \
+    blocks/SRR525191_1-block-20.fastq \
+    blocks/SRR525191_2-block-20.fastq \
+-p \
+    blocks/SRR525191_1-block-21.fastq \
+    blocks/SRR525191_2-block-21.fastq \
+-p \
+    blocks/SRR525191_1-block-22.fastq \
+    blocks/SRR525191_2-block-22.fastq \
+-p \
+    blocks/SRR525191_1-block-23.fastq \
+    blocks/SRR525191_2-block-23.fastq \
+-p \
+    blocks/SRR525191_1-block-24.fastq \
+    blocks/SRR525191_2-block-24.fastq \
+-p \
+    blocks/SRR525191_1-block-25.fastq \
+    blocks/SRR525191_2-block-25.fastq \
+-p \
+    blocks/SRR525191_1-block-26.fastq \
+    blocks/SRR525191_2-block-26.fastq \
+-p \
+    blocks/SRR525191_1-block-27.fastq \
+    blocks/SRR525191_2-block-27.fastq \
+-p \
+    blocks/SRR525191_1-block-28.fastq \
+    blocks/SRR525191_2-block-28.fastq \
+-p \
+    blocks/SRR525191_1-block-29.fastq \
+    blocks/SRR525191_2-block-29.fastq \
+-p \
+    blocks/SRR525191_1-block-3.fastq \
+    blocks/SRR525191_2-block-3.fastq \
+-p \
+    blocks/SRR525191_1-block-30.fastq \
+    blocks/SRR525191_2-block-30.fastq \
+-p \
+    blocks/SRR525191_1-block-31.fastq \
+    blocks/SRR525191_2-block-31.fastq \
+-p \
+    blocks/SRR525191_1-block-32.fastq \
+    blocks/SRR525191_2-block-32.fastq \
+-p \
+    blocks/SRR525191_1-block-33.fastq \
+    blocks/SRR525191_2-block-33.fastq \
+-p \
+    blocks/SRR525191_1-block-34.fastq \
+    blocks/SRR525191_2-block-34.fastq \
+-p \
+    blocks/SRR525191_1-block-35.fastq \
+    blocks/SRR525191_2-block-35.fastq \
+-p \
+    blocks/SRR525191_1-block-36.fastq \
+    blocks/SRR525191_2-block-36.fastq \
+-p \
+    blocks/SRR525191_1-block-37.fastq \
+    blocks/SRR525191_2-block-37.fastq \
+-p \
+    blocks/SRR525191_1-block-38.fastq \
+    blocks/SRR525191_2-block-38.fastq \
+-p \
+    blocks/SRR525191_1-block-39.fastq \
+    blocks/SRR525191_2-block-39.fastq \
+-p \
+    blocks/SRR525191_1-block-4.fastq \
+    blocks/SRR525191_2-block-4.fastq \
+-p \
+    blocks/SRR525191_1-block-40.fastq \
+    blocks/SRR525191_2-block-40.fastq \
+-p \
+    blocks/SRR525191_1-block-41.fastq \
+    blocks/SRR525191_2-block-41.fastq \
+-p \
+    blocks/SRR525191_1-block-42.fastq \
+    blocks/SRR525191_2-block-42.fastq \
+-p \
+    blocks/SRR525191_1-block-43.fastq \
+    blocks/SRR525191_2-block-43.fastq \
+-p \
+    blocks/SRR525191_1-block-44.fastq \
+    blocks/SRR525191_2-block-44.fastq \
+-p \
+    blocks/SRR525191_1-block-45.fastq \
+    blocks/SRR525191_2-block-45.fastq \
+-p \
+    blocks/SRR525191_1-block-46.fastq \
+    blocks/SRR525191_2-block-46.fastq \
+-p \
+    blocks/SRR525191_1-block-47.fastq \
+    blocks/SRR525191_2-block-47.fastq \
+-p \
+    blocks/SRR525191_1-block-48.fastq \
+    blocks/SRR525191_2-block-48.fastq \
+-p \
+    blocks/SRR525191_1-block-49.fastq \
+    blocks/SRR525191_2-block-49.fastq \
+-p \
+    blocks/SRR525191_1-block-5.fastq \
+    blocks/SRR525191_2-block-5.fastq \
+-p \
+    blocks/SRR525191_1-block-50.fastq \
+    blocks/SRR525191_2-block-50.fastq \
+-p \
+    blocks/SRR525191_1-block-51.fastq \
+    blocks/SRR525191_2-block-51.fastq \
+-p \
+    blocks/SRR525191_1-block-52.fastq \
+    blocks/SRR525191_2-block-52.fastq \
+-p \
+    blocks/SRR525191_1-block-53.fastq \
+    blocks/SRR525191_2-block-53.fastq \
+-p \
+    blocks/SRR525191_1-block-54.fastq \
+    blocks/SRR525191_2-block-54.fastq \
+-p \
+    blocks/SRR525191_1-block-55.fastq \
+    blocks/SRR525191_2-block-55.fastq \
+-p \
+    blocks/SRR525191_1-block-56.fastq \
+    blocks/SRR525191_2-block-56.fastq \
+-p \
+    blocks/SRR525191_1-block-57.fastq \
+    blocks/SRR525191_2-block-57.fastq \
+-p \
+    blocks/SRR525191_1-block-58.fastq \
+    blocks/SRR525191_2-block-58.fastq \
+-p \
+    blocks/SRR525191_1-block-59.fastq \
+    blocks/SRR525191_2-block-59.fastq \
+-p \
+    blocks/SRR525191_1-block-6.fastq \
+    blocks/SRR525191_2-block-6.fastq \
+-p \
+    blocks/SRR525191_1-block-60.fastq \
+    blocks/SRR525191_2-block-60.fastq \
+-p \
+    blocks/SRR525191_1-block-61.fastq \
+    blocks/SRR525191_2-block-61.fastq \
+-p \
+    blocks/SRR525191_1-block-62.fastq \
+    blocks/SRR525191_2-block-62.fastq \
+-p \
+    blocks/SRR525191_1-block-63.fastq \
+    blocks/SRR525191_2-block-63.fastq \
+-p \
+    blocks/SRR525191_1-block-64.fastq \
+    blocks/SRR525191_2-block-64.fastq \
+-p \
+    blocks/SRR525191_1-block-65.fastq \
+    blocks/SRR525191_2-block-65.fastq \
+-p \
+    blocks/SRR525191_1-block-66.fastq \
+    blocks/SRR525191_2-block-66.fastq \
+-p \
+    blocks/SRR525191_1-block-67.fastq \
+    blocks/SRR525191_2-block-67.fastq \
+-p \
+    blocks/SRR525191_1-block-68.fastq \
+    blocks/SRR525191_2-block-68.fastq \
+-p \
+    blocks/SRR525191_1-block-69.fastq \
+    blocks/SRR525191_2-block-69.fastq \
+-p \
+    blocks/SRR525191_1-block-7.fastq \
+    blocks/SRR525191_2-block-7.fastq \
+-p \
+    blocks/SRR525191_1-block-70.fastq \
+    blocks/SRR525191_2-block-70.fastq \
+-p \
+    blocks/SRR525191_1-block-71.fastq \
+    blocks/SRR525191_2-block-71.fastq \
+-p \
+    blocks/SRR525191_1-block-72.fastq \
+    blocks/SRR525191_2-block-72.fastq \
+-p \
+    blocks/SRR525191_1-block-73.fastq \
+    blocks/SRR525191_2-block-73.fastq \
+-p \
+    blocks/SRR525191_1-block-74.fastq \
+    blocks/SRR525191_2-block-74.fastq \
+-p \
+    blocks/SRR525191_1-block-75.fastq \
+    blocks/SRR525191_2-block-75.fastq \
+-p \
+    blocks/SRR525191_1-block-76.fastq \
+    blocks/SRR525191_2-block-76.fastq \
+-p \
+    blocks/SRR525191_1-block-8.fastq \
+    blocks/SRR525191_2-block-8.fastq \
+-p \
+    blocks/SRR525191_1-block-9.fastq \
+    blocks/SRR525191_2-block-9.fastq \
+-p \
+    blocks/SRR525192_1-block-0.fastq \
+    blocks/SRR525192_2-block-0.fastq \
+-p \
+    blocks/SRR525192_1-block-1.fastq \
+    blocks/SRR525192_2-block-1.fastq \
+-p \
+    blocks/SRR525192_1-block-10.fastq \
+    blocks/SRR525192_2-block-10.fastq \
+-p \
+    blocks/SRR525192_1-block-11.fastq \
+    blocks/SRR525192_2-block-11.fastq \
+-p \
+    blocks/SRR525192_1-block-12.fastq \
+    blocks/SRR525192_2-block-12.fastq \
+-p \
+    blocks/SRR525192_1-block-13.fastq \
+    blocks/SRR525192_2-block-13.fastq \
+-p \
+    blocks/SRR525192_1-block-14.fastq \
+    blocks/SRR525192_2-block-14.fastq \
+-p \
+    blocks/SRR525192_1-block-15.fastq \
+    blocks/SRR525192_2-block-15.fastq \
+-p \
+    blocks/SRR525192_1-block-16.fastq \
+    blocks/SRR525192_2-block-16.fastq \
+-p \
+    blocks/SRR525192_1-block-17.fastq \
+    blocks/SRR525192_2-block-17.fastq \
+-p \
+    blocks/SRR525192_1-block-18.fastq \
+    blocks/SRR525192_2-block-18.fastq \
+-p \
+    blocks/SRR525192_1-block-19.fastq \
+    blocks/SRR525192_2-block-19.fastq \
+-p \
+    blocks/SRR525192_1-block-2.fastq \
+    blocks/SRR525192_2-block-2.fastq \
+-p \
+    blocks/SRR525192_1-block-20.fastq \
+    blocks/SRR525192_2-block-20.fastq \
+-p \
+    blocks/SRR525192_1-block-21.fastq \
+    blocks/SRR525192_2-block-21.fastq \
+-p \
+    blocks/SRR525192_1-block-22.fastq \
+    blocks/SRR525192_2-block-22.fastq \
+-p \
+    blocks/SRR525192_1-block-23.fastq \
+    blocks/SRR525192_2-block-23.fastq \
+-p \
+    blocks/SRR525192_1-block-24.fastq \
+    blocks/SRR525192_2-block-24.fastq \
+-p \
+    blocks/SRR525192_1-block-25.fastq \
+    blocks/SRR525192_2-block-25.fastq \
+-p \
+    blocks/SRR525192_1-block-26.fastq \
+    blocks/SRR525192_2-block-26.fastq \
+-p \
+    blocks/SRR525192_1-block-27.fastq \
+    blocks/SRR525192_2-block-27.fastq \
+-p \
+    blocks/SRR525192_1-block-28.fastq \
+    blocks/SRR525192_2-block-28.fastq \
+-p \
+    blocks/SRR525192_1-block-29.fastq \
+    blocks/SRR525192_2-block-29.fastq \
+-p \
+    blocks/SRR525192_1-block-3.fastq \
+    blocks/SRR525192_2-block-3.fastq \
+-p \
+    blocks/SRR525192_1-block-30.fastq \
+    blocks/SRR525192_2-block-30.fastq \
+-p \
+    blocks/SRR525192_1-block-31.fastq \
+    blocks/SRR525192_2-block-31.fastq \
+-p \
+    blocks/SRR525192_1-block-32.fastq \
+    blocks/SRR525192_2-block-32.fastq \
+-p \
+    blocks/SRR525192_1-block-33.fastq \
+    blocks/SRR525192_2-block-33.fastq \
+-p \
+    blocks/SRR525192_1-block-34.fastq \
+    blocks/SRR525192_2-block-34.fastq \
+-p \
+    blocks/SRR525192_1-block-35.fastq \
+    blocks/SRR525192_2-block-35.fastq \
+-p \
+    blocks/SRR525192_1-block-36.fastq \
+    blocks/SRR525192_2-block-36.fastq \
+-p \
+    blocks/SRR525192_1-block-37.fastq \
+    blocks/SRR525192_2-block-37.fastq \
+-p \
+    blocks/SRR525192_1-block-38.fastq \
+    blocks/SRR525192_2-block-38.fastq \
+-p \
+    blocks/SRR525192_1-block-39.fastq \
+    blocks/SRR525192_2-block-39.fastq \
+-p \
+    blocks/SRR525192_1-block-4.fastq \
+    blocks/SRR525192_2-block-4.fastq \
+-p \
+    blocks/SRR525192_1-block-40.fastq \
+    blocks/SRR525192_2-block-40.fastq \
+-p \
+    blocks/SRR525192_1-block-41.fastq \
+    blocks/SRR525192_2-block-41.fastq \
+-p \
+    blocks/SRR525192_1-block-42.fastq \
+    blocks/SRR525192_2-block-42.fastq \
+-p \
+    blocks/SRR525192_1-block-43.fastq \
+    blocks/SRR525192_2-block-43.fastq \
+-p \
+    blocks/SRR525192_1-block-44.fastq \
+    blocks/SRR525192_2-block-44.fastq \
+-p \
+    blocks/SRR525192_1-block-45.fastq \
+    blocks/SRR525192_2-block-45.fastq \
+-p \
+    blocks/SRR525192_1-block-46.fastq \
+    blocks/SRR525192_2-block-46.fastq \
+-p \
+    blocks/SRR525192_1-block-47.fastq \
+    blocks/SRR525192_2-block-47.fastq \
+-p \
+    blocks/SRR525192_1-block-48.fastq \
+    blocks/SRR525192_2-block-48.fastq \
+-p \
+    blocks/SRR525192_1-block-49.fastq \
+    blocks/SRR525192_2-block-49.fastq \
+-p \
+    blocks/SRR525192_1-block-5.fastq \
+    blocks/SRR525192_2-block-5.fastq \
+-p \
+    blocks/SRR525192_1-block-50.fastq \
+    blocks/SRR525192_2-block-50.fastq \
+-p \
+    blocks/SRR525192_1-block-51.fastq \
+    blocks/SRR525192_2-block-51.fastq \
+-p \
+    blocks/SRR525192_1-block-52.fastq \
+    blocks/SRR525192_2-block-52.fastq \
+-p \
+    blocks/SRR525192_1-block-53.fastq \
+    blocks/SRR525192_2-block-53.fastq \
+-p \
+    blocks/SRR525192_1-block-54.fastq \
+    blocks/SRR525192_2-block-54.fastq \
+-p \
+    blocks/SRR525192_1-block-55.fastq \
+    blocks/SRR525192_2-block-55.fastq \
+-p \
+    blocks/SRR525192_1-block-56.fastq \
+    blocks/SRR525192_2-block-56.fastq \
+-p \
+    blocks/SRR525192_1-block-57.fastq \
+    blocks/SRR525192_2-block-57.fastq \
+-p \
+    blocks/SRR525192_1-block-58.fastq \
+    blocks/SRR525192_2-block-58.fastq \
+-p \
+    blocks/SRR525192_1-block-59.fastq \
+    blocks/SRR525192_2-block-59.fastq \
+-p \
+    blocks/SRR525192_1-block-6.fastq \
+    blocks/SRR525192_2-block-6.fastq \
+-p \
+    blocks/SRR525192_1-block-60.fastq \
+    blocks/SRR525192_2-block-60.fastq \
+-p \
+    blocks/SRR525192_1-block-61.fastq \
+    blocks/SRR525192_2-block-61.fastq \
+-p \
+    blocks/SRR525192_1-block-62.fastq \
+    blocks/SRR525192_2-block-62.fastq \
+-p \
+    blocks/SRR525192_1-block-63.fastq \
+    blocks/SRR525192_2-block-63.fastq \
+-p \
+    blocks/SRR525192_1-block-64.fastq \
+    blocks/SRR525192_2-block-64.fastq \
+-p \
+    blocks/SRR525192_1-block-7.fastq \
+    blocks/SRR525192_2-block-7.fastq \
+-p \
+    blocks/SRR525192_1-block-8.fastq \
+    blocks/SRR525192_2-block-8.fastq \
+-p \
+    blocks/SRR525192_1-block-9.fastq \
+    blocks/SRR525192_2-block-9.fastq \
+-p \
+    blocks/SRR525193_1-block-0.fastq \
+    blocks/SRR525193_2-block-0.fastq \
+-p \
+    blocks/SRR525193_1-block-1.fastq \
+    blocks/SRR525193_2-block-1.fastq \
+-p \
+    blocks/SRR525193_1-block-10.fastq \
+    blocks/SRR525193_2-block-10.fastq \
+-p \
+    blocks/SRR525193_1-block-100.fastq \
+    blocks/SRR525193_2-block-100.fastq \
+-p \
+    blocks/SRR525193_1-block-101.fastq \
+    blocks/SRR525193_2-block-101.fastq \
+-p \
+    blocks/SRR525193_1-block-102.fastq \
+    blocks/SRR525193_2-block-102.fastq \
+-p \
+    blocks/SRR525193_1-block-103.fastq \
+    blocks/SRR525193_2-block-103.fastq \
+-p \
+    blocks/SRR525193_1-block-104.fastq \
+    blocks/SRR525193_2-block-104.fastq \
+-p \
+    blocks/SRR525193_1-block-11.fastq \
+    blocks/SRR525193_2-block-11.fastq \
+-p \
+    blocks/SRR525193_1-block-12.fastq \
+    blocks/SRR525193_2-block-12.fastq \
+-p \
+    blocks/SRR525193_1-block-13.fastq \
+    blocks/SRR525193_2-block-13.fastq \
+-p \
+    blocks/SRR525193_1-block-14.fastq \
+    blocks/SRR525193_2-block-14.fastq \
+-p \
+    blocks/SRR525193_1-block-15.fastq \
+    blocks/SRR525193_2-block-15.fastq \
+-p \
+    blocks/SRR525193_1-block-16.fastq \
+    blocks/SRR525193_2-block-16.fastq \
+-p \
+    blocks/SRR525193_1-block-17.fastq \
+    blocks/SRR525193_2-block-17.fastq \
+-p \
+    blocks/SRR525193_1-block-18.fastq \
+    blocks/SRR525193_2-block-18.fastq \
+-p \
+    blocks/SRR525193_1-block-19.fastq \
+    blocks/SRR525193_2-block-19.fastq \
+-p \
+    blocks/SRR525193_1-block-2.fastq \
+    blocks/SRR525193_2-block-2.fastq \
+-p \
+    blocks/SRR525193_1-block-20.fastq \
+    blocks/SRR525193_2-block-20.fastq \
+-p \
+    blocks/SRR525193_1-block-21.fastq \
+    blocks/SRR525193_2-block-21.fastq \
+-p \
+    blocks/SRR525193_1-block-22.fastq \
+    blocks/SRR525193_2-block-22.fastq \
+-p \
+    blocks/SRR525193_1-block-23.fastq \
+    blocks/SRR525193_2-block-23.fastq \
+-p \
+    blocks/SRR525193_1-block-24.fastq \
+    blocks/SRR525193_2-block-24.fastq \
+-p \
+    blocks/SRR525193_1-block-25.fastq \
+    blocks/SRR525193_2-block-25.fastq \
+-p \
+    blocks/SRR525193_1-block-26.fastq \
+    blocks/SRR525193_2-block-26.fastq \
+-p \
+    blocks/SRR525193_1-block-27.fastq \
+    blocks/SRR525193_2-block-27.fastq \
+-p \
+    blocks/SRR525193_1-block-28.fastq \
+    blocks/SRR525193_2-block-28.fastq \
+-p \
+    blocks/SRR525193_1-block-29.fastq \
+    blocks/SRR525193_2-block-29.fastq \
+-p \
+    blocks/SRR525193_1-block-3.fastq \
+    blocks/SRR525193_2-block-3.fastq \
+-p \
+    blocks/SRR525193_1-block-30.fastq \
+    blocks/SRR525193_2-block-30.fastq \
+-p \
+    blocks/SRR525193_1-block-31.fastq \
+    blocks/SRR525193_2-block-31.fastq \
+-p \
+    blocks/SRR525193_1-block-32.fastq \
+    blocks/SRR525193_2-block-32.fastq \
+-p \
+    blocks/SRR525193_1-block-33.fastq \
+    blocks/SRR525193_2-block-33.fastq \
+-p \
+    blocks/SRR525193_1-block-34.fastq \
+    blocks/SRR525193_2-block-34.fastq \
+-p \
+    blocks/SRR525193_1-block-35.fastq \
+    blocks/SRR525193_2-block-35.fastq \
+-p \
+    blocks/SRR525193_1-block-36.fastq \
+    blocks/SRR525193_2-block-36.fastq \
+-p \
+    blocks/SRR525193_1-block-37.fastq \
+    blocks/SRR525193_2-block-37.fastq \
+-p \
+    blocks/SRR525193_1-block-38.fastq \
+    blocks/SRR525193_2-block-38.fastq \
+-p \
+    blocks/SRR525193_1-block-39.fastq \
+    blocks/SRR525193_2-block-39.fastq \
+-p \
+    blocks/SRR525193_1-block-4.fastq \
+    blocks/SRR525193_2-block-4.fastq \
+-p \
+    blocks/SRR525193_1-block-40.fastq \
+    blocks/SRR525193_2-block-40.fastq \
+-p \
+    blocks/SRR525193_1-block-41.fastq \
+    blocks/SRR525193_2-block-41.fastq \
+-p \
+    blocks/SRR525193_1-block-42.fastq \
+    blocks/SRR525193_2-block-42.fastq \
+-p \
+    blocks/SRR525193_1-block-43.fastq \
+    blocks/SRR525193_2-block-43.fastq \
+-p \
+    blocks/SRR525193_1-block-44.fastq \
+    blocks/SRR525193_2-block-44.fastq \
+-p \
+    blocks/SRR525193_1-block-45.fastq \
+    blocks/SRR525193_2-block-45.fastq \
+-p \
+    blocks/SRR525193_1-block-46.fastq \
+    blocks/SRR525193_2-block-46.fastq \
+-p \
+    blocks/SRR525193_1-block-47.fastq \
+    blocks/SRR525193_2-block-47.fastq \
+-p \
+    blocks/SRR525193_1-block-48.fastq \
+    blocks/SRR525193_2-block-48.fastq \
+-p \
+    blocks/SRR525193_1-block-49.fastq \
+    blocks/SRR525193_2-block-49.fastq \
+-p \
+    blocks/SRR525193_1-block-5.fastq \
+    blocks/SRR525193_2-block-5.fastq \
+-p \
+    blocks/SRR525193_1-block-50.fastq \
+    blocks/SRR525193_2-block-50.fastq \
+-p \
+    blocks/SRR525193_1-block-51.fastq \
+    blocks/SRR525193_2-block-51.fastq \
+-p \
+    blocks/SRR525193_1-block-52.fastq \
+    blocks/SRR525193_2-block-52.fastq \
+-p \
+    blocks/SRR525193_1-block-53.fastq \
+    blocks/SRR525193_2-block-53.fastq \
+-p \
+    blocks/SRR525193_1-block-54.fastq \
+    blocks/SRR525193_2-block-54.fastq \
+-p \
+    blocks/SRR525193_1-block-55.fastq \
+    blocks/SRR525193_2-block-55.fastq \
+-p \
+    blocks/SRR525193_1-block-56.fastq \
+    blocks/SRR525193_2-block-56.fastq \
+-p \
+    blocks/SRR525193_1-block-57.fastq \
+    blocks/SRR525193_2-block-57.fastq \
+-p \
+    blocks/SRR525193_1-block-58.fastq \
+    blocks/SRR525193_2-block-58.fastq \
+-p \
+    blocks/SRR525193_1-block-59.fastq \
+    blocks/SRR525193_2-block-59.fastq \
+-p \
+    blocks/SRR525193_1-block-6.fastq \
+    blocks/SRR525193_2-block-6.fastq \
+-p \
+    blocks/SRR525193_1-block-60.fastq \
+    blocks/SRR525193_2-block-60.fastq \
+-p \
+    blocks/SRR525193_1-block-61.fastq \
+    blocks/SRR525193_2-block-61.fastq \
+-p \
+    blocks/SRR525193_1-block-62.fastq \
+    blocks/SRR525193_2-block-62.fastq \
+-p \
+    blocks/SRR525193_1-block-63.fastq \
+    blocks/SRR525193_2-block-63.fastq \
+-p \
+    blocks/SRR525193_1-block-64.fastq \
+    blocks/SRR525193_2-block-64.fastq \
+-p \
+    blocks/SRR525193_1-block-65.fastq \
+    blocks/SRR525193_2-block-65.fastq \
+-p \
+    blocks/SRR525193_1-block-66.fastq \
+    blocks/SRR525193_2-block-66.fastq \
+-p \
+    blocks/SRR525193_1-block-67.fastq \
+    blocks/SRR525193_2-block-67.fastq \
+-p \
+    blocks/SRR525193_1-block-68.fastq \
+    blocks/SRR525193_2-block-68.fastq \
+-p \
+    blocks/SRR525193_1-block-69.fastq \
+    blocks/SRR525193_2-block-69.fastq \
+-p \
+    blocks/SRR525193_1-block-7.fastq \
+    blocks/SRR525193_2-block-7.fastq \
+-p \
+    blocks/SRR525193_1-block-70.fastq \
+    blocks/SRR525193_2-block-70.fastq \
+-p \
+    blocks/SRR525193_1-block-71.fastq \
+    blocks/SRR525193_2-block-71.fastq \
+-p \
+    blocks/SRR525193_1-block-72.fastq \
+    blocks/SRR525193_2-block-72.fastq \
+-p \
+    blocks/SRR525193_1-block-73.fastq \
+    blocks/SRR525193_2-block-73.fastq \
+-p \
+    blocks/SRR525193_1-block-74.fastq \
+    blocks/SRR525193_2-block-74.fastq \
+-p \
+    blocks/SRR525193_1-block-75.fastq \
+    blocks/SRR525193_2-block-75.fastq \
+-p \
+    blocks/SRR525193_1-block-76.fastq \
+    blocks/SRR525193_2-block-76.fastq \
+-p \
+    blocks/SRR525193_1-block-77.fastq \
+    blocks/SRR525193_2-block-77.fastq \
+-p \
+    blocks/SRR525193_1-block-78.fastq \
+    blocks/SRR525193_2-block-78.fastq \
+-p \
+    blocks/SRR525193_1-block-79.fastq \
+    blocks/SRR525193_2-block-79.fastq \
+-p \
+    blocks/SRR525193_1-block-8.fastq \
+    blocks/SRR525193_2-block-8.fastq \
+-p \
+    blocks/SRR525193_1-block-80.fastq \
+    blocks/SRR525193_2-block-80.fastq \
+-p \
+    blocks/SRR525193_1-block-81.fastq \
+    blocks/SRR525193_2-block-81.fastq \
+-p \
+    blocks/SRR525193_1-block-82.fastq \
+    blocks/SRR525193_2-block-82.fastq \
+-p \
+    blocks/SRR525193_1-block-83.fastq \
+    blocks/SRR525193_2-block-83.fastq \
+-p \
+    blocks/SRR525193_1-block-84.fastq \
+    blocks/SRR525193_2-block-84.fastq \
+-p \
+    blocks/SRR525193_1-block-85.fastq \
+    blocks/SRR525193_2-block-85.fastq \
+-p \
+    blocks/SRR525193_1-block-86.fastq \
+    blocks/SRR525193_2-block-86.fastq \
+-p \
+    blocks/SRR525193_1-block-87.fastq \
+    blocks/SRR525193_2-block-87.fastq \
+-p \
+    blocks/SRR525193_1-block-88.fastq \
+    blocks/SRR525193_2-block-88.fastq \
+-p \
+    blocks/SRR525193_1-block-89.fastq \
+    blocks/SRR525193_2-block-89.fastq \
+-p \
+    blocks/SRR525193_1-block-9.fastq \
+    blocks/SRR525193_2-block-9.fastq \
+-p \
+    blocks/SRR525193_1-block-90.fastq \
+    blocks/SRR525193_2-block-90.fastq \
+-p \
+    blocks/SRR525193_1-block-91.fastq \
+    blocks/SRR525193_2-block-91.fastq \
+-p \
+    blocks/SRR525193_1-block-92.fastq \
+    blocks/SRR525193_2-block-92.fastq \
+-p \
+    blocks/SRR525193_1-block-93.fastq \
+    blocks/SRR525193_2-block-93.fastq \
+-p \
+    blocks/SRR525193_1-block-94.fastq \
+    blocks/SRR525193_2-block-94.fastq \
+-p \
+    blocks/SRR525193_1-block-95.fastq \
+    blocks/SRR525193_2-block-95.fastq \
+-p \
+    blocks/SRR525193_1-block-96.fastq \
+    blocks/SRR525193_2-block-96.fastq \
+-p \
+    blocks/SRR525193_1-block-97.fastq \
+    blocks/SRR525193_2-block-97.fastq \
+-p \
+    blocks/SRR525193_1-block-98.fastq \
+    blocks/SRR525193_2-block-98.fastq \
+-p \
+    blocks/SRR525193_1-block-99.fastq \
+    blocks/SRR525193_2-block-99.fastq \
+-p \
+    blocks/SRR525194_1-block-0.fastq \
+    blocks/SRR525194_2-block-0.fastq \
+-p \
+    blocks/SRR525194_1-block-1.fastq \
+    blocks/SRR525194_2-block-1.fastq \
+-p \
+    blocks/SRR525194_1-block-10.fastq \
+    blocks/SRR525194_2-block-10.fastq \
+-p \
+    blocks/SRR525194_1-block-11.fastq \
+    blocks/SRR525194_2-block-11.fastq \
+-p \
+    blocks/SRR525194_1-block-12.fastq \
+    blocks/SRR525194_2-block-12.fastq \
+-p \
+    blocks/SRR525194_1-block-13.fastq \
+    blocks/SRR525194_2-block-13.fastq \
+-p \
+    blocks/SRR525194_1-block-14.fastq \
+    blocks/SRR525194_2-block-14.fastq \
+-p \
+    blocks/SRR525194_1-block-15.fastq \
+    blocks/SRR525194_2-block-15.fastq \
+-p \
+    blocks/SRR525194_1-block-16.fastq \
+    blocks/SRR525194_2-block-16.fastq \
+-p \
+    blocks/SRR525194_1-block-17.fastq \
+    blocks/SRR525194_2-block-17.fastq \
+-p \
+    blocks/SRR525194_1-block-18.fastq \
+    blocks/SRR525194_2-block-18.fastq \
+-p \
+    blocks/SRR525194_1-block-19.fastq \
+    blocks/SRR525194_2-block-19.fastq \
+-p \
+    blocks/SRR525194_1-block-2.fastq \
+    blocks/SRR525194_2-block-2.fastq \
+-p \
+    blocks/SRR525194_1-block-20.fastq \
+    blocks/SRR525194_2-block-20.fastq \
+-p \
+    blocks/SRR525194_1-block-21.fastq \
+    blocks/SRR525194_2-block-21.fastq \
+-p \
+    blocks/SRR525194_1-block-22.fastq \
+    blocks/SRR525194_2-block-22.fastq \
+-p \
+    blocks/SRR525194_1-block-23.fastq \
+    blocks/SRR525194_2-block-23.fastq \
+-p \
+    blocks/SRR525194_1-block-24.fastq \
+    blocks/SRR525194_2-block-24.fastq \
+-p \
+    blocks/SRR525194_1-block-25.fastq \
+    blocks/SRR525194_2-block-25.fastq \
+-p \
+    blocks/SRR525194_1-block-26.fastq \
+    blocks/SRR525194_2-block-26.fastq \
+-p \
+    blocks/SRR525194_1-block-27.fastq \
+    blocks/SRR525194_2-block-27.fastq \
+-p \
+    blocks/SRR525194_1-block-28.fastq \
+    blocks/SRR525194_2-block-28.fastq \
+-p \
+    blocks/SRR525194_1-block-29.fastq \
+    blocks/SRR525194_2-block-29.fastq \
+-p \
+    blocks/SRR525194_1-block-3.fastq \
+    blocks/SRR525194_2-block-3.fastq \
+-p \
+    blocks/SRR525194_1-block-30.fastq \
+    blocks/SRR525194_2-block-30.fastq \
+-p \
+    blocks/SRR525194_1-block-31.fastq \
+    blocks/SRR525194_2-block-31.fastq \
+-p \
+    blocks/SRR525194_1-block-32.fastq \
+    blocks/SRR525194_2-block-32.fastq \
+-p \
+    blocks/SRR525194_1-block-33.fastq \
+    blocks/SRR525194_2-block-33.fastq \
+-p \
+    blocks/SRR525194_1-block-34.fastq \
+    blocks/SRR525194_2-block-34.fastq \
+-p \
+    blocks/SRR525194_1-block-35.fastq \
+    blocks/SRR525194_2-block-35.fastq \
+-p \
+    blocks/SRR525194_1-block-36.fastq \
+    blocks/SRR525194_2-block-36.fastq \
+-p \
+    blocks/SRR525194_1-block-37.fastq \
+    blocks/SRR525194_2-block-37.fastq \
+-p \
+    blocks/SRR525194_1-block-38.fastq \
+    blocks/SRR525194_2-block-38.fastq \
+-p \
+    blocks/SRR525194_1-block-39.fastq \
+    blocks/SRR525194_2-block-39.fastq \
+-p \
+    blocks/SRR525194_1-block-4.fastq \
+    blocks/SRR525194_2-block-4.fastq \
+-p \
+    blocks/SRR525194_1-block-40.fastq \
+    blocks/SRR525194_2-block-40.fastq \
+-p \
+    blocks/SRR525194_1-block-41.fastq \
+    blocks/SRR525194_2-block-41.fastq \
+-p \
+    blocks/SRR525194_1-block-42.fastq \
+    blocks/SRR525194_2-block-42.fastq \
+-p \
+    blocks/SRR525194_1-block-43.fastq \
+    blocks/SRR525194_2-block-43.fastq \
+-p \
+    blocks/SRR525194_1-block-44.fastq \
+    blocks/SRR525194_2-block-44.fastq \
+-p \
+    blocks/SRR525194_1-block-45.fastq \
+    blocks/SRR525194_2-block-45.fastq \
+-p \
+    blocks/SRR525194_1-block-46.fastq \
+    blocks/SRR525194_2-block-46.fastq \
+-p \
+    blocks/SRR525194_1-block-47.fastq \
+    blocks/SRR525194_2-block-47.fastq \
+-p \
+    blocks/SRR525194_1-block-48.fastq \
+    blocks/SRR525194_2-block-48.fastq \
+-p \
+    blocks/SRR525194_1-block-49.fastq \
+    blocks/SRR525194_2-block-49.fastq \
+-p \
+    blocks/SRR525194_1-block-5.fastq \
+    blocks/SRR525194_2-block-5.fastq \
+-p \
+    blocks/SRR525194_1-block-50.fastq \
+    blocks/SRR525194_2-block-50.fastq \
+-p \
+    blocks/SRR525194_1-block-51.fastq \
+    blocks/SRR525194_2-block-51.fastq \
+-p \
+    blocks/SRR525194_1-block-52.fastq \
+    blocks/SRR525194_2-block-52.fastq \
+-p \
+    blocks/SRR525194_1-block-53.fastq \
+    blocks/SRR525194_2-block-53.fastq \
+-p \
+    blocks/SRR525194_1-block-54.fastq \
+    blocks/SRR525194_2-block-54.fastq \
+-p \
+    blocks/SRR525194_1-block-55.fastq \
+    blocks/SRR525194_2-block-55.fastq \
+-p \
+    blocks/SRR525194_1-block-56.fastq \
+    blocks/SRR525194_2-block-56.fastq \
+-p \
+    blocks/SRR525194_1-block-57.fastq \
+    blocks/SRR525194_2-block-57.fastq \
+-p \
+    blocks/SRR525194_1-block-58.fastq \
+    blocks/SRR525194_2-block-58.fastq \
+-p \
+    blocks/SRR525194_1-block-59.fastq \
+    blocks/SRR525194_2-block-59.fastq \
+-p \
+    blocks/SRR525194_1-block-6.fastq \
+    blocks/SRR525194_2-block-6.fastq \
+-p \
+    blocks/SRR525194_1-block-60.fastq \
+    blocks/SRR525194_2-block-60.fastq \
+-p \
+    blocks/SRR525194_1-block-61.fastq \
+    blocks/SRR525194_2-block-61.fastq \
+-p \
+    blocks/SRR525194_1-block-62.fastq \
+    blocks/SRR525194_2-block-62.fastq \
+-p \
+    blocks/SRR525194_1-block-63.fastq \
+    blocks/SRR525194_2-block-63.fastq \
+-p \
+    blocks/SRR525194_1-block-64.fastq \
+    blocks/SRR525194_2-block-64.fastq \
+-p \
+    blocks/SRR525194_1-block-65.fastq \
+    blocks/SRR525194_2-block-65.fastq \
+-p \
+    blocks/SRR525194_1-block-66.fastq \
+    blocks/SRR525194_2-block-66.fastq \
+-p \
+    blocks/SRR525194_1-block-67.fastq \
+    blocks/SRR525194_2-block-67.fastq \
+-p \
+    blocks/SRR525194_1-block-68.fastq \
+    blocks/SRR525194_2-block-68.fastq \
+-p \
+    blocks/SRR525194_1-block-69.fastq \
+    blocks/SRR525194_2-block-69.fastq \
+-p \
+    blocks/SRR525194_1-block-7.fastq \
+    blocks/SRR525194_2-block-7.fastq \
+-p \
+    blocks/SRR525194_1-block-70.fastq \
+    blocks/SRR525194_2-block-70.fastq \
+-p \
+    blocks/SRR525194_1-block-71.fastq \
+    blocks/SRR525194_2-block-71.fastq \
+-p \
+    blocks/SRR525194_1-block-72.fastq \
+    blocks/SRR525194_2-block-72.fastq \
+-p \
+    blocks/SRR525194_1-block-73.fastq \
+    blocks/SRR525194_2-block-73.fastq \
+-p \
+    blocks/SRR525194_1-block-74.fastq \
+    blocks/SRR525194_2-block-74.fastq \
+-p \
+    blocks/SRR525194_1-block-75.fastq \
+    blocks/SRR525194_2-block-75.fastq \
+-p \
+    blocks/SRR525194_1-block-76.fastq \
+    blocks/SRR525194_2-block-76.fastq \
+-p \
+    blocks/SRR525194_1-block-77.fastq \
+    blocks/SRR525194_2-block-77.fastq \
+-p \
+    blocks/SRR525194_1-block-78.fastq \
+    blocks/SRR525194_2-block-78.fastq \
+-p \
+    blocks/SRR525194_1-block-79.fastq \
+    blocks/SRR525194_2-block-79.fastq \
+-p \
+    blocks/SRR525194_1-block-8.fastq \
+    blocks/SRR525194_2-block-8.fastq \
+-p \
+    blocks/SRR525194_1-block-80.fastq \
+    blocks/SRR525194_2-block-80.fastq \
+-p \
+    blocks/SRR525194_1-block-81.fastq \
+    blocks/SRR525194_2-block-81.fastq \
+-p \
+    blocks/SRR525194_1-block-82.fastq \
+    blocks/SRR525194_2-block-82.fastq \
+-p \
+    blocks/SRR525194_1-block-83.fastq \
+    blocks/SRR525194_2-block-83.fastq \
+-p \
+    blocks/SRR525194_1-block-84.fastq \
+    blocks/SRR525194_2-block-84.fastq \
+-p \
+    blocks/SRR525194_1-block-85.fastq \
+    blocks/SRR525194_2-block-85.fastq \
+-p \
+    blocks/SRR525194_1-block-86.fastq \
+    blocks/SRR525194_2-block-86.fastq \
+-p \
+    blocks/SRR525194_1-block-87.fastq \
+    blocks/SRR525194_2-block-87.fastq \
+-p \
+    blocks/SRR525194_1-block-88.fastq \
+    blocks/SRR525194_2-block-88.fastq \
+-p \
+    blocks/SRR525194_1-block-89.fastq \
+    blocks/SRR525194_2-block-89.fastq \
+-p \
+    blocks/SRR525194_1-block-9.fastq \
+    blocks/SRR525194_2-block-9.fastq \
+-p \
+    blocks/SRR525194_1-block-90.fastq \
+    blocks/SRR525194_2-block-90.fastq \
+-p \
+    blocks/SRR525194_1-block-91.fastq \
+    blocks/SRR525194_2-block-91.fastq \
+-p \
+    blocks/SRR525194_1-block-92.fastq \
+    blocks/SRR525194_2-block-92.fastq \
+-p \
+    blocks/SRR525194_1-block-93.fastq \
+    blocks/SRR525194_2-block-93.fastq \
+-p \
+    blocks/SRR525194_1-block-94.fastq \
+    blocks/SRR525194_2-block-94.fastq \
+-p \
+    blocks/SRR525194_1-block-95.fastq \
+    blocks/SRR525194_2-block-95.fastq \
+-p \
+    blocks/SRR525194_1-block-96.fastq \
+    blocks/SRR525194_2-block-96.fastq \
+-p \
+    blocks/SRR525195_1-block-0.fastq \
+    blocks/SRR525195_2-block-0.fastq \
+-p \
+    blocks/SRR525195_1-block-1.fastq \
+    blocks/SRR525195_2-block-1.fastq \
+-p \
+    blocks/SRR525195_1-block-10.fastq \
+    blocks/SRR525195_2-block-10.fastq \
+-p \
+    blocks/SRR525195_1-block-11.fastq \
+    blocks/SRR525195_2-block-11.fastq \
+-p \
+    blocks/SRR525195_1-block-12.fastq \
+    blocks/SRR525195_2-block-12.fastq \
+-p \
+    blocks/SRR525195_1-block-13.fastq \
+    blocks/SRR525195_2-block-13.fastq \
+-p \
+    blocks/SRR525195_1-block-14.fastq \
+    blocks/SRR525195_2-block-14.fastq \
+-p \
+    blocks/SRR525195_1-block-15.fastq \
+    blocks/SRR525195_2-block-15.fastq \
+-p \
+    blocks/SRR525195_1-block-16.fastq \
+    blocks/SRR525195_2-block-16.fastq \
+-p \
+    blocks/SRR525195_1-block-17.fastq \
+    blocks/SRR525195_2-block-17.fastq \
+-p \
+    blocks/SRR525195_1-block-18.fastq \
+    blocks/SRR525195_2-block-18.fastq \
+-p \
+    blocks/SRR525195_1-block-19.fastq \
+    blocks/SRR525195_2-block-19.fastq \
+-p \
+    blocks/SRR525195_1-block-2.fastq \
+    blocks/SRR525195_2-block-2.fastq \
+-p \
+    blocks/SRR525195_1-block-20.fastq \
+    blocks/SRR525195_2-block-20.fastq \
+-p \
+    blocks/SRR525195_1-block-21.fastq \
+    blocks/SRR525195_2-block-21.fastq \
+-p \
+    blocks/SRR525195_1-block-22.fastq \
+    blocks/SRR525195_2-block-22.fastq \
+-p \
+    blocks/SRR525195_1-block-23.fastq \
+    blocks/SRR525195_2-block-23.fastq \
+-p \
+    blocks/SRR525195_1-block-24.fastq \
+    blocks/SRR525195_2-block-24.fastq \
+-p \
+    blocks/SRR525195_1-block-25.fastq \
+    blocks/SRR525195_2-block-25.fastq \
+-p \
+    blocks/SRR525195_1-block-26.fastq \
+    blocks/SRR525195_2-block-26.fastq \
+-p \
+    blocks/SRR525195_1-block-27.fastq \
+    blocks/SRR525195_2-block-27.fastq \
+-p \
+    blocks/SRR525195_1-block-28.fastq \
+    blocks/SRR525195_2-block-28.fastq \
+-p \
+    blocks/SRR525195_1-block-29.fastq \
+    blocks/SRR525195_2-block-29.fastq \
+-p \
+    blocks/SRR525195_1-block-3.fastq \
+    blocks/SRR525195_2-block-3.fastq \
+-p \
+    blocks/SRR525195_1-block-30.fastq \
+    blocks/SRR525195_2-block-30.fastq \
+-p \
+    blocks/SRR525195_1-block-31.fastq \
+    blocks/SRR525195_2-block-31.fastq \
+-p \
+    blocks/SRR525195_1-block-32.fastq \
+    blocks/SRR525195_2-block-32.fastq \
+-p \
+    blocks/SRR525195_1-block-33.fastq \
+    blocks/SRR525195_2-block-33.fastq \
+-p \
+    blocks/SRR525195_1-block-34.fastq \
+    blocks/SRR525195_2-block-34.fastq \
+-p \
+    blocks/SRR525195_1-block-35.fastq \
+    blocks/SRR525195_2-block-35.fastq \
+-p \
+    blocks/SRR525195_1-block-36.fastq \
+    blocks/SRR525195_2-block-36.fastq \
+-p \
+    blocks/SRR525195_1-block-37.fastq \
+    blocks/SRR525195_2-block-37.fastq \
+-p \
+    blocks/SRR525195_1-block-38.fastq \
+    blocks/SRR525195_2-block-38.fastq \
+-p \
+    blocks/SRR525195_1-block-39.fastq \
+    blocks/SRR525195_2-block-39.fastq \
+-p \
+    blocks/SRR525195_1-block-4.fastq \
+    blocks/SRR525195_2-block-4.fastq \
+-p \
+    blocks/SRR525195_1-block-40.fastq \
+    blocks/SRR525195_2-block-40.fastq \
+-p \
+    blocks/SRR525195_1-block-41.fastq \
+    blocks/SRR525195_2-block-41.fastq \
+-p \
+    blocks/SRR525195_1-block-42.fastq \
+    blocks/SRR525195_2-block-42.fastq \
+-p \
+    blocks/SRR525195_1-block-43.fastq \
+    blocks/SRR525195_2-block-43.fastq \
+-p \
+    blocks/SRR525195_1-block-44.fastq \
+    blocks/SRR525195_2-block-44.fastq \
+-p \
+    blocks/SRR525195_1-block-45.fastq \
+    blocks/SRR525195_2-block-45.fastq \
+-p \
+    blocks/SRR525195_1-block-46.fastq \
+    blocks/SRR525195_2-block-46.fastq \
+-p \
+    blocks/SRR525195_1-block-47.fastq \
+    blocks/SRR525195_2-block-47.fastq \
+-p \
+    blocks/SRR525195_1-block-48.fastq \
+    blocks/SRR525195_2-block-48.fastq \
+-p \
+    blocks/SRR525195_1-block-49.fastq \
+    blocks/SRR525195_2-block-49.fastq \
+-p \
+    blocks/SRR525195_1-block-5.fastq \
+    blocks/SRR525195_2-block-5.fastq \
+-p \
+    blocks/SRR525195_1-block-50.fastq \
+    blocks/SRR525195_2-block-50.fastq \
+-p \
+    blocks/SRR525195_1-block-51.fastq \
+    blocks/SRR525195_2-block-51.fastq \
+-p \
+    blocks/SRR525195_1-block-52.fastq \
+    blocks/SRR525195_2-block-52.fastq \
+-p \
+    blocks/SRR525195_1-block-53.fastq \
+    blocks/SRR525195_2-block-53.fastq \
+-p \
+    blocks/SRR525195_1-block-54.fastq \
+    blocks/SRR525195_2-block-54.fastq \
+-p \
+    blocks/SRR525195_1-block-55.fastq \
+    blocks/SRR525195_2-block-55.fastq \
+-p \
+    blocks/SRR525195_1-block-56.fastq \
+    blocks/SRR525195_2-block-56.fastq \
+-p \
+    blocks/SRR525195_1-block-57.fastq \
+    blocks/SRR525195_2-block-57.fastq \
+-p \
+    blocks/SRR525195_1-block-58.fastq \
+    blocks/SRR525195_2-block-58.fastq \
+-p \
+    blocks/SRR525195_1-block-59.fastq \
+    blocks/SRR525195_2-block-59.fastq \
+-p \
+    blocks/SRR525195_1-block-6.fastq \
+    blocks/SRR525195_2-block-6.fastq \
+-p \
+    blocks/SRR525195_1-block-60.fastq \
+    blocks/SRR525195_2-block-60.fastq \
+-p \
+    blocks/SRR525195_1-block-61.fastq \
+    blocks/SRR525195_2-block-61.fastq \
+-p \
+    blocks/SRR525195_1-block-62.fastq \
+    blocks/SRR525195_2-block-62.fastq \
+-p \
+    blocks/SRR525195_1-block-63.fastq \
+    blocks/SRR525195_2-block-63.fastq \
+-p \
+    blocks/SRR525195_1-block-64.fastq \
+    blocks/SRR525195_2-block-64.fastq \
+-p \
+    blocks/SRR525195_1-block-65.fastq \
+    blocks/SRR525195_2-block-65.fastq \
+-p \
+    blocks/SRR525195_1-block-66.fastq \
+    blocks/SRR525195_2-block-66.fastq \
+-p \
+    blocks/SRR525195_1-block-67.fastq \
+    blocks/SRR525195_2-block-67.fastq \
+-p \
+    blocks/SRR525195_1-block-68.fastq \
+    blocks/SRR525195_2-block-68.fastq \
+-p \
+    blocks/SRR525195_1-block-69.fastq \
+    blocks/SRR525195_2-block-69.fastq \
+-p \
+    blocks/SRR525195_1-block-7.fastq \
+    blocks/SRR525195_2-block-7.fastq \
+-p \
+    blocks/SRR525195_1-block-70.fastq \
+    blocks/SRR525195_2-block-70.fastq \
+-p \
+    blocks/SRR525195_1-block-71.fastq \
+    blocks/SRR525195_2-block-71.fastq \
+-p \
+    blocks/SRR525195_1-block-72.fastq \
+    blocks/SRR525195_2-block-72.fastq \
+-p \
+    blocks/SRR525195_1-block-73.fastq \
+    blocks/SRR525195_2-block-73.fastq \
+-p \
+    blocks/SRR525195_1-block-74.fastq \
+    blocks/SRR525195_2-block-74.fastq \
+-p \
+    blocks/SRR525195_1-block-75.fastq \
+    blocks/SRR525195_2-block-75.fastq \
+-p \
+    blocks/SRR525195_1-block-76.fastq \
+    blocks/SRR525195_2-block-76.fastq \
+-p \
+    blocks/SRR525195_1-block-77.fastq \
+    blocks/SRR525195_2-block-77.fastq \
+-p \
+    blocks/SRR525195_1-block-78.fastq \
+    blocks/SRR525195_2-block-78.fastq \
+-p \
+    blocks/SRR525195_1-block-79.fastq \
+    blocks/SRR525195_2-block-79.fastq \
+-p \
+    blocks/SRR525195_1-block-8.fastq \
+    blocks/SRR525195_2-block-8.fastq \
+-p \
+    blocks/SRR525195_1-block-80.fastq \
+    blocks/SRR525195_2-block-80.fastq \
+-p \
+    blocks/SRR525195_1-block-9.fastq \
+    blocks/SRR525195_2-block-9.fastq \
+-p \
+    blocks/SRR525196_1-block-0.fastq \
+    blocks/SRR525196_2-block-0.fastq \
+-p \
+    blocks/SRR525196_1-block-1.fastq \
+    blocks/SRR525196_2-block-1.fastq \
+-p \
+    blocks/SRR525196_1-block-10.fastq \
+    blocks/SRR525196_2-block-10.fastq \
+-p \
+    blocks/SRR525196_1-block-11.fastq \
+    blocks/SRR525196_2-block-11.fastq \
+-p \
+    blocks/SRR525196_1-block-12.fastq \
+    blocks/SRR525196_2-block-12.fastq \
+-p \
+    blocks/SRR525196_1-block-13.fastq \
+    blocks/SRR525196_2-block-13.fastq \
+-p \
+    blocks/SRR525196_1-block-14.fastq \
+    blocks/SRR525196_2-block-14.fastq \
+-p \
+    blocks/SRR525196_1-block-15.fastq \
+    blocks/SRR525196_2-block-15.fastq \
+-p \
+    blocks/SRR525196_1-block-16.fastq \
+    blocks/SRR525196_2-block-16.fastq \
+-p \
+    blocks/SRR525196_1-block-17.fastq \
+    blocks/SRR525196_2-block-17.fastq \
+-p \
+    blocks/SRR525196_1-block-18.fastq \
+    blocks/SRR525196_2-block-18.fastq \
+-p \
+    blocks/SRR525196_1-block-19.fastq \
+    blocks/SRR525196_2-block-19.fastq \
+-p \
+    blocks/SRR525196_1-block-2.fastq \
+    blocks/SRR525196_2-block-2.fastq \
+-p \
+    blocks/SRR525196_1-block-20.fastq \
+    blocks/SRR525196_2-block-20.fastq \
+-p \
+    blocks/SRR525196_1-block-21.fastq \
+    blocks/SRR525196_2-block-21.fastq \
+-p \
+    blocks/SRR525196_1-block-22.fastq \
+    blocks/SRR525196_2-block-22.fastq \
+-p \
+    blocks/SRR525196_1-block-23.fastq \
+    blocks/SRR525196_2-block-23.fastq \
+-p \
+    blocks/SRR525196_1-block-24.fastq \
+    blocks/SRR525196_2-block-24.fastq \
+-p \
+    blocks/SRR525196_1-block-25.fastq \
+    blocks/SRR525196_2-block-25.fastq \
+-p \
+    blocks/SRR525196_1-block-26.fastq \
+    blocks/SRR525196_2-block-26.fastq \
+-p \
+    blocks/SRR525196_1-block-27.fastq \
+    blocks/SRR525196_2-block-27.fastq \
+-p \
+    blocks/SRR525196_1-block-28.fastq \
+    blocks/SRR525196_2-block-28.fastq \
+-p \
+    blocks/SRR525196_1-block-29.fastq \
+    blocks/SRR525196_2-block-29.fastq \
+-p \
+    blocks/SRR525196_1-block-3.fastq \
+    blocks/SRR525196_2-block-3.fastq \
+-p \
+    blocks/SRR525196_1-block-30.fastq \
+    blocks/SRR525196_2-block-30.fastq \
+-p \
+    blocks/SRR525196_1-block-31.fastq \
+    blocks/SRR525196_2-block-31.fastq \
+-p \
+    blocks/SRR525196_1-block-32.fastq \
+    blocks/SRR525196_2-block-32.fastq \
+-p \
+    blocks/SRR525196_1-block-33.fastq \
+    blocks/SRR525196_2-block-33.fastq \
+-p \
+    blocks/SRR525196_1-block-34.fastq \
+    blocks/SRR525196_2-block-34.fastq \
+-p \
+    blocks/SRR525196_1-block-35.fastq \
+    blocks/SRR525196_2-block-35.fastq \
+-p \
+    blocks/SRR525196_1-block-36.fastq \
+    blocks/SRR525196_2-block-36.fastq \
+-p \
+    blocks/SRR525196_1-block-37.fastq \
+    blocks/SRR525196_2-block-37.fastq \
+-p \
+    blocks/SRR525196_1-block-38.fastq \
+    blocks/SRR525196_2-block-38.fastq \
+-p \
+    blocks/SRR525196_1-block-39.fastq \
+    blocks/SRR525196_2-block-39.fastq \
+-p \
+    blocks/SRR525196_1-block-4.fastq \
+    blocks/SRR525196_2-block-4.fastq \
+-p \
+    blocks/SRR525196_1-block-40.fastq \
+    blocks/SRR525196_2-block-40.fastq \
+-p \
+    blocks/SRR525196_1-block-41.fastq \
+    blocks/SRR525196_2-block-41.fastq \
+-p \
+    blocks/SRR525196_1-block-42.fastq \
+    blocks/SRR525196_2-block-42.fastq \
+-p \
+    blocks/SRR525196_1-block-43.fastq \
+    blocks/SRR525196_2-block-43.fastq \
+-p \
+    blocks/SRR525196_1-block-44.fastq \
+    blocks/SRR525196_2-block-44.fastq \
+-p \
+    blocks/SRR525196_1-block-45.fastq \
+    blocks/SRR525196_2-block-45.fastq \
+-p \
+    blocks/SRR525196_1-block-46.fastq \
+    blocks/SRR525196_2-block-46.fastq \
+-p \
+    blocks/SRR525196_1-block-47.fastq \
+    blocks/SRR525196_2-block-47.fastq \
+-p \
+    blocks/SRR525196_1-block-48.fastq \
+    blocks/SRR525196_2-block-48.fastq \
+-p \
+    blocks/SRR525196_1-block-49.fastq \
+    blocks/SRR525196_2-block-49.fastq \
+-p \
+    blocks/SRR525196_1-block-5.fastq \
+    blocks/SRR525196_2-block-5.fastq \
+-p \
+    blocks/SRR525196_1-block-50.fastq \
+    blocks/SRR525196_2-block-50.fastq \
+-p \
+    blocks/SRR525196_1-block-51.fastq \
+    blocks/SRR525196_2-block-51.fastq \
+-p \
+    blocks/SRR525196_1-block-52.fastq \
+    blocks/SRR525196_2-block-52.fastq \
+-p \
+    blocks/SRR525196_1-block-53.fastq \
+    blocks/SRR525196_2-block-53.fastq \
+-p \
+    blocks/SRR525196_1-block-54.fastq \
+    blocks/SRR525196_2-block-54.fastq \
+-p \
+    blocks/SRR525196_1-block-55.fastq \
+    blocks/SRR525196_2-block-55.fastq \
+-p \
+    blocks/SRR525196_1-block-56.fastq \
+    blocks/SRR525196_2-block-56.fastq \
+-p \
+    blocks/SRR525196_1-block-57.fastq \
+    blocks/SRR525196_2-block-57.fastq \
+-p \
+    blocks/SRR525196_1-block-58.fastq \
+    blocks/SRR525196_2-block-58.fastq \
+-p \
+    blocks/SRR525196_1-block-59.fastq \
+    blocks/SRR525196_2-block-59.fastq \
+-p \
+    blocks/SRR525196_1-block-6.fastq \
+    blocks/SRR525196_2-block-6.fastq \
+-p \
+    blocks/SRR525196_1-block-60.fastq \
+    blocks/SRR525196_2-block-60.fastq \
+-p \
+    blocks/SRR525196_1-block-61.fastq \
+    blocks/SRR525196_2-block-61.fastq \
+-p \
+    blocks/SRR525196_1-block-62.fastq \
+    blocks/SRR525196_2-block-62.fastq \
+-p \
+    blocks/SRR525196_1-block-63.fastq \
+    blocks/SRR525196_2-block-63.fastq \
+-p \
+    blocks/SRR525196_1-block-64.fastq \
+    blocks/SRR525196_2-block-64.fastq \
+-p \
+    blocks/SRR525196_1-block-65.fastq \
+    blocks/SRR525196_2-block-65.fastq \
+-p \
+    blocks/SRR525196_1-block-66.fastq \
+    blocks/SRR525196_2-block-66.fastq \
+-p \
+    blocks/SRR525196_1-block-7.fastq \
+    blocks/SRR525196_2-block-7.fastq \
+-p \
+    blocks/SRR525196_1-block-8.fastq \
+    blocks/SRR525196_2-block-8.fastq \
+-p \
+    blocks/SRR525196_1-block-9.fastq \
+    blocks/SRR525196_2-block-9.fastq \
+-p \
+    blocks/SRR525197_1-block-0.fastq \
+    blocks/SRR525197_2-block-0.fastq \
+-p \
+    blocks/SRR525197_1-block-1.fastq \
+    blocks/SRR525197_2-block-1.fastq \
+-p \
+    blocks/SRR525197_1-block-2.fastq \
+    blocks/SRR525197_2-block-2.fastq \
+-p \
+    blocks/SRR525197_1-block-3.fastq \
+    blocks/SRR525197_2-block-3.fastq \
+-p \
+    blocks/SRR525198_1-block-0.fastq \
+    blocks/SRR525198_2-block-0.fastq \
+-p \
+    blocks/SRR525198_1-block-1.fastq \
+    blocks/SRR525198_2-block-1.fastq \
+-p \
+    blocks/SRR525198_1-block-2.fastq \
+    blocks/SRR525198_2-block-2.fastq \
+-p \
+    blocks/SRR525198_1-block-3.fastq \
+    blocks/SRR525198_2-block-3.fastq \
+-p \
+    blocks/SRR525199_1-block-0.fastq \
+    blocks/SRR525199_2-block-0.fastq \
+-p \
+    blocks/SRR525199_1-block-1.fastq \
+    blocks/SRR525199_2-block-1.fastq \
+-p \
+    blocks/SRR525199_1-block-10.fastq \
+    blocks/SRR525199_2-block-10.fastq \
+-p \
+    blocks/SRR525199_1-block-11.fastq \
+    blocks/SRR525199_2-block-11.fastq \
+-p \
+    blocks/SRR525199_1-block-12.fastq \
+    blocks/SRR525199_2-block-12.fastq \
+-p \
+    blocks/SRR525199_1-block-13.fastq \
+    blocks/SRR525199_2-block-13.fastq \
+-p \
+    blocks/SRR525199_1-block-14.fastq \
+    blocks/SRR525199_2-block-14.fastq \
+-p \
+    blocks/SRR525199_1-block-15.fastq \
+    blocks/SRR525199_2-block-15.fastq \
+-p \
+    blocks/SRR525199_1-block-16.fastq \
+    blocks/SRR525199_2-block-16.fastq \
+-p \
+    blocks/SRR525199_1-block-17.fastq \
+    blocks/SRR525199_2-block-17.fastq \
+-p \
+    blocks/SRR525199_1-block-18.fastq \
+    blocks/SRR525199_2-block-18.fastq \
+-p \
+    blocks/SRR525199_1-block-19.fastq \
+    blocks/SRR525199_2-block-19.fastq \
+-p \
+    blocks/SRR525199_1-block-2.fastq \
+    blocks/SRR525199_2-block-2.fastq \
+-p \
+    blocks/SRR525199_1-block-20.fastq \
+    blocks/SRR525199_2-block-20.fastq \
+-p \
+    blocks/SRR525199_1-block-21.fastq \
+    blocks/SRR525199_2-block-21.fastq \
+-p \
+    blocks/SRR525199_1-block-22.fastq \
+    blocks/SRR525199_2-block-22.fastq \
+-p \
+    blocks/SRR525199_1-block-23.fastq \
+    blocks/SRR525199_2-block-23.fastq \
+-p \
+    blocks/SRR525199_1-block-24.fastq \
+    blocks/SRR525199_2-block-24.fastq \
+-p \
+    blocks/SRR525199_1-block-25.fastq \
+    blocks/SRR525199_2-block-25.fastq \
+-p \
+    blocks/SRR525199_1-block-26.fastq \
+    blocks/SRR525199_2-block-26.fastq \
+-p \
+    blocks/SRR525199_1-block-27.fastq \
+    blocks/SRR525199_2-block-27.fastq \
+-p \
+    blocks/SRR525199_1-block-28.fastq \
+    blocks/SRR525199_2-block-28.fastq \
+-p \
+    blocks/SRR525199_1-block-29.fastq \
+    blocks/SRR525199_2-block-29.fastq \
+-p \
+    blocks/SRR525199_1-block-3.fastq \
+    blocks/SRR525199_2-block-3.fastq \
+-p \
+    blocks/SRR525199_1-block-30.fastq \
+    blocks/SRR525199_2-block-30.fastq \
+-p \
+    blocks/SRR525199_1-block-31.fastq \
+    blocks/SRR525199_2-block-31.fastq \
+-p \
+    blocks/SRR525199_1-block-32.fastq \
+    blocks/SRR525199_2-block-32.fastq \
+-p \
+    blocks/SRR525199_1-block-33.fastq \
+    blocks/SRR525199_2-block-33.fastq \
+-p \
+    blocks/SRR525199_1-block-34.fastq \
+    blocks/SRR525199_2-block-34.fastq \
+-p \
+    blocks/SRR525199_1-block-35.fastq \
+    blocks/SRR525199_2-block-35.fastq \
+-p \
+    blocks/SRR525199_1-block-36.fastq \
+    blocks/SRR525199_2-block-36.fastq \
+-p \
+    blocks/SRR525199_1-block-37.fastq \
+    blocks/SRR525199_2-block-37.fastq \
+-p \
+    blocks/SRR525199_1-block-38.fastq \
+    blocks/SRR525199_2-block-38.fastq \
+-p \
+    blocks/SRR525199_1-block-39.fastq \
+    blocks/SRR525199_2-block-39.fastq \
+-p \
+    blocks/SRR525199_1-block-4.fastq \
+    blocks/SRR525199_2-block-4.fastq \
+-p \
+    blocks/SRR525199_1-block-40.fastq \
+    blocks/SRR525199_2-block-40.fastq \
+-p \
+    blocks/SRR525199_1-block-41.fastq \
+    blocks/SRR525199_2-block-41.fastq \
+-p \
+    blocks/SRR525199_1-block-42.fastq \
+    blocks/SRR525199_2-block-42.fastq \
+-p \
+    blocks/SRR525199_1-block-43.fastq \
+    blocks/SRR525199_2-block-43.fastq \
+-p \
+    blocks/SRR525199_1-block-44.fastq \
+    blocks/SRR525199_2-block-44.fastq \
+-p \
+    blocks/SRR525199_1-block-45.fastq \
+    blocks/SRR525199_2-block-45.fastq \
+-p \
+    blocks/SRR525199_1-block-46.fastq \
+    blocks/SRR525199_2-block-46.fastq \
+-p \
+    blocks/SRR525199_1-block-47.fastq \
+    blocks/SRR525199_2-block-47.fastq \
+-p \
+    blocks/SRR525199_1-block-48.fastq \
+    blocks/SRR525199_2-block-48.fastq \
+-p \
+    blocks/SRR525199_1-block-49.fastq \
+    blocks/SRR525199_2-block-49.fastq \
+-p \
+    blocks/SRR525199_1-block-5.fastq \
+    blocks/SRR525199_2-block-5.fastq \
+-p \
+    blocks/SRR525199_1-block-50.fastq \
+    blocks/SRR525199_2-block-50.fastq \
+-p \
+    blocks/SRR525199_1-block-51.fastq \
+    blocks/SRR525199_2-block-51.fastq \
+-p \
+    blocks/SRR525199_1-block-52.fastq \
+    blocks/SRR525199_2-block-52.fastq \
+-p \
+    blocks/SRR525199_1-block-53.fastq \
+    blocks/SRR525199_2-block-53.fastq \
+-p \
+    blocks/SRR525199_1-block-54.fastq \
+    blocks/SRR525199_2-block-54.fastq \
+-p \
+    blocks/SRR525199_1-block-55.fastq \
+    blocks/SRR525199_2-block-55.fastq \
+-p \
+    blocks/SRR525199_1-block-56.fastq \
+    blocks/SRR525199_2-block-56.fastq \
+-p \
+    blocks/SRR525199_1-block-57.fastq \
+    blocks/SRR525199_2-block-57.fastq \
+-p \
+    blocks/SRR525199_1-block-58.fastq \
+    blocks/SRR525199_2-block-58.fastq \
+-p \
+    blocks/SRR525199_1-block-59.fastq \
+    blocks/SRR525199_2-block-59.fastq \
+-p \
+    blocks/SRR525199_1-block-6.fastq \
+    blocks/SRR525199_2-block-6.fastq \
+-p \
+    blocks/SRR525199_1-block-60.fastq \
+    blocks/SRR525199_2-block-60.fastq \
+-p \
+    blocks/SRR525199_1-block-61.fastq \
+    blocks/SRR525199_2-block-61.fastq \
+-p \
+    blocks/SRR525199_1-block-62.fastq \
+    blocks/SRR525199_2-block-62.fastq \
+-p \
+    blocks/SRR525199_1-block-63.fastq \
+    blocks/SRR525199_2-block-63.fastq \
+-p \
+    blocks/SRR525199_1-block-64.fastq \
+    blocks/SRR525199_2-block-64.fastq \
+-p \
+    blocks/SRR525199_1-block-65.fastq \
+    blocks/SRR525199_2-block-65.fastq \
+-p \
+    blocks/SRR525199_1-block-66.fastq \
+    blocks/SRR525199_2-block-66.fastq \
+-p \
+    blocks/SRR525199_1-block-67.fastq \
+    blocks/SRR525199_2-block-67.fastq \
+-p \
+    blocks/SRR525199_1-block-68.fastq \
+    blocks/SRR525199_2-block-68.fastq \
+-p \
+    blocks/SRR525199_1-block-69.fastq \
+    blocks/SRR525199_2-block-69.fastq \
+-p \
+    blocks/SRR525199_1-block-7.fastq \
+    blocks/SRR525199_2-block-7.fastq \
+-p \
+    blocks/SRR525199_1-block-70.fastq \
+    blocks/SRR525199_2-block-70.fastq \
+-p \
+    blocks/SRR525199_1-block-71.fastq \
+    blocks/SRR525199_2-block-71.fastq \
+-p \
+    blocks/SRR525199_1-block-72.fastq \
+    blocks/SRR525199_2-block-72.fastq \
+-p \
+    blocks/SRR525199_1-block-73.fastq \
+    blocks/SRR525199_2-block-73.fastq \
+-p \
+    blocks/SRR525199_1-block-74.fastq \
+    blocks/SRR525199_2-block-74.fastq \
+-p \
+    blocks/SRR525199_1-block-75.fastq \
+    blocks/SRR525199_2-block-75.fastq \
+-p \
+    blocks/SRR525199_1-block-76.fastq \
+    blocks/SRR525199_2-block-76.fastq \
+-p \
+    blocks/SRR525199_1-block-77.fastq \
+    blocks/SRR525199_2-block-77.fastq \
+-p \
+    blocks/SRR525199_1-block-78.fastq \
+    blocks/SRR525199_2-block-78.fastq \
+-p \
+    blocks/SRR525199_1-block-79.fastq \
+    blocks/SRR525199_2-block-79.fastq \
+-p \
+    blocks/SRR525199_1-block-8.fastq \
+    blocks/SRR525199_2-block-8.fastq \
+-p \
+    blocks/SRR525199_1-block-80.fastq \
+    blocks/SRR525199_2-block-80.fastq \
+-p \
+    blocks/SRR525199_1-block-81.fastq \
+    blocks/SRR525199_2-block-81.fastq \
+-p \
+    blocks/SRR525199_1-block-82.fastq \
+    blocks/SRR525199_2-block-82.fastq \
+-p \
+    blocks/SRR525199_1-block-83.fastq \
+    blocks/SRR525199_2-block-83.fastq \
+-p \
+    blocks/SRR525199_1-block-84.fastq \
+    blocks/SRR525199_2-block-84.fastq \
+-p \
+    blocks/SRR525199_1-block-85.fastq \
+    blocks/SRR525199_2-block-85.fastq \
+-p \
+    blocks/SRR525199_1-block-86.fastq \
+    blocks/SRR525199_2-block-86.fastq \
+-p \
+    blocks/SRR525199_1-block-87.fastq \
+    blocks/SRR525199_2-block-87.fastq \
+-p \
+    blocks/SRR525199_1-block-9.fastq \
+    blocks/SRR525199_2-block-9.fastq \
+-p \
+    blocks/SRR525200_1-block-0.fastq \
+    blocks/SRR525200_2-block-0.fastq \
+-p \
+    blocks/SRR525200_1-block-1.fastq \
+    blocks/SRR525200_2-block-1.fastq \
+-p \
+    blocks/SRR525200_1-block-10.fastq \
+    blocks/SRR525200_2-block-10.fastq \
+-p \
+    blocks/SRR525200_1-block-11.fastq \
+    blocks/SRR525200_2-block-11.fastq \
+-p \
+    blocks/SRR525200_1-block-12.fastq \
+    blocks/SRR525200_2-block-12.fastq \
+-p \
+    blocks/SRR525200_1-block-13.fastq \
+    blocks/SRR525200_2-block-13.fastq \
+-p \
+    blocks/SRR525200_1-block-14.fastq \
+    blocks/SRR525200_2-block-14.fastq \
+-p \
+    blocks/SRR525200_1-block-15.fastq \
+    blocks/SRR525200_2-block-15.fastq \
+-p \
+    blocks/SRR525200_1-block-16.fastq \
+    blocks/SRR525200_2-block-16.fastq \
+-p \
+    blocks/SRR525200_1-block-17.fastq \
+    blocks/SRR525200_2-block-17.fastq \
+-p \
+    blocks/SRR525200_1-block-18.fastq \
+    blocks/SRR525200_2-block-18.fastq \
+-p \
+    blocks/SRR525200_1-block-19.fastq \
+    blocks/SRR525200_2-block-19.fastq \
+-p \
+    blocks/SRR525200_1-block-2.fastq \
+    blocks/SRR525200_2-block-2.fastq \
+-p \
+    blocks/SRR525200_1-block-20.fastq \
+    blocks/SRR525200_2-block-20.fastq \
+-p \
+    blocks/SRR525200_1-block-21.fastq \
+    blocks/SRR525200_2-block-21.fastq \
+-p \
+    blocks/SRR525200_1-block-22.fastq \
+    blocks/SRR525200_2-block-22.fastq \
+-p \
+    blocks/SRR525200_1-block-23.fastq \
+    blocks/SRR525200_2-block-23.fastq \
+-p \
+    blocks/SRR525200_1-block-24.fastq \
+    blocks/SRR525200_2-block-24.fastq \
+-p \
+    blocks/SRR525200_1-block-25.fastq \
+    blocks/SRR525200_2-block-25.fastq \
+-p \
+    blocks/SRR525200_1-block-26.fastq \
+    blocks/SRR525200_2-block-26.fastq \
+-p \
+    blocks/SRR525200_1-block-27.fastq \
+    blocks/SRR525200_2-block-27.fastq \
+-p \
+    blocks/SRR525200_1-block-28.fastq \
+    blocks/SRR525200_2-block-28.fastq \
+-p \
+    blocks/SRR525200_1-block-29.fastq \
+    blocks/SRR525200_2-block-29.fastq \
+-p \
+    blocks/SRR525200_1-block-3.fastq \
+    blocks/SRR525200_2-block-3.fastq \
+-p \
+    blocks/SRR525200_1-block-30.fastq \
+    blocks/SRR525200_2-block-30.fastq \
+-p \
+    blocks/SRR525200_1-block-31.fastq \
+    blocks/SRR525200_2-block-31.fastq \
+-p \
+    blocks/SRR525200_1-block-32.fastq \
+    blocks/SRR525200_2-block-32.fastq \
+-p \
+    blocks/SRR525200_1-block-33.fastq \
+    blocks/SRR525200_2-block-33.fastq \
+-p \
+    blocks/SRR525200_1-block-34.fastq \
+    blocks/SRR525200_2-block-34.fastq \
+-p \
+    blocks/SRR525200_1-block-35.fastq \
+    blocks/SRR525200_2-block-35.fastq \
+-p \
+    blocks/SRR525200_1-block-36.fastq \
+    blocks/SRR525200_2-block-36.fastq \
+-p \
+    blocks/SRR525200_1-block-37.fastq \
+    blocks/SRR525200_2-block-37.fastq \
+-p \
+    blocks/SRR525200_1-block-38.fastq \
+    blocks/SRR525200_2-block-38.fastq \
+-p \
+    blocks/SRR525200_1-block-39.fastq \
+    blocks/SRR525200_2-block-39.fastq \
+-p \
+    blocks/SRR525200_1-block-4.fastq \
+    blocks/SRR525200_2-block-4.fastq \
+-p \
+    blocks/SRR525200_1-block-40.fastq \
+    blocks/SRR525200_2-block-40.fastq \
+-p \
+    blocks/SRR525200_1-block-41.fastq \
+    blocks/SRR525200_2-block-41.fastq \
+-p \
+    blocks/SRR525200_1-block-42.fastq \
+    blocks/SRR525200_2-block-42.fastq \
+-p \
+    blocks/SRR525200_1-block-43.fastq \
+    blocks/SRR525200_2-block-43.fastq \
+-p \
+    blocks/SRR525200_1-block-44.fastq \
+    blocks/SRR525200_2-block-44.fastq \
+-p \
+    blocks/SRR525200_1-block-45.fastq \
+    blocks/SRR525200_2-block-45.fastq \
+-p \
+    blocks/SRR525200_1-block-46.fastq \
+    blocks/SRR525200_2-block-46.fastq \
+-p \
+    blocks/SRR525200_1-block-47.fastq \
+    blocks/SRR525200_2-block-47.fastq \
+-p \
+    blocks/SRR525200_1-block-48.fastq \
+    blocks/SRR525200_2-block-48.fastq \
+-p \
+    blocks/SRR525200_1-block-49.fastq \
+    blocks/SRR525200_2-block-49.fastq \
+-p \
+    blocks/SRR525200_1-block-5.fastq \
+    blocks/SRR525200_2-block-5.fastq \
+-p \
+    blocks/SRR525200_1-block-50.fastq \
+    blocks/SRR525200_2-block-50.fastq \
+-p \
+    blocks/SRR525200_1-block-51.fastq \
+    blocks/SRR525200_2-block-51.fastq \
+-p \
+    blocks/SRR525200_1-block-52.fastq \
+    blocks/SRR525200_2-block-52.fastq \
+-p \
+    blocks/SRR525200_1-block-53.fastq \
+    blocks/SRR525200_2-block-53.fastq \
+-p \
+    blocks/SRR525200_1-block-54.fastq \
+    blocks/SRR525200_2-block-54.fastq \
+-p \
+    blocks/SRR525200_1-block-55.fastq \
+    blocks/SRR525200_2-block-55.fastq \
+-p \
+    blocks/SRR525200_1-block-56.fastq \
+    blocks/SRR525200_2-block-56.fastq \
+-p \
+    blocks/SRR525200_1-block-57.fastq \
+    blocks/SRR525200_2-block-57.fastq \
+-p \
+    blocks/SRR525200_1-block-58.fastq \
+    blocks/SRR525200_2-block-58.fastq \
+-p \
+    blocks/SRR525200_1-block-59.fastq \
+    blocks/SRR525200_2-block-59.fastq \
+-p \
+    blocks/SRR525200_1-block-6.fastq \
+    blocks/SRR525200_2-block-6.fastq \
+-p \
+    blocks/SRR525200_1-block-60.fastq \
+    blocks/SRR525200_2-block-60.fastq \
+-p \
+    blocks/SRR525200_1-block-61.fastq \
+    blocks/SRR525200_2-block-61.fastq \
+-p \
+    blocks/SRR525200_1-block-62.fastq \
+    blocks/SRR525200_2-block-62.fastq \
+-p \
+    blocks/SRR525200_1-block-63.fastq \
+    blocks/SRR525200_2-block-63.fastq \
+-p \
+    blocks/SRR525200_1-block-64.fastq \
+    blocks/SRR525200_2-block-64.fastq \
+-p \
+    blocks/SRR525200_1-block-65.fastq \
+    blocks/SRR525200_2-block-65.fastq \
+-p \
+    blocks/SRR525200_1-block-66.fastq \
+    blocks/SRR525200_2-block-66.fastq \
+-p \
+    blocks/SRR525200_1-block-67.fastq \
+    blocks/SRR525200_2-block-67.fastq \
+-p \
+    blocks/SRR525200_1-block-68.fastq \
+    blocks/SRR525200_2-block-68.fastq \
+-p \
+    blocks/SRR525200_1-block-69.fastq \
+    blocks/SRR525200_2-block-69.fastq \
+-p \
+    blocks/SRR525200_1-block-7.fastq \
+    blocks/SRR525200_2-block-7.fastq \
+-p \
+    blocks/SRR525200_1-block-70.fastq \
+    blocks/SRR525200_2-block-70.fastq \
+-p \
+    blocks/SRR525200_1-block-71.fastq \
+    blocks/SRR525200_2-block-71.fastq \
+-p \
+    blocks/SRR525200_1-block-72.fastq \
+    blocks/SRR525200_2-block-72.fastq \
+-p \
+    blocks/SRR525200_1-block-73.fastq \
+    blocks/SRR525200_2-block-73.fastq \
+-p \
+    blocks/SRR525200_1-block-74.fastq \
+    blocks/SRR525200_2-block-74.fastq \
+-p \
+    blocks/SRR525200_1-block-75.fastq \
+    blocks/SRR525200_2-block-75.fastq \
+-p \
+    blocks/SRR525200_1-block-76.fastq \
+    blocks/SRR525200_2-block-76.fastq \
+-p \
+    blocks/SRR525200_1-block-77.fastq \
+    blocks/SRR525200_2-block-77.fastq \
+-p \
+    blocks/SRR525200_1-block-78.fastq \
+    blocks/SRR525200_2-block-78.fastq \
+-p \
+    blocks/SRR525200_1-block-79.fastq \
+    blocks/SRR525200_2-block-79.fastq \
+-p \
+    blocks/SRR525200_1-block-8.fastq \
+    blocks/SRR525200_2-block-8.fastq \
+-p \
+    blocks/SRR525200_1-block-80.fastq \
+    blocks/SRR525200_2-block-80.fastq \
+-p \
+    blocks/SRR525200_1-block-81.fastq \
+    blocks/SRR525200_2-block-81.fastq \
+-p \
+    blocks/SRR525200_1-block-82.fastq \
+    blocks/SRR525200_2-block-82.fastq \
+-p \
+    blocks/SRR525200_1-block-83.fastq \
+    blocks/SRR525200_2-block-83.fastq \
+-p \
+    blocks/SRR525200_1-block-84.fastq \
+    blocks/SRR525200_2-block-84.fastq \
+-p \
+    blocks/SRR525200_1-block-85.fastq \
+    blocks/SRR525200_2-block-85.fastq \
+-p \
+    blocks/SRR525200_1-block-86.fastq \
+    blocks/SRR525200_2-block-86.fastq \
+-p \
+    blocks/SRR525200_1-block-87.fastq \
+    blocks/SRR525200_2-block-87.fastq \
+-p \
+    blocks/SRR525200_1-block-88.fastq \
+    blocks/SRR525200_2-block-88.fastq \
+-p \
+    blocks/SRR525200_1-block-89.fastq \
+    blocks/SRR525200_2-block-89.fastq \
+-p \
+    blocks/SRR525200_1-block-9.fastq \
+    blocks/SRR525200_2-block-9.fastq \
+-p \
+    blocks/SRR525200_1-block-90.fastq \
+    blocks/SRR525200_2-block-90.fastq \
+-p \
+    blocks/SRR525200_1-block-91.fastq \
+    blocks/SRR525200_2-block-91.fastq \
+-p \
+    blocks/SRR525200_1-block-92.fastq \
+    blocks/SRR525200_2-block-92.fastq \
+-p \
+    blocks/SRR525200_1-block-93.fastq \
+    blocks/SRR525200_2-block-93.fastq \
+-p \
+    blocks/SRR525200_1-block-94.fastq \
+    blocks/SRR525200_2-block-94.fastq \
+-p \
+    blocks/SRR525200_1-block-95.fastq \
+    blocks/SRR525200_2-block-95.fastq \
+-p \
+    blocks/SRR525200_1-block-96.fastq \
+    blocks/SRR525200_2-block-96.fastq \
+-p \
+    blocks/SRR525200_1-block-97.fastq \
+    blocks/SRR525200_2-block-97.fastq \
+-p \
+    blocks/SRR525200_1-block-98.fastq \
+    blocks/SRR525200_2-block-98.fastq \
+-p \
+    blocks/SRR525201_1-block-0.fastq \
+    blocks/SRR525201_2-block-0.fastq \
+-p \
+    blocks/SRR525201_1-block-1.fastq \
+    blocks/SRR525201_2-block-1.fastq \
+-p \
+    blocks/SRR525201_1-block-10.fastq \
+    blocks/SRR525201_2-block-10.fastq \
+-p \
+    blocks/SRR525201_1-block-11.fastq \
+    blocks/SRR525201_2-block-11.fastq \
+-p \
+    blocks/SRR525201_1-block-12.fastq \
+    blocks/SRR525201_2-block-12.fastq \
+-p \
+    blocks/SRR525201_1-block-13.fastq \
+    blocks/SRR525201_2-block-13.fastq \
+-p \
+    blocks/SRR525201_1-block-14.fastq \
+    blocks/SRR525201_2-block-14.fastq \
+-p \
+    blocks/SRR525201_1-block-15.fastq \
+    blocks/SRR525201_2-block-15.fastq \
+-p \
+    blocks/SRR525201_1-block-16.fastq \
+    blocks/SRR525201_2-block-16.fastq \
+-p \
+    blocks/SRR525201_1-block-17.fastq \
+    blocks/SRR525201_2-block-17.fastq \
+-p \
+    blocks/SRR525201_1-block-18.fastq \
+    blocks/SRR525201_2-block-18.fastq \
+-p \
+    blocks/SRR525201_1-block-19.fastq \
+    blocks/SRR525201_2-block-19.fastq \
+-p \
+    blocks/SRR525201_1-block-2.fastq \
+    blocks/SRR525201_2-block-2.fastq \
+-p \
+    blocks/SRR525201_1-block-20.fastq \
+    blocks/SRR525201_2-block-20.fastq \
+-p \
+    blocks/SRR525201_1-block-21.fastq \
+    blocks/SRR525201_2-block-21.fastq \
+-p \
+    blocks/SRR525201_1-block-22.fastq \
+    blocks/SRR525201_2-block-22.fastq \
+-p \
+    blocks/SRR525201_1-block-23.fastq \
+    blocks/SRR525201_2-block-23.fastq \
+-p \
+    blocks/SRR525201_1-block-24.fastq \
+    blocks/SRR525201_2-block-24.fastq \
+-p \
+    blocks/SRR525201_1-block-25.fastq \
+    blocks/SRR525201_2-block-25.fastq \
+-p \
+    blocks/SRR525201_1-block-26.fastq \
+    blocks/SRR525201_2-block-26.fastq \
+-p \
+    blocks/SRR525201_1-block-27.fastq \
+    blocks/SRR525201_2-block-27.fastq \
+-p \
+    blocks/SRR525201_1-block-28.fastq \
+    blocks/SRR525201_2-block-28.fastq \
+-p \
+    blocks/SRR525201_1-block-29.fastq \
+    blocks/SRR525201_2-block-29.fastq \
+-p \
+    blocks/SRR525201_1-block-3.fastq \
+    blocks/SRR525201_2-block-3.fastq \
+-p \
+    blocks/SRR525201_1-block-30.fastq \
+    blocks/SRR525201_2-block-30.fastq \
+-p \
+    blocks/SRR525201_1-block-31.fastq \
+    blocks/SRR525201_2-block-31.fastq \
+-p \
+    blocks/SRR525201_1-block-32.fastq \
+    blocks/SRR525201_2-block-32.fastq \
+-p \
+    blocks/SRR525201_1-block-33.fastq \
+    blocks/SRR525201_2-block-33.fastq \
+-p \
+    blocks/SRR525201_1-block-34.fastq \
+    blocks/SRR525201_2-block-34.fastq \
+-p \
+    blocks/SRR525201_1-block-35.fastq \
+    blocks/SRR525201_2-block-35.fastq \
+-p \
+    blocks/SRR525201_1-block-36.fastq \
+    blocks/SRR525201_2-block-36.fastq \
+-p \
+    blocks/SRR525201_1-block-37.fastq \
+    blocks/SRR525201_2-block-37.fastq \
+-p \
+    blocks/SRR525201_1-block-38.fastq \
+    blocks/SRR525201_2-block-38.fastq \
+-p \
+    blocks/SRR525201_1-block-39.fastq \
+    blocks/SRR525201_2-block-39.fastq \
+-p \
+    blocks/SRR525201_1-block-4.fastq \
+    blocks/SRR525201_2-block-4.fastq \
+-p \
+    blocks/SRR525201_1-block-40.fastq \
+    blocks/SRR525201_2-block-40.fastq \
+-p \
+    blocks/SRR525201_1-block-41.fastq \
+    blocks/SRR525201_2-block-41.fastq \
+-p \
+    blocks/SRR525201_1-block-42.fastq \
+    blocks/SRR525201_2-block-42.fastq \
+-p \
+    blocks/SRR525201_1-block-43.fastq \
+    blocks/SRR525201_2-block-43.fastq \
+-p \
+    blocks/SRR525201_1-block-44.fastq \
+    blocks/SRR525201_2-block-44.fastq \
+-p \
+    blocks/SRR525201_1-block-45.fastq \
+    blocks/SRR525201_2-block-45.fastq \
+-p \
+    blocks/SRR525201_1-block-46.fastq \
+    blocks/SRR525201_2-block-46.fastq \
+-p \
+    blocks/SRR525201_1-block-47.fastq \
+    blocks/SRR525201_2-block-47.fastq \
+-p \
+    blocks/SRR525201_1-block-48.fastq \
+    blocks/SRR525201_2-block-48.fastq \
+-p \
+    blocks/SRR525201_1-block-49.fastq \
+    blocks/SRR525201_2-block-49.fastq \
+-p \
+    blocks/SRR525201_1-block-5.fastq \
+    blocks/SRR525201_2-block-5.fastq \
+-p \
+    blocks/SRR525201_1-block-50.fastq \
+    blocks/SRR525201_2-block-50.fastq \
+-p \
+    blocks/SRR525201_1-block-51.fastq \
+    blocks/SRR525201_2-block-51.fastq \
+-p \
+    blocks/SRR525201_1-block-52.fastq \
+    blocks/SRR525201_2-block-52.fastq \
+-p \
+    blocks/SRR525201_1-block-53.fastq \
+    blocks/SRR525201_2-block-53.fastq \
+-p \
+    blocks/SRR525201_1-block-54.fastq \
+    blocks/SRR525201_2-block-54.fastq \
+-p \
+    blocks/SRR525201_1-block-55.fastq \
+    blocks/SRR525201_2-block-55.fastq \
+-p \
+    blocks/SRR525201_1-block-56.fastq \
+    blocks/SRR525201_2-block-56.fastq \
+-p \
+    blocks/SRR525201_1-block-57.fastq \
+    blocks/SRR525201_2-block-57.fastq \
+-p \
+    blocks/SRR525201_1-block-58.fastq \
+    blocks/SRR525201_2-block-58.fastq \
+-p \
+    blocks/SRR525201_1-block-59.fastq \
+    blocks/SRR525201_2-block-59.fastq \
+-p \
+    blocks/SRR525201_1-block-6.fastq \
+    blocks/SRR525201_2-block-6.fastq \
+-p \
+    blocks/SRR525201_1-block-60.fastq \
+    blocks/SRR525201_2-block-60.fastq \
+-p \
+    blocks/SRR525201_1-block-61.fastq \
+    blocks/SRR525201_2-block-61.fastq \
+-p \
+    blocks/SRR525201_1-block-62.fastq \
+    blocks/SRR525201_2-block-62.fastq \
+-p \
+    blocks/SRR525201_1-block-63.fastq \
+    blocks/SRR525201_2-block-63.fastq \
+-p \
+    blocks/SRR525201_1-block-64.fastq \
+    blocks/SRR525201_2-block-64.fastq \
+-p \
+    blocks/SRR525201_1-block-65.fastq \
+    blocks/SRR525201_2-block-65.fastq \
+-p \
+    blocks/SRR525201_1-block-66.fastq \
+    blocks/SRR525201_2-block-66.fastq \
+-p \
+    blocks/SRR525201_1-block-67.fastq \
+    blocks/SRR525201_2-block-67.fastq \
+-p \
+    blocks/SRR525201_1-block-7.fastq \
+    blocks/SRR525201_2-block-7.fastq \
+-p \
+    blocks/SRR525201_1-block-8.fastq \
+    blocks/SRR525201_2-block-8.fastq \
+-p \
+    blocks/SRR525201_1-block-9.fastq \
+    blocks/SRR525201_2-block-9.fastq \
+-p \
+    blocks/SRR525202_1-block-0.fastq \
+    blocks/SRR525202_2-block-0.fastq \
+-p \
+    blocks/SRR525202_1-block-1.fastq \
+    blocks/SRR525202_2-block-1.fastq \
+-p \
+    blocks/SRR525202_1-block-10.fastq \
+    blocks/SRR525202_2-block-10.fastq \
+-p \
+    blocks/SRR525202_1-block-11.fastq \
+    blocks/SRR525202_2-block-11.fastq \
+-p \
+    blocks/SRR525202_1-block-12.fastq \
+    blocks/SRR525202_2-block-12.fastq \
+-p \
+    blocks/SRR525202_1-block-13.fastq \
+    blocks/SRR525202_2-block-13.fastq \
+-p \
+    blocks/SRR525202_1-block-14.fastq \
+    blocks/SRR525202_2-block-14.fastq \
+-p \
+    blocks/SRR525202_1-block-15.fastq \
+    blocks/SRR525202_2-block-15.fastq \
+-p \
+    blocks/SRR525202_1-block-16.fastq \
+    blocks/SRR525202_2-block-16.fastq \
+-p \
+    blocks/SRR525202_1-block-17.fastq \
+    blocks/SRR525202_2-block-17.fastq \
+-p \
+    blocks/SRR525202_1-block-18.fastq \
+    blocks/SRR525202_2-block-18.fastq \
+-p \
+    blocks/SRR525202_1-block-19.fastq \
+    blocks/SRR525202_2-block-19.fastq \
+-p \
+    blocks/SRR525202_1-block-2.fastq \
+    blocks/SRR525202_2-block-2.fastq \
+-p \
+    blocks/SRR525202_1-block-20.fastq \
+    blocks/SRR525202_2-block-20.fastq \
+-p \
+    blocks/SRR525202_1-block-21.fastq \
+    blocks/SRR525202_2-block-21.fastq \
+-p \
+    blocks/SRR525202_1-block-22.fastq \
+    blocks/SRR525202_2-block-22.fastq \
+-p \
+    blocks/SRR525202_1-block-23.fastq \
+    blocks/SRR525202_2-block-23.fastq \
+-p \
+    blocks/SRR525202_1-block-24.fastq \
+    blocks/SRR525202_2-block-24.fastq \
+-p \
+    blocks/SRR525202_1-block-25.fastq \
+    blocks/SRR525202_2-block-25.fastq \
+-p \
+    blocks/SRR525202_1-block-26.fastq \
+    blocks/SRR525202_2-block-26.fastq \
+-p \
+    blocks/SRR525202_1-block-27.fastq \
+    blocks/SRR525202_2-block-27.fastq \
+-p \
+    blocks/SRR525202_1-block-28.fastq \
+    blocks/SRR525202_2-block-28.fastq \
+-p \
+    blocks/SRR525202_1-block-29.fastq \
+    blocks/SRR525202_2-block-29.fastq \
+-p \
+    blocks/SRR525202_1-block-3.fastq \
+    blocks/SRR525202_2-block-3.fastq \
+-p \
+    blocks/SRR525202_1-block-30.fastq \
+    blocks/SRR525202_2-block-30.fastq \
+-p \
+    blocks/SRR525202_1-block-31.fastq \
+    blocks/SRR525202_2-block-31.fastq \
+-p \
+    blocks/SRR525202_1-block-32.fastq \
+    blocks/SRR525202_2-block-32.fastq \
+-p \
+    blocks/SRR525202_1-block-33.fastq \
+    blocks/SRR525202_2-block-33.fastq \
+-p \
+    blocks/SRR525202_1-block-34.fastq \
+    blocks/SRR525202_2-block-34.fastq \
+-p \
+    blocks/SRR525202_1-block-35.fastq \
+    blocks/SRR525202_2-block-35.fastq \
+-p \
+    blocks/SRR525202_1-block-36.fastq \
+    blocks/SRR525202_2-block-36.fastq \
+-p \
+    blocks/SRR525202_1-block-37.fastq \
+    blocks/SRR525202_2-block-37.fastq \
+-p \
+    blocks/SRR525202_1-block-38.fastq \
+    blocks/SRR525202_2-block-38.fastq \
+-p \
+    blocks/SRR525202_1-block-39.fastq \
+    blocks/SRR525202_2-block-39.fastq \
+-p \
+    blocks/SRR525202_1-block-4.fastq \
+    blocks/SRR525202_2-block-4.fastq \
+-p \
+    blocks/SRR525202_1-block-40.fastq \
+    blocks/SRR525202_2-block-40.fastq \
+-p \
+    blocks/SRR525202_1-block-41.fastq \
+    blocks/SRR525202_2-block-41.fastq \
+-p \
+    blocks/SRR525202_1-block-42.fastq \
+    blocks/SRR525202_2-block-42.fastq \
+-p \
+    blocks/SRR525202_1-block-43.fastq \
+    blocks/SRR525202_2-block-43.fastq \
+-p \
+    blocks/SRR525202_1-block-44.fastq \
+    blocks/SRR525202_2-block-44.fastq \
+-p \
+    blocks/SRR525202_1-block-45.fastq \
+    blocks/SRR525202_2-block-45.fastq \
+-p \
+    blocks/SRR525202_1-block-46.fastq \
+    blocks/SRR525202_2-block-46.fastq \
+-p \
+    blocks/SRR525202_1-block-47.fastq \
+    blocks/SRR525202_2-block-47.fastq \
+-p \
+    blocks/SRR525202_1-block-48.fastq \
+    blocks/SRR525202_2-block-48.fastq \
+-p \
+    blocks/SRR525202_1-block-49.fastq \
+    blocks/SRR525202_2-block-49.fastq \
+-p \
+    blocks/SRR525202_1-block-5.fastq \
+    blocks/SRR525202_2-block-5.fastq \
+-p \
+    blocks/SRR525202_1-block-50.fastq \
+    blocks/SRR525202_2-block-50.fastq \
+-p \
+    blocks/SRR525202_1-block-51.fastq \
+    blocks/SRR525202_2-block-51.fastq \
+-p \
+    blocks/SRR525202_1-block-52.fastq \
+    blocks/SRR525202_2-block-52.fastq \
+-p \
+    blocks/SRR525202_1-block-53.fastq \
+    blocks/SRR525202_2-block-53.fastq \
+-p \
+    blocks/SRR525202_1-block-54.fastq \
+    blocks/SRR525202_2-block-54.fastq \
+-p \
+    blocks/SRR525202_1-block-55.fastq \
+    blocks/SRR525202_2-block-55.fastq \
+-p \
+    blocks/SRR525202_1-block-56.fastq \
+    blocks/SRR525202_2-block-56.fastq \
+-p \
+    blocks/SRR525202_1-block-57.fastq \
+    blocks/SRR525202_2-block-57.fastq \
+-p \
+    blocks/SRR525202_1-block-58.fastq \
+    blocks/SRR525202_2-block-58.fastq \
+-p \
+    blocks/SRR525202_1-block-59.fastq \
+    blocks/SRR525202_2-block-59.fastq \
+-p \
+    blocks/SRR525202_1-block-6.fastq \
+    blocks/SRR525202_2-block-6.fastq \
+-p \
+    blocks/SRR525202_1-block-60.fastq \
+    blocks/SRR525202_2-block-60.fastq \
+-p \
+    blocks/SRR525202_1-block-61.fastq \
+    blocks/SRR525202_2-block-61.fastq \
+-p \
+    blocks/SRR525202_1-block-62.fastq \
+    blocks/SRR525202_2-block-62.fastq \
+-p \
+    blocks/SRR525202_1-block-63.fastq \
+    blocks/SRR525202_2-block-63.fastq \
+-p \
+    blocks/SRR525202_1-block-64.fastq \
+    blocks/SRR525202_2-block-64.fastq \
+-p \
+    blocks/SRR525202_1-block-65.fastq \
+    blocks/SRR525202_2-block-65.fastq \
+-p \
+    blocks/SRR525202_1-block-66.fastq \
+    blocks/SRR525202_2-block-66.fastq \
+-p \
+    blocks/SRR525202_1-block-67.fastq \
+    blocks/SRR525202_2-block-67.fastq \
+-p \
+    blocks/SRR525202_1-block-68.fastq \
+    blocks/SRR525202_2-block-68.fastq \
+-p \
+    blocks/SRR525202_1-block-69.fastq \
+    blocks/SRR525202_2-block-69.fastq \
+-p \
+    blocks/SRR525202_1-block-7.fastq \
+    blocks/SRR525202_2-block-7.fastq \
+-p \
+    blocks/SRR525202_1-block-70.fastq \
+    blocks/SRR525202_2-block-70.fastq \
+-p \
+    blocks/SRR525202_1-block-71.fastq \
+    blocks/SRR525202_2-block-71.fastq \
+-p \
+    blocks/SRR525202_1-block-8.fastq \
+    blocks/SRR525202_2-block-8.fastq \
+-p \
+    blocks/SRR525202_1-block-9.fastq \
+    blocks/SRR525202_2-block-9.fastq \
+-p \
+    blocks/SRR525203_1-block-0.fastq \
+    blocks/SRR525203_2-block-0.fastq \
+-p \
+    blocks/SRR525203_1-block-1.fastq \
+    blocks/SRR525203_2-block-1.fastq \
+-p \
+    blocks/SRR525203_1-block-10.fastq \
+    blocks/SRR525203_2-block-10.fastq \
+-p \
+    blocks/SRR525203_1-block-11.fastq \
+    blocks/SRR525203_2-block-11.fastq \
+-p \
+    blocks/SRR525203_1-block-12.fastq \
+    blocks/SRR525203_2-block-12.fastq \
+-p \
+    blocks/SRR525203_1-block-13.fastq \
+    blocks/SRR525203_2-block-13.fastq \
+-p \
+    blocks/SRR525203_1-block-14.fastq \
+    blocks/SRR525203_2-block-14.fastq \
+-p \
+    blocks/SRR525203_1-block-15.fastq \
+    blocks/SRR525203_2-block-15.fastq \
+-p \
+    blocks/SRR525203_1-block-16.fastq \
+    blocks/SRR525203_2-block-16.fastq \
+-p \
+    blocks/SRR525203_1-block-17.fastq \
+    blocks/SRR525203_2-block-17.fastq \
+-p \
+    blocks/SRR525203_1-block-18.fastq \
+    blocks/SRR525203_2-block-18.fastq \
+-p \
+    blocks/SRR525203_1-block-19.fastq \
+    blocks/SRR525203_2-block-19.fastq \
+-p \
+    blocks/SRR525203_1-block-2.fastq \
+    blocks/SRR525203_2-block-2.fastq \
+-p \
+    blocks/SRR525203_1-block-20.fastq \
+    blocks/SRR525203_2-block-20.fastq \
+-p \
+    blocks/SRR525203_1-block-21.fastq \
+    blocks/SRR525203_2-block-21.fastq \
+-p \
+    blocks/SRR525203_1-block-22.fastq \
+    blocks/SRR525203_2-block-22.fastq \
+-p \
+    blocks/SRR525203_1-block-23.fastq \
+    blocks/SRR525203_2-block-23.fastq \
+-p \
+    blocks/SRR525203_1-block-24.fastq \
+    blocks/SRR525203_2-block-24.fastq \
+-p \
+    blocks/SRR525203_1-block-25.fastq \
+    blocks/SRR525203_2-block-25.fastq \
+-p \
+    blocks/SRR525203_1-block-26.fastq \
+    blocks/SRR525203_2-block-26.fastq \
+-p \
+    blocks/SRR525203_1-block-27.fastq \
+    blocks/SRR525203_2-block-27.fastq \
+-p \
+    blocks/SRR525203_1-block-28.fastq \
+    blocks/SRR525203_2-block-28.fastq \
+-p \
+    blocks/SRR525203_1-block-29.fastq \
+    blocks/SRR525203_2-block-29.fastq \
+-p \
+    blocks/SRR525203_1-block-3.fastq \
+    blocks/SRR525203_2-block-3.fastq \
+-p \
+    blocks/SRR525203_1-block-30.fastq \
+    blocks/SRR525203_2-block-30.fastq \
+-p \
+    blocks/SRR525203_1-block-31.fastq \
+    blocks/SRR525203_2-block-31.fastq \
+-p \
+    blocks/SRR525203_1-block-32.fastq \
+    blocks/SRR525203_2-block-32.fastq \
+-p \
+    blocks/SRR525203_1-block-33.fastq \
+    blocks/SRR525203_2-block-33.fastq \
+-p \
+    blocks/SRR525203_1-block-34.fastq \
+    blocks/SRR525203_2-block-34.fastq \
+-p \
+    blocks/SRR525203_1-block-35.fastq \
+    blocks/SRR525203_2-block-35.fastq \
+-p \
+    blocks/SRR525203_1-block-36.fastq \
+    blocks/SRR525203_2-block-36.fastq \
+-p \
+    blocks/SRR525203_1-block-37.fastq \
+    blocks/SRR525203_2-block-37.fastq \
+-p \
+    blocks/SRR525203_1-block-38.fastq \
+    blocks/SRR525203_2-block-38.fastq \
+-p \
+    blocks/SRR525203_1-block-39.fastq \
+    blocks/SRR525203_2-block-39.fastq \
+-p \
+    blocks/SRR525203_1-block-4.fastq \
+    blocks/SRR525203_2-block-4.fastq \
+-p \
+    blocks/SRR525203_1-block-40.fastq \
+    blocks/SRR525203_2-block-40.fastq \
+-p \
+    blocks/SRR525203_1-block-41.fastq \
+    blocks/SRR525203_2-block-41.fastq \
+-p \
+    blocks/SRR525203_1-block-42.fastq \
+    blocks/SRR525203_2-block-42.fastq \
+-p \
+    blocks/SRR525203_1-block-43.fastq \
+    blocks/SRR525203_2-block-43.fastq \
+-p \
+    blocks/SRR525203_1-block-44.fastq \
+    blocks/SRR525203_2-block-44.fastq \
+-p \
+    blocks/SRR525203_1-block-45.fastq \
+    blocks/SRR525203_2-block-45.fastq \
+-p \
+    blocks/SRR525203_1-block-46.fastq \
+    blocks/SRR525203_2-block-46.fastq \
+-p \
+    blocks/SRR525203_1-block-47.fastq \
+    blocks/SRR525203_2-block-47.fastq \
+-p \
+    blocks/SRR525203_1-block-48.fastq \
+    blocks/SRR525203_2-block-48.fastq \
+-p \
+    blocks/SRR525203_1-block-49.fastq \
+    blocks/SRR525203_2-block-49.fastq \
+-p \
+    blocks/SRR525203_1-block-5.fastq \
+    blocks/SRR525203_2-block-5.fastq \
+-p \
+    blocks/SRR525203_1-block-50.fastq \
+    blocks/SRR525203_2-block-50.fastq \
+-p \
+    blocks/SRR525203_1-block-51.fastq \
+    blocks/SRR525203_2-block-51.fastq \
+-p \
+    blocks/SRR525203_1-block-52.fastq \
+    blocks/SRR525203_2-block-52.fastq \
+-p \
+    blocks/SRR525203_1-block-53.fastq \
+    blocks/SRR525203_2-block-53.fastq \
+-p \
+    blocks/SRR525203_1-block-54.fastq \
+    blocks/SRR525203_2-block-54.fastq \
+-p \
+    blocks/SRR525203_1-block-55.fastq \
+    blocks/SRR525203_2-block-55.fastq \
+-p \
+    blocks/SRR525203_1-block-56.fastq \
+    blocks/SRR525203_2-block-56.fastq \
+-p \
+    blocks/SRR525203_1-block-57.fastq \
+    blocks/SRR525203_2-block-57.fastq \
+-p \
+    blocks/SRR525203_1-block-58.fastq \
+    blocks/SRR525203_2-block-58.fastq \
+-p \
+    blocks/SRR525203_1-block-59.fastq \
+    blocks/SRR525203_2-block-59.fastq \
+-p \
+    blocks/SRR525203_1-block-6.fastq \
+    blocks/SRR525203_2-block-6.fastq \
+-p \
+    blocks/SRR525203_1-block-60.fastq \
+    blocks/SRR525203_2-block-60.fastq \
+-p \
+    blocks/SRR525203_1-block-61.fastq \
+    blocks/SRR525203_2-block-61.fastq \
+-p \
+    blocks/SRR525203_1-block-62.fastq \
+    blocks/SRR525203_2-block-62.fastq \
+-p \
+    blocks/SRR525203_1-block-63.fastq \
+    blocks/SRR525203_2-block-63.fastq \
+-p \
+    blocks/SRR525203_1-block-64.fastq \
+    blocks/SRR525203_2-block-64.fastq \
+-p \
+    blocks/SRR525203_1-block-65.fastq \
+    blocks/SRR525203_2-block-65.fastq \
+-p \
+    blocks/SRR525203_1-block-66.fastq \
+    blocks/SRR525203_2-block-66.fastq \
+-p \
+    blocks/SRR525203_1-block-67.fastq \
+    blocks/SRR525203_2-block-67.fastq \
+-p \
+    blocks/SRR525203_1-block-68.fastq \
+    blocks/SRR525203_2-block-68.fastq \
+-p \
+    blocks/SRR525203_1-block-69.fastq \
+    blocks/SRR525203_2-block-69.fastq \
+-p \
+    blocks/SRR525203_1-block-7.fastq \
+    blocks/SRR525203_2-block-7.fastq \
+-p \
+    blocks/SRR525203_1-block-70.fastq \
+    blocks/SRR525203_2-block-70.fastq \
+-p \
+    blocks/SRR525203_1-block-71.fastq \
+    blocks/SRR525203_2-block-71.fastq \
+-p \
+    blocks/SRR525203_1-block-72.fastq \
+    blocks/SRR525203_2-block-72.fastq \
+-p \
+    blocks/SRR525203_1-block-73.fastq \
+    blocks/SRR525203_2-block-73.fastq \
+-p \
+    blocks/SRR525203_1-block-74.fastq \
+    blocks/SRR525203_2-block-74.fastq \
+-p \
+    blocks/SRR525203_1-block-75.fastq \
+    blocks/SRR525203_2-block-75.fastq \
+-p \
+    blocks/SRR525203_1-block-76.fastq \
+    blocks/SRR525203_2-block-76.fastq \
+-p \
+    blocks/SRR525203_1-block-77.fastq \
+    blocks/SRR525203_2-block-77.fastq \
+-p \
+    blocks/SRR525203_1-block-78.fastq \
+    blocks/SRR525203_2-block-78.fastq \
+-p \
+    blocks/SRR525203_1-block-79.fastq \
+    blocks/SRR525203_2-block-79.fastq \
+-p \
+    blocks/SRR525203_1-block-8.fastq \
+    blocks/SRR525203_2-block-8.fastq \
+-p \
+    blocks/SRR525203_1-block-80.fastq \
+    blocks/SRR525203_2-block-80.fastq \
+-p \
+    blocks/SRR525203_1-block-81.fastq \
+    blocks/SRR525203_2-block-81.fastq \
+-p \
+    blocks/SRR525203_1-block-82.fastq \
+    blocks/SRR525203_2-block-82.fastq \
+-p \
+    blocks/SRR525203_1-block-83.fastq \
+    blocks/SRR525203_2-block-83.fastq \
+-p \
+    blocks/SRR525203_1-block-84.fastq \
+    blocks/SRR525203_2-block-84.fastq \
+-p \
+    blocks/SRR525203_1-block-85.fastq \
+    blocks/SRR525203_2-block-85.fastq \
+-p \
+    blocks/SRR525203_1-block-86.fastq \
+    blocks/SRR525203_2-block-86.fastq \
+-p \
+    blocks/SRR525203_1-block-87.fastq \
+    blocks/SRR525203_2-block-87.fastq \
+-p \
+    blocks/SRR525203_1-block-88.fastq \
+    blocks/SRR525203_2-block-88.fastq \
+-p \
+    blocks/SRR525203_1-block-89.fastq \
+    blocks/SRR525203_2-block-89.fastq \
+-p \
+    blocks/SRR525203_1-block-9.fastq \
+    blocks/SRR525203_2-block-9.fastq \
+-p \
+    blocks/SRR525203_1-block-90.fastq \
+    blocks/SRR525203_2-block-90.fastq \
+-p \
+    blocks/SRR525203_1-block-91.fastq \
+    blocks/SRR525203_2-block-91.fastq \
+-p \
+    blocks/SRR525203_1-block-92.fastq \
+    blocks/SRR525203_2-block-92.fastq \
+-p \
+    blocks/SRR525203_1-block-93.fastq \
+    blocks/SRR525203_2-block-93.fastq \
+-p \
+    blocks/SRR525203_1-block-94.fastq \
+    blocks/SRR525203_2-block-94.fastq \
+-p \
+    blocks/SRR525203_1-block-95.fastq \
+    blocks/SRR525203_2-block-95.fastq \
+-p \
+    blocks/SRR525203_1-block-96.fastq \
+    blocks/SRR525203_2-block-96.fastq \
+-p \
+    blocks/SRR525203_1-block-97.fastq \
+    blocks/SRR525203_2-block-97.fastq \
+-p \
+    blocks/SRR525203_1-block-98.fastq \
+    blocks/SRR525203_2-block-98.fastq \
+-p \
+    blocks/SRR525204_1-block-0.fastq \
+    blocks/SRR525204_2-block-0.fastq \
+-p \
+    blocks/SRR525204_1-block-1.fastq \
+    blocks/SRR525204_2-block-1.fastq \
+-p \
+    blocks/SRR525204_1-block-10.fastq \
+    blocks/SRR525204_2-block-10.fastq \
+-p \
+    blocks/SRR525204_1-block-11.fastq \
+    blocks/SRR525204_2-block-11.fastq \
+-p \
+    blocks/SRR525204_1-block-12.fastq \
+    blocks/SRR525204_2-block-12.fastq \
+-p \
+    blocks/SRR525204_1-block-13.fastq \
+    blocks/SRR525204_2-block-13.fastq \
+-p \
+    blocks/SRR525204_1-block-14.fastq \
+    blocks/SRR525204_2-block-14.fastq \
+-p \
+    blocks/SRR525204_1-block-15.fastq \
+    blocks/SRR525204_2-block-15.fastq \
+-p \
+    blocks/SRR525204_1-block-16.fastq \
+    blocks/SRR525204_2-block-16.fastq \
+-p \
+    blocks/SRR525204_1-block-17.fastq \
+    blocks/SRR525204_2-block-17.fastq \
+-p \
+    blocks/SRR525204_1-block-18.fastq \
+    blocks/SRR525204_2-block-18.fastq \
+-p \
+    blocks/SRR525204_1-block-19.fastq \
+    blocks/SRR525204_2-block-19.fastq \
+-p \
+    blocks/SRR525204_1-block-2.fastq \
+    blocks/SRR525204_2-block-2.fastq \
+-p \
+    blocks/SRR525204_1-block-20.fastq \
+    blocks/SRR525204_2-block-20.fastq \
+-p \
+    blocks/SRR525204_1-block-21.fastq \
+    blocks/SRR525204_2-block-21.fastq \
+-p \
+    blocks/SRR525204_1-block-22.fastq \
+    blocks/SRR525204_2-block-22.fastq \
+-p \
+    blocks/SRR525204_1-block-23.fastq \
+    blocks/SRR525204_2-block-23.fastq \
+-p \
+    blocks/SRR525204_1-block-24.fastq \
+    blocks/SRR525204_2-block-24.fastq \
+-p \
+    blocks/SRR525204_1-block-25.fastq \
+    blocks/SRR525204_2-block-25.fastq \
+-p \
+    blocks/SRR525204_1-block-26.fastq \
+    blocks/SRR525204_2-block-26.fastq \
+-p \
+    blocks/SRR525204_1-block-27.fastq \
+    blocks/SRR525204_2-block-27.fastq \
+-p \
+    blocks/SRR525204_1-block-28.fastq \
+    blocks/SRR525204_2-block-28.fastq \
+-p \
+    blocks/SRR525204_1-block-29.fastq \
+    blocks/SRR525204_2-block-29.fastq \
+-p \
+    blocks/SRR525204_1-block-3.fastq \
+    blocks/SRR525204_2-block-3.fastq \
+-p \
+    blocks/SRR525204_1-block-30.fastq \
+    blocks/SRR525204_2-block-30.fastq \
+-p \
+    blocks/SRR525204_1-block-31.fastq \
+    blocks/SRR525204_2-block-31.fastq \
+-p \
+    blocks/SRR525204_1-block-32.fastq \
+    blocks/SRR525204_2-block-32.fastq \
+-p \
+    blocks/SRR525204_1-block-33.fastq \
+    blocks/SRR525204_2-block-33.fastq \
+-p \
+    blocks/SRR525204_1-block-34.fastq \
+    blocks/SRR525204_2-block-34.fastq \
+-p \
+    blocks/SRR525204_1-block-35.fastq \
+    blocks/SRR525204_2-block-35.fastq \
+-p \
+    blocks/SRR525204_1-block-36.fastq \
+    blocks/SRR525204_2-block-36.fastq \
+-p \
+    blocks/SRR525204_1-block-37.fastq \
+    blocks/SRR525204_2-block-37.fastq \
+-p \
+    blocks/SRR525204_1-block-38.fastq \
+    blocks/SRR525204_2-block-38.fastq \
+-p \
+    blocks/SRR525204_1-block-39.fastq \
+    blocks/SRR525204_2-block-39.fastq \
+-p \
+    blocks/SRR525204_1-block-4.fastq \
+    blocks/SRR525204_2-block-4.fastq \
+-p \
+    blocks/SRR525204_1-block-40.fastq \
+    blocks/SRR525204_2-block-40.fastq \
+-p \
+    blocks/SRR525204_1-block-41.fastq \
+    blocks/SRR525204_2-block-41.fastq \
+-p \
+    blocks/SRR525204_1-block-42.fastq \
+    blocks/SRR525204_2-block-42.fastq \
+-p \
+    blocks/SRR525204_1-block-43.fastq \
+    blocks/SRR525204_2-block-43.fastq \
+-p \
+    blocks/SRR525204_1-block-44.fastq \
+    blocks/SRR525204_2-block-44.fastq \
+-p \
+    blocks/SRR525204_1-block-45.fastq \
+    blocks/SRR525204_2-block-45.fastq \
+-p \
+    blocks/SRR525204_1-block-46.fastq \
+    blocks/SRR525204_2-block-46.fastq \
+-p \
+    blocks/SRR525204_1-block-47.fastq \
+    blocks/SRR525204_2-block-47.fastq \
+-p \
+    blocks/SRR525204_1-block-48.fastq \
+    blocks/SRR525204_2-block-48.fastq \
+-p \
+    blocks/SRR525204_1-block-49.fastq \
+    blocks/SRR525204_2-block-49.fastq \
+-p \
+    blocks/SRR525204_1-block-5.fastq \
+    blocks/SRR525204_2-block-5.fastq \
+-p \
+    blocks/SRR525204_1-block-50.fastq \
+    blocks/SRR525204_2-block-50.fastq \
+-p \
+    blocks/SRR525204_1-block-51.fastq \
+    blocks/SRR525204_2-block-51.fastq \
+-p \
+    blocks/SRR525204_1-block-52.fastq \
+    blocks/SRR525204_2-block-52.fastq \
+-p \
+    blocks/SRR525204_1-block-53.fastq \
+    blocks/SRR525204_2-block-53.fastq \
+-p \
+    blocks/SRR525204_1-block-54.fastq \
+    blocks/SRR525204_2-block-54.fastq \
+-p \
+    blocks/SRR525204_1-block-55.fastq \
+    blocks/SRR525204_2-block-55.fastq \
+-p \
+    blocks/SRR525204_1-block-56.fastq \
+    blocks/SRR525204_2-block-56.fastq \
+-p \
+    blocks/SRR525204_1-block-57.fastq \
+    blocks/SRR525204_2-block-57.fastq \
+-p \
+    blocks/SRR525204_1-block-58.fastq \
+    blocks/SRR525204_2-block-58.fastq \
+-p \
+    blocks/SRR525204_1-block-59.fastq \
+    blocks/SRR525204_2-block-59.fastq \
+-p \
+    blocks/SRR525204_1-block-6.fastq \
+    blocks/SRR525204_2-block-6.fastq \
+-p \
+    blocks/SRR525204_1-block-60.fastq \
+    blocks/SRR525204_2-block-60.fastq \
+-p \
+    blocks/SRR525204_1-block-61.fastq \
+    blocks/SRR525204_2-block-61.fastq \
+-p \
+    blocks/SRR525204_1-block-62.fastq \
+    blocks/SRR525204_2-block-62.fastq \
+-p \
+    blocks/SRR525204_1-block-63.fastq \
+    blocks/SRR525204_2-block-63.fastq \
+-p \
+    blocks/SRR525204_1-block-64.fastq \
+    blocks/SRR525204_2-block-64.fastq \
+-p \
+    blocks/SRR525204_1-block-65.fastq \
+    blocks/SRR525204_2-block-65.fastq \
+-p \
+    blocks/SRR525204_1-block-66.fastq \
+    blocks/SRR525204_2-block-66.fastq \
+-p \
+    blocks/SRR525204_1-block-67.fastq \
+    blocks/SRR525204_2-block-67.fastq \
+-p \
+    blocks/SRR525204_1-block-68.fastq \
+    blocks/SRR525204_2-block-68.fastq \
+-p \
+    blocks/SRR525204_1-block-69.fastq \
+    blocks/SRR525204_2-block-69.fastq \
+-p \
+    blocks/SRR525204_1-block-7.fastq \
+    blocks/SRR525204_2-block-7.fastq \
+-p \
+    blocks/SRR525204_1-block-70.fastq \
+    blocks/SRR525204_2-block-70.fastq \
+-p \
+    blocks/SRR525204_1-block-71.fastq \
+    blocks/SRR525204_2-block-71.fastq \
+-p \
+    blocks/SRR525204_1-block-72.fastq \
+    blocks/SRR525204_2-block-72.fastq \
+-p \
+    blocks/SRR525204_1-block-73.fastq \
+    blocks/SRR525204_2-block-73.fastq \
+-p \
+    blocks/SRR525204_1-block-74.fastq \
+    blocks/SRR525204_2-block-74.fastq \
+-p \
+    blocks/SRR525204_1-block-75.fastq \
+    blocks/SRR525204_2-block-75.fastq \
+-p \
+    blocks/SRR525204_1-block-76.fastq \
+    blocks/SRR525204_2-block-76.fastq \
+-p \
+    blocks/SRR525204_1-block-77.fastq \
+    blocks/SRR525204_2-block-77.fastq \
+-p \
+    blocks/SRR525204_1-block-78.fastq \
+    blocks/SRR525204_2-block-78.fastq \
+-p \
+    blocks/SRR525204_1-block-79.fastq \
+    blocks/SRR525204_2-block-79.fastq \
+-p \
+    blocks/SRR525204_1-block-8.fastq \
+    blocks/SRR525204_2-block-8.fastq \
+-p \
+    blocks/SRR525204_1-block-80.fastq \
+    blocks/SRR525204_2-block-80.fastq \
+-p \
+    blocks/SRR525204_1-block-81.fastq \
+    blocks/SRR525204_2-block-81.fastq \
+-p \
+    blocks/SRR525204_1-block-82.fastq \
+    blocks/SRR525204_2-block-82.fastq \
+-p \
+    blocks/SRR525204_1-block-83.fastq \
+    blocks/SRR525204_2-block-83.fastq \
+-p \
+    blocks/SRR525204_1-block-84.fastq \
+    blocks/SRR525204_2-block-84.fastq \
+-p \
+    blocks/SRR525204_1-block-85.fastq \
+    blocks/SRR525204_2-block-85.fastq \
+-p \
+    blocks/SRR525204_1-block-86.fastq \
+    blocks/SRR525204_2-block-86.fastq \
+-p \
+    blocks/SRR525204_1-block-87.fastq \
+    blocks/SRR525204_2-block-87.fastq \
+-p \
+    blocks/SRR525204_1-block-88.fastq \
+    blocks/SRR525204_2-block-88.fastq \
+-p \
+    blocks/SRR525204_1-block-89.fastq \
+    blocks/SRR525204_2-block-89.fastq \
+-p \
+    blocks/SRR525204_1-block-9.fastq \
+    blocks/SRR525204_2-block-9.fastq \
+-p \
+    blocks/SRR525204_1-block-90.fastq \
+    blocks/SRR525204_2-block-90.fastq \
+-p \
+    blocks/SRR525204_1-block-91.fastq \
+    blocks/SRR525204_2-block-91.fastq \
+-p \
+    blocks/SRR525204_1-block-92.fastq \
+    blocks/SRR525204_2-block-92.fastq \
+-p \
+    blocks/SRR525204_1-block-93.fastq \
+    blocks/SRR525204_2-block-93.fastq \
+-p \
+    blocks/SRR525204_1-block-94.fastq \
+    blocks/SRR525204_2-block-94.fastq \
+-p \
+    blocks/SRR525204_1-block-95.fastq \
+    blocks/SRR525204_2-block-95.fastq \
+-p \
+    blocks/SRR525204_1-block-96.fastq \
+    blocks/SRR525204_2-block-96.fastq \
+-p \
+    blocks/SRR525205_1-block-0.fastq \
+    blocks/SRR525205_2-block-0.fastq \
+-p \
+    blocks/SRR525205_1-block-1.fastq \
+    blocks/SRR525205_2-block-1.fastq \
+-p \
+    blocks/SRR525205_1-block-10.fastq \
+    blocks/SRR525205_2-block-10.fastq \
+-p \
+    blocks/SRR525205_1-block-11.fastq \
+    blocks/SRR525205_2-block-11.fastq \
+-p \
+    blocks/SRR525205_1-block-12.fastq \
+    blocks/SRR525205_2-block-12.fastq \
+-p \
+    blocks/SRR525205_1-block-13.fastq \
+    blocks/SRR525205_2-block-13.fastq \
+-p \
+    blocks/SRR525205_1-block-14.fastq \
+    blocks/SRR525205_2-block-14.fastq \
+-p \
+    blocks/SRR525205_1-block-15.fastq \
+    blocks/SRR525205_2-block-15.fastq \
+-p \
+    blocks/SRR525205_1-block-16.fastq \
+    blocks/SRR525205_2-block-16.fastq \
+-p \
+    blocks/SRR525205_1-block-17.fastq \
+    blocks/SRR525205_2-block-17.fastq \
+-p \
+    blocks/SRR525205_1-block-18.fastq \
+    blocks/SRR525205_2-block-18.fastq \
+-p \
+    blocks/SRR525205_1-block-19.fastq \
+    blocks/SRR525205_2-block-19.fastq \
+-p \
+    blocks/SRR525205_1-block-2.fastq \
+    blocks/SRR525205_2-block-2.fastq \
+-p \
+    blocks/SRR525205_1-block-20.fastq \
+    blocks/SRR525205_2-block-20.fastq \
+-p \
+    blocks/SRR525205_1-block-21.fastq \
+    blocks/SRR525205_2-block-21.fastq \
+-p \
+    blocks/SRR525205_1-block-22.fastq \
+    blocks/SRR525205_2-block-22.fastq \
+-p \
+    blocks/SRR525205_1-block-23.fastq \
+    blocks/SRR525205_2-block-23.fastq \
+-p \
+    blocks/SRR525205_1-block-24.fastq \
+    blocks/SRR525205_2-block-24.fastq \
+-p \
+    blocks/SRR525205_1-block-25.fastq \
+    blocks/SRR525205_2-block-25.fastq \
+-p \
+    blocks/SRR525205_1-block-26.fastq \
+    blocks/SRR525205_2-block-26.fastq \
+-p \
+    blocks/SRR525205_1-block-27.fastq \
+    blocks/SRR525205_2-block-27.fastq \
+-p \
+    blocks/SRR525205_1-block-28.fastq \
+    blocks/SRR525205_2-block-28.fastq \
+-p \
+    blocks/SRR525205_1-block-29.fastq \
+    blocks/SRR525205_2-block-29.fastq \
+-p \
+    blocks/SRR525205_1-block-3.fastq \
+    blocks/SRR525205_2-block-3.fastq \
+-p \
+    blocks/SRR525205_1-block-30.fastq \
+    blocks/SRR525205_2-block-30.fastq \
+-p \
+    blocks/SRR525205_1-block-31.fastq \
+    blocks/SRR525205_2-block-31.fastq \
+-p \
+    blocks/SRR525205_1-block-32.fastq \
+    blocks/SRR525205_2-block-32.fastq \
+-p \
+    blocks/SRR525205_1-block-33.fastq \
+    blocks/SRR525205_2-block-33.fastq \
+-p \
+    blocks/SRR525205_1-block-34.fastq \
+    blocks/SRR525205_2-block-34.fastq \
+-p \
+    blocks/SRR525205_1-block-35.fastq \
+    blocks/SRR525205_2-block-35.fastq \
+-p \
+    blocks/SRR525205_1-block-36.fastq \
+    blocks/SRR525205_2-block-36.fastq \
+-p \
+    blocks/SRR525205_1-block-37.fastq \
+    blocks/SRR525205_2-block-37.fastq \
+-p \
+    blocks/SRR525205_1-block-38.fastq \
+    blocks/SRR525205_2-block-38.fastq \
+-p \
+    blocks/SRR525205_1-block-39.fastq \
+    blocks/SRR525205_2-block-39.fastq \
+-p \
+    blocks/SRR525205_1-block-4.fastq \
+    blocks/SRR525205_2-block-4.fastq \
+-p \
+    blocks/SRR525205_1-block-40.fastq \
+    blocks/SRR525205_2-block-40.fastq \
+-p \
+    blocks/SRR525205_1-block-41.fastq \
+    blocks/SRR525205_2-block-41.fastq \
+-p \
+    blocks/SRR525205_1-block-42.fastq \
+    blocks/SRR525205_2-block-42.fastq \
+-p \
+    blocks/SRR525205_1-block-43.fastq \
+    blocks/SRR525205_2-block-43.fastq \
+-p \
+    blocks/SRR525205_1-block-44.fastq \
+    blocks/SRR525205_2-block-44.fastq \
+-p \
+    blocks/SRR525205_1-block-45.fastq \
+    blocks/SRR525205_2-block-45.fastq \
+-p \
+    blocks/SRR525205_1-block-46.fastq \
+    blocks/SRR525205_2-block-46.fastq \
+-p \
+    blocks/SRR525205_1-block-47.fastq \
+    blocks/SRR525205_2-block-47.fastq \
+-p \
+    blocks/SRR525205_1-block-48.fastq \
+    blocks/SRR525205_2-block-48.fastq \
+-p \
+    blocks/SRR525205_1-block-49.fastq \
+    blocks/SRR525205_2-block-49.fastq \
+-p \
+    blocks/SRR525205_1-block-5.fastq \
+    blocks/SRR525205_2-block-5.fastq \
+-p \
+    blocks/SRR525205_1-block-50.fastq \
+    blocks/SRR525205_2-block-50.fastq \
+-p \
+    blocks/SRR525205_1-block-51.fastq \
+    blocks/SRR525205_2-block-51.fastq \
+-p \
+    blocks/SRR525205_1-block-52.fastq \
+    blocks/SRR525205_2-block-52.fastq \
+-p \
+    blocks/SRR525205_1-block-53.fastq \
+    blocks/SRR525205_2-block-53.fastq \
+-p \
+    blocks/SRR525205_1-block-54.fastq \
+    blocks/SRR525205_2-block-54.fastq \
+-p \
+    blocks/SRR525205_1-block-55.fastq \
+    blocks/SRR525205_2-block-55.fastq \
+-p \
+    blocks/SRR525205_1-block-56.fastq \
+    blocks/SRR525205_2-block-56.fastq \
+-p \
+    blocks/SRR525205_1-block-57.fastq \
+    blocks/SRR525205_2-block-57.fastq \
+-p \
+    blocks/SRR525205_1-block-58.fastq \
+    blocks/SRR525205_2-block-58.fastq \
+-p \
+    blocks/SRR525205_1-block-59.fastq \
+    blocks/SRR525205_2-block-59.fastq \
+-p \
+    blocks/SRR525205_1-block-6.fastq \
+    blocks/SRR525205_2-block-6.fastq \
+-p \
+    blocks/SRR525205_1-block-60.fastq \
+    blocks/SRR525205_2-block-60.fastq \
+-p \
+    blocks/SRR525205_1-block-61.fastq \
+    blocks/SRR525205_2-block-61.fastq \
+-p \
+    blocks/SRR525205_1-block-62.fastq \
+    blocks/SRR525205_2-block-62.fastq \
+-p \
+    blocks/SRR525205_1-block-63.fastq \
+    blocks/SRR525205_2-block-63.fastq \
+-p \
+    blocks/SRR525205_1-block-64.fastq \
+    blocks/SRR525205_2-block-64.fastq \
+-p \
+    blocks/SRR525205_1-block-65.fastq \
+    blocks/SRR525205_2-block-65.fastq \
+-p \
+    blocks/SRR525205_1-block-66.fastq \
+    blocks/SRR525205_2-block-66.fastq \
+-p \
+    blocks/SRR525205_1-block-67.fastq \
+    blocks/SRR525205_2-block-67.fastq \
+-p \
+    blocks/SRR525205_1-block-68.fastq \
+    blocks/SRR525205_2-block-68.fastq \
+-p \
+    blocks/SRR525205_1-block-69.fastq \
+    blocks/SRR525205_2-block-69.fastq \
+-p \
+    blocks/SRR525205_1-block-7.fastq \
+    blocks/SRR525205_2-block-7.fastq \
+-p \
+    blocks/SRR525205_1-block-70.fastq \
+    blocks/SRR525205_2-block-70.fastq \
+-p \
+    blocks/SRR525205_1-block-71.fastq \
+    blocks/SRR525205_2-block-71.fastq \
+-p \
+    blocks/SRR525205_1-block-72.fastq \
+    blocks/SRR525205_2-block-72.fastq \
+-p \
+    blocks/SRR525205_1-block-73.fastq \
+    blocks/SRR525205_2-block-73.fastq \
+-p \
+    blocks/SRR525205_1-block-74.fastq \
+    blocks/SRR525205_2-block-74.fastq \
+-p \
+    blocks/SRR525205_1-block-75.fastq \
+    blocks/SRR525205_2-block-75.fastq \
+-p \
+    blocks/SRR525205_1-block-76.fastq \
+    blocks/SRR525205_2-block-76.fastq \
+-p \
+    blocks/SRR525205_1-block-77.fastq \
+    blocks/SRR525205_2-block-77.fastq \
+-p \
+    blocks/SRR525205_1-block-78.fastq \
+    blocks/SRR525205_2-block-78.fastq \
+-p \
+    blocks/SRR525205_1-block-79.fastq \
+    blocks/SRR525205_2-block-79.fastq \
+-p \
+    blocks/SRR525205_1-block-8.fastq \
+    blocks/SRR525205_2-block-8.fastq \
+-p \
+    blocks/SRR525205_1-block-80.fastq \
+    blocks/SRR525205_2-block-80.fastq \
+-p \
+    blocks/SRR525205_1-block-81.fastq \
+    blocks/SRR525205_2-block-81.fastq \
+-p \
+    blocks/SRR525205_1-block-82.fastq \
+    blocks/SRR525205_2-block-82.fastq \
+-p \
+    blocks/SRR525205_1-block-83.fastq \
+    blocks/SRR525205_2-block-83.fastq \
+-p \
+    blocks/SRR525205_1-block-84.fastq \
+    blocks/SRR525205_2-block-84.fastq \
+-p \
+    blocks/SRR525205_1-block-85.fastq \
+    blocks/SRR525205_2-block-85.fastq \
+-p \
+    blocks/SRR525205_1-block-86.fastq \
+    blocks/SRR525205_2-block-86.fastq \
+-p \
+    blocks/SRR525205_1-block-87.fastq \
+    blocks/SRR525205_2-block-87.fastq \
+-p \
+    blocks/SRR525205_1-block-88.fastq \
+    blocks/SRR525205_2-block-88.fastq \
+-p \
+    blocks/SRR525205_1-block-89.fastq \
+    blocks/SRR525205_2-block-89.fastq \
+-p \
+    blocks/SRR525205_1-block-9.fastq \
+    blocks/SRR525205_2-block-9.fastq \
+-p \
+    blocks/SRR525205_1-block-90.fastq \
+    blocks/SRR525205_2-block-90.fastq \
+-p \
+    blocks/SRR525205_1-block-91.fastq \
+    blocks/SRR525205_2-block-91.fastq \
+-p \
+    blocks/SRR525205_1-block-92.fastq \
+    blocks/SRR525205_2-block-92.fastq \
+-p \
+    blocks/SRR525205_1-block-93.fastq \
+    blocks/SRR525205_2-block-93.fastq \
+-p \
+    blocks/SRR525205_1-block-94.fastq \
+    blocks/SRR525205_2-block-94.fastq \
+-p \
+    blocks/SRR525205_1-block-95.fastq \
+    blocks/SRR525205_2-block-95.fastq \
+-p \
+    blocks/SRR525205_1-block-96.fastq \
+    blocks/SRR525205_2-block-96.fastq \
+-p \
+    blocks/SRR525205_1-block-97.fastq \
+    blocks/SRR525205_2-block-97.fastq \
+-p \
+    blocks/SRR525205_1-block-98.fastq \
+    blocks/SRR525205_2-block-98.fastq \
+-p \
+    blocks/SRR525206_1-block-0.fastq \
+    blocks/SRR525206_2-block-0.fastq \
+-p \
+    blocks/SRR525206_1-block-1.fastq \
+    blocks/SRR525206_2-block-1.fastq \
+-p \
+    blocks/SRR525206_1-block-10.fastq \
+    blocks/SRR525206_2-block-10.fastq \
+-p \
+    blocks/SRR525206_1-block-11.fastq \
+    blocks/SRR525206_2-block-11.fastq \
+-p \
+    blocks/SRR525206_1-block-12.fastq \
+    blocks/SRR525206_2-block-12.fastq \
+-p \
+    blocks/SRR525206_1-block-13.fastq \
+    blocks/SRR525206_2-block-13.fastq \
+-p \
+    blocks/SRR525206_1-block-14.fastq \
+    blocks/SRR525206_2-block-14.fastq \
+-p \
+    blocks/SRR525206_1-block-15.fastq \
+    blocks/SRR525206_2-block-15.fastq \
+-p \
+    blocks/SRR525206_1-block-16.fastq \
+    blocks/SRR525206_2-block-16.fastq \
+-p \
+    blocks/SRR525206_1-block-17.fastq \
+    blocks/SRR525206_2-block-17.fastq \
+-p \
+    blocks/SRR525206_1-block-18.fastq \
+    blocks/SRR525206_2-block-18.fastq \
+-p \
+    blocks/SRR525206_1-block-19.fastq \
+    blocks/SRR525206_2-block-19.fastq \
+-p \
+    blocks/SRR525206_1-block-2.fastq \
+    blocks/SRR525206_2-block-2.fastq \
+-p \
+    blocks/SRR525206_1-block-20.fastq \
+    blocks/SRR525206_2-block-20.fastq \
+-p \
+    blocks/SRR525206_1-block-21.fastq \
+    blocks/SRR525206_2-block-21.fastq \
+-p \
+    blocks/SRR525206_1-block-22.fastq \
+    blocks/SRR525206_2-block-22.fastq \
+-p \
+    blocks/SRR525206_1-block-23.fastq \
+    blocks/SRR525206_2-block-23.fastq \
+-p \
+    blocks/SRR525206_1-block-24.fastq \
+    blocks/SRR525206_2-block-24.fastq \
+-p \
+    blocks/SRR525206_1-block-25.fastq \
+    blocks/SRR525206_2-block-25.fastq \
+-p \
+    blocks/SRR525206_1-block-26.fastq \
+    blocks/SRR525206_2-block-26.fastq \
+-p \
+    blocks/SRR525206_1-block-27.fastq \
+    blocks/SRR525206_2-block-27.fastq \
+-p \
+    blocks/SRR525206_1-block-28.fastq \
+    blocks/SRR525206_2-block-28.fastq \
+-p \
+    blocks/SRR525206_1-block-29.fastq \
+    blocks/SRR525206_2-block-29.fastq \
+-p \
+    blocks/SRR525206_1-block-3.fastq \
+    blocks/SRR525206_2-block-3.fastq \
+-p \
+    blocks/SRR525206_1-block-30.fastq \
+    blocks/SRR525206_2-block-30.fastq \
+-p \
+    blocks/SRR525206_1-block-31.fastq \
+    blocks/SRR525206_2-block-31.fastq \
+-p \
+    blocks/SRR525206_1-block-32.fastq \
+    blocks/SRR525206_2-block-32.fastq \
+-p \
+    blocks/SRR525206_1-block-33.fastq \
+    blocks/SRR525206_2-block-33.fastq \
+-p \
+    blocks/SRR525206_1-block-34.fastq \
+    blocks/SRR525206_2-block-34.fastq \
+-p \
+    blocks/SRR525206_1-block-35.fastq \
+    blocks/SRR525206_2-block-35.fastq \
+-p \
+    blocks/SRR525206_1-block-36.fastq \
+    blocks/SRR525206_2-block-36.fastq \
+-p \
+    blocks/SRR525206_1-block-37.fastq \
+    blocks/SRR525206_2-block-37.fastq \
+-p \
+    blocks/SRR525206_1-block-38.fastq \
+    blocks/SRR525206_2-block-38.fastq \
+-p \
+    blocks/SRR525206_1-block-39.fastq \
+    blocks/SRR525206_2-block-39.fastq \
+-p \
+    blocks/SRR525206_1-block-4.fastq \
+    blocks/SRR525206_2-block-4.fastq \
+-p \
+    blocks/SRR525206_1-block-40.fastq \
+    blocks/SRR525206_2-block-40.fastq \
+-p \
+    blocks/SRR525206_1-block-41.fastq \
+    blocks/SRR525206_2-block-41.fastq \
+-p \
+    blocks/SRR525206_1-block-42.fastq \
+    blocks/SRR525206_2-block-42.fastq \
+-p \
+    blocks/SRR525206_1-block-43.fastq \
+    blocks/SRR525206_2-block-43.fastq \
+-p \
+    blocks/SRR525206_1-block-44.fastq \
+    blocks/SRR525206_2-block-44.fastq \
+-p \
+    blocks/SRR525206_1-block-45.fastq \
+    blocks/SRR525206_2-block-45.fastq \
+-p \
+    blocks/SRR525206_1-block-46.fastq \
+    blocks/SRR525206_2-block-46.fastq \
+-p \
+    blocks/SRR525206_1-block-47.fastq \
+    blocks/SRR525206_2-block-47.fastq \
+-p \
+    blocks/SRR525206_1-block-48.fastq \
+    blocks/SRR525206_2-block-48.fastq \
+-p \
+    blocks/SRR525206_1-block-49.fastq \
+    blocks/SRR525206_2-block-49.fastq \
+-p \
+    blocks/SRR525206_1-block-5.fastq \
+    blocks/SRR525206_2-block-5.fastq \
+-p \
+    blocks/SRR525206_1-block-50.fastq \
+    blocks/SRR525206_2-block-50.fastq \
+-p \
+    blocks/SRR525206_1-block-51.fastq \
+    blocks/SRR525206_2-block-51.fastq \
+-p \
+    blocks/SRR525206_1-block-52.fastq \
+    blocks/SRR525206_2-block-52.fastq \
+-p \
+    blocks/SRR525206_1-block-53.fastq \
+    blocks/SRR525206_2-block-53.fastq \
+-p \
+    blocks/SRR525206_1-block-54.fastq \
+    blocks/SRR525206_2-block-54.fastq \
+-p \
+    blocks/SRR525206_1-block-55.fastq \
+    blocks/SRR525206_2-block-55.fastq \
+-p \
+    blocks/SRR525206_1-block-56.fastq \
+    blocks/SRR525206_2-block-56.fastq \
+-p \
+    blocks/SRR525206_1-block-57.fastq \
+    blocks/SRR525206_2-block-57.fastq \
+-p \
+    blocks/SRR525206_1-block-58.fastq \
+    blocks/SRR525206_2-block-58.fastq \
+-p \
+    blocks/SRR525206_1-block-59.fastq \
+    blocks/SRR525206_2-block-59.fastq \
+-p \
+    blocks/SRR525206_1-block-6.fastq \
+    blocks/SRR525206_2-block-6.fastq \
+-p \
+    blocks/SRR525206_1-block-60.fastq \
+    blocks/SRR525206_2-block-60.fastq \
+-p \
+    blocks/SRR525206_1-block-61.fastq \
+    blocks/SRR525206_2-block-61.fastq \
+-p \
+    blocks/SRR525206_1-block-62.fastq \
+    blocks/SRR525206_2-block-62.fastq \
+-p \
+    blocks/SRR525206_1-block-63.fastq \
+    blocks/SRR525206_2-block-63.fastq \
+-p \
+    blocks/SRR525206_1-block-64.fastq \
+    blocks/SRR525206_2-block-64.fastq \
+-p \
+    blocks/SRR525206_1-block-65.fastq \
+    blocks/SRR525206_2-block-65.fastq \
+-p \
+    blocks/SRR525206_1-block-66.fastq \
+    blocks/SRR525206_2-block-66.fastq \
+-p \
+    blocks/SRR525206_1-block-67.fastq \
+    blocks/SRR525206_2-block-67.fastq \
+-p \
+    blocks/SRR525206_1-block-68.fastq \
+    blocks/SRR525206_2-block-68.fastq \
+-p \
+    blocks/SRR525206_1-block-69.fastq \
+    blocks/SRR525206_2-block-69.fastq \
+-p \
+    blocks/SRR525206_1-block-7.fastq \
+    blocks/SRR525206_2-block-7.fastq \
+-p \
+    blocks/SRR525206_1-block-70.fastq \
+    blocks/SRR525206_2-block-70.fastq \
+-p \
+    blocks/SRR525206_1-block-71.fastq \
+    blocks/SRR525206_2-block-71.fastq \
+-p \
+    blocks/SRR525206_1-block-8.fastq \
+    blocks/SRR525206_2-block-8.fastq \
+-p \
+    blocks/SRR525206_1-block-9.fastq \
+    blocks/SRR525206_2-block-9.fastq \
+-p \
+    blocks/SRR525207_1-block-0.fastq \
+    blocks/SRR525207_2-block-0.fastq \
+-p \
+    blocks/SRR525207_1-block-1.fastq \
+    blocks/SRR525207_2-block-1.fastq \
+-p \
+    blocks/SRR525207_1-block-10.fastq \
+    blocks/SRR525207_2-block-10.fastq \
+-p \
+    blocks/SRR525207_1-block-11.fastq \
+    blocks/SRR525207_2-block-11.fastq \
+-p \
+    blocks/SRR525207_1-block-12.fastq \
+    blocks/SRR525207_2-block-12.fastq \
+-p \
+    blocks/SRR525207_1-block-13.fastq \
+    blocks/SRR525207_2-block-13.fastq \
+-p \
+    blocks/SRR525207_1-block-14.fastq \
+    blocks/SRR525207_2-block-14.fastq \
+-p \
+    blocks/SRR525207_1-block-15.fastq \
+    blocks/SRR525207_2-block-15.fastq \
+-p \
+    blocks/SRR525207_1-block-16.fastq \
+    blocks/SRR525207_2-block-16.fastq \
+-p \
+    blocks/SRR525207_1-block-17.fastq \
+    blocks/SRR525207_2-block-17.fastq \
+-p \
+    blocks/SRR525207_1-block-18.fastq \
+    blocks/SRR525207_2-block-18.fastq \
+-p \
+    blocks/SRR525207_1-block-19.fastq \
+    blocks/SRR525207_2-block-19.fastq \
+-p \
+    blocks/SRR525207_1-block-2.fastq \
+    blocks/SRR525207_2-block-2.fastq \
+-p \
+    blocks/SRR525207_1-block-20.fastq \
+    blocks/SRR525207_2-block-20.fastq \
+-p \
+    blocks/SRR525207_1-block-21.fastq \
+    blocks/SRR525207_2-block-21.fastq \
+-p \
+    blocks/SRR525207_1-block-22.fastq \
+    blocks/SRR525207_2-block-22.fastq \
+-p \
+    blocks/SRR525207_1-block-23.fastq \
+    blocks/SRR525207_2-block-23.fastq \
+-p \
+    blocks/SRR525207_1-block-24.fastq \
+    blocks/SRR525207_2-block-24.fastq \
+-p \
+    blocks/SRR525207_1-block-25.fastq \
+    blocks/SRR525207_2-block-25.fastq \
+-p \
+    blocks/SRR525207_1-block-26.fastq \
+    blocks/SRR525207_2-block-26.fastq \
+-p \
+    blocks/SRR525207_1-block-27.fastq \
+    blocks/SRR525207_2-block-27.fastq \
+-p \
+    blocks/SRR525207_1-block-28.fastq \
+    blocks/SRR525207_2-block-28.fastq \
+-p \
+    blocks/SRR525207_1-block-29.fastq \
+    blocks/SRR525207_2-block-29.fastq \
+-p \
+    blocks/SRR525207_1-block-3.fastq \
+    blocks/SRR525207_2-block-3.fastq \
+-p \
+    blocks/SRR525207_1-block-30.fastq \
+    blocks/SRR525207_2-block-30.fastq \
+-p \
+    blocks/SRR525207_1-block-31.fastq \
+    blocks/SRR525207_2-block-31.fastq \
+-p \
+    blocks/SRR525207_1-block-32.fastq \
+    blocks/SRR525207_2-block-32.fastq \
+-p \
+    blocks/SRR525207_1-block-33.fastq \
+    blocks/SRR525207_2-block-33.fastq \
+-p \
+    blocks/SRR525207_1-block-34.fastq \
+    blocks/SRR525207_2-block-34.fastq \
+-p \
+    blocks/SRR525207_1-block-35.fastq \
+    blocks/SRR525207_2-block-35.fastq \
+-p \
+    blocks/SRR525207_1-block-36.fastq \
+    blocks/SRR525207_2-block-36.fastq \
+-p \
+    blocks/SRR525207_1-block-37.fastq \
+    blocks/SRR525207_2-block-37.fastq \
+-p \
+    blocks/SRR525207_1-block-38.fastq \
+    blocks/SRR525207_2-block-38.fastq \
+-p \
+    blocks/SRR525207_1-block-39.fastq \
+    blocks/SRR525207_2-block-39.fastq \
+-p \
+    blocks/SRR525207_1-block-4.fastq \
+    blocks/SRR525207_2-block-4.fastq \
+-p \
+    blocks/SRR525207_1-block-40.fastq \
+    blocks/SRR525207_2-block-40.fastq \
+-p \
+    blocks/SRR525207_1-block-41.fastq \
+    blocks/SRR525207_2-block-41.fastq \
+-p \
+    blocks/SRR525207_1-block-42.fastq \
+    blocks/SRR525207_2-block-42.fastq \
+-p \
+    blocks/SRR525207_1-block-43.fastq \
+    blocks/SRR525207_2-block-43.fastq \
+-p \
+    blocks/SRR525207_1-block-44.fastq \
+    blocks/SRR525207_2-block-44.fastq \
+-p \
+    blocks/SRR525207_1-block-45.fastq \
+    blocks/SRR525207_2-block-45.fastq \
+-p \
+    blocks/SRR525207_1-block-46.fastq \
+    blocks/SRR525207_2-block-46.fastq \
+-p \
+    blocks/SRR525207_1-block-47.fastq \
+    blocks/SRR525207_2-block-47.fastq \
+-p \
+    blocks/SRR525207_1-block-48.fastq \
+    blocks/SRR525207_2-block-48.fastq \
+-p \
+    blocks/SRR525207_1-block-49.fastq \
+    blocks/SRR525207_2-block-49.fastq \
+-p \
+    blocks/SRR525207_1-block-5.fastq \
+    blocks/SRR525207_2-block-5.fastq \
+-p \
+    blocks/SRR525207_1-block-50.fastq \
+    blocks/SRR525207_2-block-50.fastq \
+-p \
+    blocks/SRR525207_1-block-51.fastq \
+    blocks/SRR525207_2-block-51.fastq \
+-p \
+    blocks/SRR525207_1-block-52.fastq \
+    blocks/SRR525207_2-block-52.fastq \
+-p \
+    blocks/SRR525207_1-block-53.fastq \
+    blocks/SRR525207_2-block-53.fastq \
+-p \
+    blocks/SRR525207_1-block-54.fastq \
+    blocks/SRR525207_2-block-54.fastq \
+-p \
+    blocks/SRR525207_1-block-55.fastq \
+    blocks/SRR525207_2-block-55.fastq \
+-p \
+    blocks/SRR525207_1-block-56.fastq \
+    blocks/SRR525207_2-block-56.fastq \
+-p \
+    blocks/SRR525207_1-block-57.fastq \
+    blocks/SRR525207_2-block-57.fastq \
+-p \
+    blocks/SRR525207_1-block-58.fastq \
+    blocks/SRR525207_2-block-58.fastq \
+-p \
+    blocks/SRR525207_1-block-59.fastq \
+    blocks/SRR525207_2-block-59.fastq \
+-p \
+    blocks/SRR525207_1-block-6.fastq \
+    blocks/SRR525207_2-block-6.fastq \
+-p \
+    blocks/SRR525207_1-block-60.fastq \
+    blocks/SRR525207_2-block-60.fastq \
+-p \
+    blocks/SRR525207_1-block-61.fastq \
+    blocks/SRR525207_2-block-61.fastq \
+-p \
+    blocks/SRR525207_1-block-62.fastq \
+    blocks/SRR525207_2-block-62.fastq \
+-p \
+    blocks/SRR525207_1-block-63.fastq \
+    blocks/SRR525207_2-block-63.fastq \
+-p \
+    blocks/SRR525207_1-block-64.fastq \
+    blocks/SRR525207_2-block-64.fastq \
+-p \
+    blocks/SRR525207_1-block-65.fastq \
+    blocks/SRR525207_2-block-65.fastq \
+-p \
+    blocks/SRR525207_1-block-66.fastq \
+    blocks/SRR525207_2-block-66.fastq \
+-p \
+    blocks/SRR525207_1-block-67.fastq \
+    blocks/SRR525207_2-block-67.fastq \
+-p \
+    blocks/SRR525207_1-block-68.fastq \
+    blocks/SRR525207_2-block-68.fastq \
+-p \
+    blocks/SRR525207_1-block-69.fastq \
+    blocks/SRR525207_2-block-69.fastq \
+-p \
+    blocks/SRR525207_1-block-7.fastq \
+    blocks/SRR525207_2-block-7.fastq \
+-p \
+    blocks/SRR525207_1-block-70.fastq \
+    blocks/SRR525207_2-block-70.fastq \
+-p \
+    blocks/SRR525207_1-block-71.fastq \
+    blocks/SRR525207_2-block-71.fastq \
+-p \
+    blocks/SRR525207_1-block-72.fastq \
+    blocks/SRR525207_2-block-72.fastq \
+-p \
+    blocks/SRR525207_1-block-73.fastq \
+    blocks/SRR525207_2-block-73.fastq \
+-p \
+    blocks/SRR525207_1-block-74.fastq \
+    blocks/SRR525207_2-block-74.fastq \
+-p \
+    blocks/SRR525207_1-block-75.fastq \
+    blocks/SRR525207_2-block-75.fastq \
+-p \
+    blocks/SRR525207_1-block-76.fastq \
+    blocks/SRR525207_2-block-76.fastq \
+-p \
+    blocks/SRR525207_1-block-77.fastq \
+    blocks/SRR525207_2-block-77.fastq \
+-p \
+    blocks/SRR525207_1-block-78.fastq \
+    blocks/SRR525207_2-block-78.fastq \
+-p \
+    blocks/SRR525207_1-block-79.fastq \
+    blocks/SRR525207_2-block-79.fastq \
+-p \
+    blocks/SRR525207_1-block-8.fastq \
+    blocks/SRR525207_2-block-8.fastq \
+-p \
+    blocks/SRR525207_1-block-80.fastq \
+    blocks/SRR525207_2-block-80.fastq \
+-p \
+    blocks/SRR525207_1-block-81.fastq \
+    blocks/SRR525207_2-block-81.fastq \
+-p \
+    blocks/SRR525207_1-block-82.fastq \
+    blocks/SRR525207_2-block-82.fastq \
+-p \
+    blocks/SRR525207_1-block-83.fastq \
+    blocks/SRR525207_2-block-83.fastq \
+-p \
+    blocks/SRR525207_1-block-84.fastq \
+    blocks/SRR525207_2-block-84.fastq \
+-p \
+    blocks/SRR525207_1-block-9.fastq \
+    blocks/SRR525207_2-block-9.fastq \
+-p \
+    blocks/SRR525208_1-block-0.fastq \
+    blocks/SRR525208_2-block-0.fastq \
+-p \
+    blocks/SRR525208_1-block-1.fastq \
+    blocks/SRR525208_2-block-1.fastq \
+-p \
+    blocks/SRR525208_1-block-10.fastq \
+    blocks/SRR525208_2-block-10.fastq \
+-p \
+    blocks/SRR525208_1-block-11.fastq \
+    blocks/SRR525208_2-block-11.fastq \
+-p \
+    blocks/SRR525208_1-block-12.fastq \
+    blocks/SRR525208_2-block-12.fastq \
+-p \
+    blocks/SRR525208_1-block-13.fastq \
+    blocks/SRR525208_2-block-13.fastq \
+-p \
+    blocks/SRR525208_1-block-14.fastq \
+    blocks/SRR525208_2-block-14.fastq \
+-p \
+    blocks/SRR525208_1-block-15.fastq \
+    blocks/SRR525208_2-block-15.fastq \
+-p \
+    blocks/SRR525208_1-block-16.fastq \
+    blocks/SRR525208_2-block-16.fastq \
+-p \
+    blocks/SRR525208_1-block-17.fastq \
+    blocks/SRR525208_2-block-17.fastq \
+-p \
+    blocks/SRR525208_1-block-18.fastq \
+    blocks/SRR525208_2-block-18.fastq \
+-p \
+    blocks/SRR525208_1-block-19.fastq \
+    blocks/SRR525208_2-block-19.fastq \
+-p \
+    blocks/SRR525208_1-block-2.fastq \
+    blocks/SRR525208_2-block-2.fastq \
+-p \
+    blocks/SRR525208_1-block-20.fastq \
+    blocks/SRR525208_2-block-20.fastq \
+-p \
+    blocks/SRR525208_1-block-21.fastq \
+    blocks/SRR525208_2-block-21.fastq \
+-p \
+    blocks/SRR525208_1-block-22.fastq \
+    blocks/SRR525208_2-block-22.fastq \
+-p \
+    blocks/SRR525208_1-block-23.fastq \
+    blocks/SRR525208_2-block-23.fastq \
+-p \
+    blocks/SRR525208_1-block-24.fastq \
+    blocks/SRR525208_2-block-24.fastq \
+-p \
+    blocks/SRR525208_1-block-25.fastq \
+    blocks/SRR525208_2-block-25.fastq \
+-p \
+    blocks/SRR525208_1-block-26.fastq \
+    blocks/SRR525208_2-block-26.fastq \
+-p \
+    blocks/SRR525208_1-block-27.fastq \
+    blocks/SRR525208_2-block-27.fastq \
+-p \
+    blocks/SRR525208_1-block-28.fastq \
+    blocks/SRR525208_2-block-28.fastq \
+-p \
+    blocks/SRR525208_1-block-29.fastq \
+    blocks/SRR525208_2-block-29.fastq \
+-p \
+    blocks/SRR525208_1-block-3.fastq \
+    blocks/SRR525208_2-block-3.fastq \
+-p \
+    blocks/SRR525208_1-block-30.fastq \
+    blocks/SRR525208_2-block-30.fastq \
+-p \
+    blocks/SRR525208_1-block-31.fastq \
+    blocks/SRR525208_2-block-31.fastq \
+-p \
+    blocks/SRR525208_1-block-32.fastq \
+    blocks/SRR525208_2-block-32.fastq \
+-p \
+    blocks/SRR525208_1-block-33.fastq \
+    blocks/SRR525208_2-block-33.fastq \
+-p \
+    blocks/SRR525208_1-block-34.fastq \
+    blocks/SRR525208_2-block-34.fastq \
+-p \
+    blocks/SRR525208_1-block-35.fastq \
+    blocks/SRR525208_2-block-35.fastq \
+-p \
+    blocks/SRR525208_1-block-36.fastq \
+    blocks/SRR525208_2-block-36.fastq \
+-p \
+    blocks/SRR525208_1-block-37.fastq \
+    blocks/SRR525208_2-block-37.fastq \
+-p \
+    blocks/SRR525208_1-block-38.fastq \
+    blocks/SRR525208_2-block-38.fastq \
+-p \
+    blocks/SRR525208_1-block-39.fastq \
+    blocks/SRR525208_2-block-39.fastq \
+-p \
+    blocks/SRR525208_1-block-4.fastq \
+    blocks/SRR525208_2-block-4.fastq \
+-p \
+    blocks/SRR525208_1-block-40.fastq \
+    blocks/SRR525208_2-block-40.fastq \
+-p \
+    blocks/SRR525208_1-block-41.fastq \
+    blocks/SRR525208_2-block-41.fastq \
+-p \
+    blocks/SRR525208_1-block-42.fastq \
+    blocks/SRR525208_2-block-42.fastq \
+-p \
+    blocks/SRR525208_1-block-43.fastq \
+    blocks/SRR525208_2-block-43.fastq \
+-p \
+    blocks/SRR525208_1-block-44.fastq \
+    blocks/SRR525208_2-block-44.fastq \
+-p \
+    blocks/SRR525208_1-block-45.fastq \
+    blocks/SRR525208_2-block-45.fastq \
+-p \
+    blocks/SRR525208_1-block-46.fastq \
+    blocks/SRR525208_2-block-46.fastq \
+-p \
+    blocks/SRR525208_1-block-47.fastq \
+    blocks/SRR525208_2-block-47.fastq \
+-p \
+    blocks/SRR525208_1-block-48.fastq \
+    blocks/SRR525208_2-block-48.fastq \
+-p \
+    blocks/SRR525208_1-block-49.fastq \
+    blocks/SRR525208_2-block-49.fastq \
+-p \
+    blocks/SRR525208_1-block-5.fastq \
+    blocks/SRR525208_2-block-5.fastq \
+-p \
+    blocks/SRR525208_1-block-50.fastq \
+    blocks/SRR525208_2-block-50.fastq \
+-p \
+    blocks/SRR525208_1-block-51.fastq \
+    blocks/SRR525208_2-block-51.fastq \
+-p \
+    blocks/SRR525208_1-block-52.fastq \
+    blocks/SRR525208_2-block-52.fastq \
+-p \
+    blocks/SRR525208_1-block-53.fastq \
+    blocks/SRR525208_2-block-53.fastq \
+-p \
+    blocks/SRR525208_1-block-54.fastq \
+    blocks/SRR525208_2-block-54.fastq \
+-p \
+    blocks/SRR525208_1-block-55.fastq \
+    blocks/SRR525208_2-block-55.fastq \
+-p \
+    blocks/SRR525208_1-block-56.fastq \
+    blocks/SRR525208_2-block-56.fastq \
+-p \
+    blocks/SRR525208_1-block-57.fastq \
+    blocks/SRR525208_2-block-57.fastq \
+-p \
+    blocks/SRR525208_1-block-58.fastq \
+    blocks/SRR525208_2-block-58.fastq \
+-p \
+    blocks/SRR525208_1-block-59.fastq \
+    blocks/SRR525208_2-block-59.fastq \
+-p \
+    blocks/SRR525208_1-block-6.fastq \
+    blocks/SRR525208_2-block-6.fastq \
+-p \
+    blocks/SRR525208_1-block-60.fastq \
+    blocks/SRR525208_2-block-60.fastq \
+-p \
+    blocks/SRR525208_1-block-61.fastq \
+    blocks/SRR525208_2-block-61.fastq \
+-p \
+    blocks/SRR525208_1-block-62.fastq \
+    blocks/SRR525208_2-block-62.fastq \
+-p \
+    blocks/SRR525208_1-block-63.fastq \
+    blocks/SRR525208_2-block-63.fastq \
+-p \
+    blocks/SRR525208_1-block-64.fastq \
+    blocks/SRR525208_2-block-64.fastq \
+-p \
+    blocks/SRR525208_1-block-65.fastq \
+    blocks/SRR525208_2-block-65.fastq \
+-p \
+    blocks/SRR525208_1-block-66.fastq \
+    blocks/SRR525208_2-block-66.fastq \
+-p \
+    blocks/SRR525208_1-block-67.fastq \
+    blocks/SRR525208_2-block-67.fastq \
+-p \
+    blocks/SRR525208_1-block-68.fastq \
+    blocks/SRR525208_2-block-68.fastq \
+-p \
+    blocks/SRR525208_1-block-69.fastq \
+    blocks/SRR525208_2-block-69.fastq \
+-p \
+    blocks/SRR525208_1-block-7.fastq \
+    blocks/SRR525208_2-block-7.fastq \
+-p \
+    blocks/SRR525208_1-block-70.fastq \
+    blocks/SRR525208_2-block-70.fastq \
+-p \
+    blocks/SRR525208_1-block-71.fastq \
+    blocks/SRR525208_2-block-71.fastq \
+-p \
+    blocks/SRR525208_1-block-72.fastq \
+    blocks/SRR525208_2-block-72.fastq \
+-p \
+    blocks/SRR525208_1-block-73.fastq \
+    blocks/SRR525208_2-block-73.fastq \
+-p \
+    blocks/SRR525208_1-block-74.fastq \
+    blocks/SRR525208_2-block-74.fastq \
+-p \
+    blocks/SRR525208_1-block-75.fastq \
+    blocks/SRR525208_2-block-75.fastq \
+-p \
+    blocks/SRR525208_1-block-76.fastq \
+    blocks/SRR525208_2-block-76.fastq \
+-p \
+    blocks/SRR525208_1-block-77.fastq \
+    blocks/SRR525208_2-block-77.fastq \
+-p \
+    blocks/SRR525208_1-block-78.fastq \
+    blocks/SRR525208_2-block-78.fastq \
+-p \
+    blocks/SRR525208_1-block-79.fastq \
+    blocks/SRR525208_2-block-79.fastq \
+-p \
+    blocks/SRR525208_1-block-8.fastq \
+    blocks/SRR525208_2-block-8.fastq \
+-p \
+    blocks/SRR525208_1-block-80.fastq \
+    blocks/SRR525208_2-block-80.fastq \
+-p \
+    blocks/SRR525208_1-block-81.fastq \
+    blocks/SRR525208_2-block-81.fastq \
+-p \
+    blocks/SRR525208_1-block-82.fastq \
+    blocks/SRR525208_2-block-82.fastq \
+-p \
+    blocks/SRR525208_1-block-83.fastq \
+    blocks/SRR525208_2-block-83.fastq \
+-p \
+    blocks/SRR525208_1-block-84.fastq \
+    blocks/SRR525208_2-block-84.fastq \
+-p \
+    blocks/SRR525208_1-block-85.fastq \
+    blocks/SRR525208_2-block-85.fastq \
+-p \
+    blocks/SRR525208_1-block-86.fastq \
+    blocks/SRR525208_2-block-86.fastq \
+-p \
+    blocks/SRR525208_1-block-87.fastq \
+    blocks/SRR525208_2-block-87.fastq \
+-p \
+    blocks/SRR525208_1-block-88.fastq \
+    blocks/SRR525208_2-block-88.fastq \
+-p \
+    blocks/SRR525208_1-block-89.fastq \
+    blocks/SRR525208_2-block-89.fastq \
+-p \
+    blocks/SRR525208_1-block-9.fastq \
+    blocks/SRR525208_2-block-9.fastq \
+-p \
+    blocks/SRR525208_1-block-90.fastq \
+    blocks/SRR525208_2-block-90.fastq \
+-p \
+    blocks/SRR525208_1-block-91.fastq \
+    blocks/SRR525208_2-block-91.fastq \
+-p \
+    blocks/SRR525208_1-block-92.fastq \
+    blocks/SRR525208_2-block-92.fastq \
+-p \
+    blocks/SRR525208_1-block-93.fastq \
+    blocks/SRR525208_2-block-93.fastq \
+-p \
+    blocks/SRR525209_1-block-0.fastq \
+    blocks/SRR525209_2-block-0.fastq \
+-p \
+    blocks/SRR525209_1-block-1.fastq \
+    blocks/SRR525209_2-block-1.fastq \
+-p \
+    blocks/SRR525209_1-block-10.fastq \
+    blocks/SRR525209_2-block-10.fastq \
+-p \
+    blocks/SRR525209_1-block-100.fastq \
+    blocks/SRR525209_2-block-100.fastq \
+-p \
+    blocks/SRR525209_1-block-101.fastq \
+    blocks/SRR525209_2-block-101.fastq \
+-p \
+    blocks/SRR525209_1-block-102.fastq \
+    blocks/SRR525209_2-block-102.fastq \
+-p \
+    blocks/SRR525209_1-block-103.fastq \
+    blocks/SRR525209_2-block-103.fastq \
+-p \
+    blocks/SRR525209_1-block-104.fastq \
+    blocks/SRR525209_2-block-104.fastq \
+-p \
+    blocks/SRR525209_1-block-105.fastq \
+    blocks/SRR525209_2-block-105.fastq \
+-p \
+    blocks/SRR525209_1-block-106.fastq \
+    blocks/SRR525209_2-block-106.fastq \
+-p \
+    blocks/SRR525209_1-block-107.fastq \
+    blocks/SRR525209_2-block-107.fastq \
+-p \
+    blocks/SRR525209_1-block-108.fastq \
+    blocks/SRR525209_2-block-108.fastq \
+-p \
+    blocks/SRR525209_1-block-109.fastq \
+    blocks/SRR525209_2-block-109.fastq \
+-p \
+    blocks/SRR525209_1-block-11.fastq \
+    blocks/SRR525209_2-block-11.fastq \
+-p \
+    blocks/SRR525209_1-block-110.fastq \
+    blocks/SRR525209_2-block-110.fastq \
+-p \
+    blocks/SRR525209_1-block-111.fastq \
+    blocks/SRR525209_2-block-111.fastq \
+-p \
+    blocks/SRR525209_1-block-112.fastq \
+    blocks/SRR525209_2-block-112.fastq \
+-p \
+    blocks/SRR525209_1-block-113.fastq \
+    blocks/SRR525209_2-block-113.fastq \
+-p \
+    blocks/SRR525209_1-block-114.fastq \
+    blocks/SRR525209_2-block-114.fastq \
+-p \
+    blocks/SRR525209_1-block-115.fastq \
+    blocks/SRR525209_2-block-115.fastq \
+-p \
+    blocks/SRR525209_1-block-116.fastq \
+    blocks/SRR525209_2-block-116.fastq \
+-p \
+    blocks/SRR525209_1-block-117.fastq \
+    blocks/SRR525209_2-block-117.fastq \
+-p \
+    blocks/SRR525209_1-block-118.fastq \
+    blocks/SRR525209_2-block-118.fastq \
+-p \
+    blocks/SRR525209_1-block-12.fastq \
+    blocks/SRR525209_2-block-12.fastq \
+-p \
+    blocks/SRR525209_1-block-13.fastq \
+    blocks/SRR525209_2-block-13.fastq \
+-p \
+    blocks/SRR525209_1-block-14.fastq \
+    blocks/SRR525209_2-block-14.fastq \
+-p \
+    blocks/SRR525209_1-block-15.fastq \
+    blocks/SRR525209_2-block-15.fastq \
+-p \
+    blocks/SRR525209_1-block-16.fastq \
+    blocks/SRR525209_2-block-16.fastq \
+-p \
+    blocks/SRR525209_1-block-17.fastq \
+    blocks/SRR525209_2-block-17.fastq \
+-p \
+    blocks/SRR525209_1-block-18.fastq \
+    blocks/SRR525209_2-block-18.fastq \
+-p \
+    blocks/SRR525209_1-block-19.fastq \
+    blocks/SRR525209_2-block-19.fastq \
+-p \
+    blocks/SRR525209_1-block-2.fastq \
+    blocks/SRR525209_2-block-2.fastq \
+-p \
+    blocks/SRR525209_1-block-20.fastq \
+    blocks/SRR525209_2-block-20.fastq \
+-p \
+    blocks/SRR525209_1-block-21.fastq \
+    blocks/SRR525209_2-block-21.fastq \
+-p \
+    blocks/SRR525209_1-block-22.fastq \
+    blocks/SRR525209_2-block-22.fastq \
+-p \
+    blocks/SRR525209_1-block-23.fastq \
+    blocks/SRR525209_2-block-23.fastq \
+-p \
+    blocks/SRR525209_1-block-24.fastq \
+    blocks/SRR525209_2-block-24.fastq \
+-p \
+    blocks/SRR525209_1-block-25.fastq \
+    blocks/SRR525209_2-block-25.fastq \
+-p \
+    blocks/SRR525209_1-block-26.fastq \
+    blocks/SRR525209_2-block-26.fastq \
+-p \
+    blocks/SRR525209_1-block-27.fastq \
+    blocks/SRR525209_2-block-27.fastq \
+-p \
+    blocks/SRR525209_1-block-28.fastq \
+    blocks/SRR525209_2-block-28.fastq \
+-p \
+    blocks/SRR525209_1-block-29.fastq \
+    blocks/SRR525209_2-block-29.fastq \
+-p \
+    blocks/SRR525209_1-block-3.fastq \
+    blocks/SRR525209_2-block-3.fastq \
+-p \
+    blocks/SRR525209_1-block-30.fastq \
+    blocks/SRR525209_2-block-30.fastq \
+-p \
+    blocks/SRR525209_1-block-31.fastq \
+    blocks/SRR525209_2-block-31.fastq \
+-p \
+    blocks/SRR525209_1-block-32.fastq \
+    blocks/SRR525209_2-block-32.fastq \
+-p \
+    blocks/SRR525209_1-block-33.fastq \
+    blocks/SRR525209_2-block-33.fastq \
+-p \
+    blocks/SRR525209_1-block-34.fastq \
+    blocks/SRR525209_2-block-34.fastq \
+-p \
+    blocks/SRR525209_1-block-35.fastq \
+    blocks/SRR525209_2-block-35.fastq \
+-p \
+    blocks/SRR525209_1-block-36.fastq \
+    blocks/SRR525209_2-block-36.fastq \
+-p \
+    blocks/SRR525209_1-block-37.fastq \
+    blocks/SRR525209_2-block-37.fastq \
+-p \
+    blocks/SRR525209_1-block-38.fastq \
+    blocks/SRR525209_2-block-38.fastq \
+-p \
+    blocks/SRR525209_1-block-39.fastq \
+    blocks/SRR525209_2-block-39.fastq \
+-p \
+    blocks/SRR525209_1-block-4.fastq \
+    blocks/SRR525209_2-block-4.fastq \
+-p \
+    blocks/SRR525209_1-block-40.fastq \
+    blocks/SRR525209_2-block-40.fastq \
+-p \
+    blocks/SRR525209_1-block-41.fastq \
+    blocks/SRR525209_2-block-41.fastq \
+-p \
+    blocks/SRR525209_1-block-42.fastq \
+    blocks/SRR525209_2-block-42.fastq \
+-p \
+    blocks/SRR525209_1-block-43.fastq \
+    blocks/SRR525209_2-block-43.fastq \
+-p \
+    blocks/SRR525209_1-block-44.fastq \
+    blocks/SRR525209_2-block-44.fastq \
+-p \
+    blocks/SRR525209_1-block-45.fastq \
+    blocks/SRR525209_2-block-45.fastq \
+-p \
+    blocks/SRR525209_1-block-46.fastq \
+    blocks/SRR525209_2-block-46.fastq \
+-p \
+    blocks/SRR525209_1-block-47.fastq \
+    blocks/SRR525209_2-block-47.fastq \
+-p \
+    blocks/SRR525209_1-block-48.fastq \
+    blocks/SRR525209_2-block-48.fastq \
+-p \
+    blocks/SRR525209_1-block-49.fastq \
+    blocks/SRR525209_2-block-49.fastq \
+-p \
+    blocks/SRR525209_1-block-5.fastq \
+    blocks/SRR525209_2-block-5.fastq \
+-p \
+    blocks/SRR525209_1-block-50.fastq \
+    blocks/SRR525209_2-block-50.fastq \
+-p \
+    blocks/SRR525209_1-block-51.fastq \
+    blocks/SRR525209_2-block-51.fastq \
+-p \
+    blocks/SRR525209_1-block-52.fastq \
+    blocks/SRR525209_2-block-52.fastq \
+-p \
+    blocks/SRR525209_1-block-53.fastq \
+    blocks/SRR525209_2-block-53.fastq \
+-p \
+    blocks/SRR525209_1-block-54.fastq \
+    blocks/SRR525209_2-block-54.fastq \
+-p \
+    blocks/SRR525209_1-block-55.fastq \
+    blocks/SRR525209_2-block-55.fastq \
+-p \
+    blocks/SRR525209_1-block-56.fastq \
+    blocks/SRR525209_2-block-56.fastq \
+-p \
+    blocks/SRR525209_1-block-57.fastq \
+    blocks/SRR525209_2-block-57.fastq \
+-p \
+    blocks/SRR525209_1-block-58.fastq \
+    blocks/SRR525209_2-block-58.fastq \
+-p \
+    blocks/SRR525209_1-block-59.fastq \
+    blocks/SRR525209_2-block-59.fastq \
+-p \
+    blocks/SRR525209_1-block-6.fastq \
+    blocks/SRR525209_2-block-6.fastq \
+-p \
+    blocks/SRR525209_1-block-60.fastq \
+    blocks/SRR525209_2-block-60.fastq \
+-p \
+    blocks/SRR525209_1-block-61.fastq \
+    blocks/SRR525209_2-block-61.fastq \
+-p \
+    blocks/SRR525209_1-block-62.fastq \
+    blocks/SRR525209_2-block-62.fastq \
+-p \
+    blocks/SRR525209_1-block-63.fastq \
+    blocks/SRR525209_2-block-63.fastq \
+-p \
+    blocks/SRR525209_1-block-64.fastq \
+    blocks/SRR525209_2-block-64.fastq \
+-p \
+    blocks/SRR525209_1-block-65.fastq \
+    blocks/SRR525209_2-block-65.fastq \
+-p \
+    blocks/SRR525209_1-block-66.fastq \
+    blocks/SRR525209_2-block-66.fastq \
+-p \
+    blocks/SRR525209_1-block-67.fastq \
+    blocks/SRR525209_2-block-67.fastq \
+-p \
+    blocks/SRR525209_1-block-68.fastq \
+    blocks/SRR525209_2-block-68.fastq \
+-p \
+    blocks/SRR525209_1-block-69.fastq \
+    blocks/SRR525209_2-block-69.fastq \
+-p \
+    blocks/SRR525209_1-block-7.fastq \
+    blocks/SRR525209_2-block-7.fastq \
+-p \
+    blocks/SRR525209_1-block-70.fastq \
+    blocks/SRR525209_2-block-70.fastq \
+-p \
+    blocks/SRR525209_1-block-71.fastq \
+    blocks/SRR525209_2-block-71.fastq \
+-p \
+    blocks/SRR525209_1-block-72.fastq \
+    blocks/SRR525209_2-block-72.fastq \
+-p \
+    blocks/SRR525209_1-block-73.fastq \
+    blocks/SRR525209_2-block-73.fastq \
+-p \
+    blocks/SRR525209_1-block-74.fastq \
+    blocks/SRR525209_2-block-74.fastq \
+-p \
+    blocks/SRR525209_1-block-75.fastq \
+    blocks/SRR525209_2-block-75.fastq \
+-p \
+    blocks/SRR525209_1-block-76.fastq \
+    blocks/SRR525209_2-block-76.fastq \
+-p \
+    blocks/SRR525209_1-block-77.fastq \
+    blocks/SRR525209_2-block-77.fastq \
+-p \
+    blocks/SRR525209_1-block-78.fastq \
+    blocks/SRR525209_2-block-78.fastq \
+-p \
+    blocks/SRR525209_1-block-79.fastq \
+    blocks/SRR525209_2-block-79.fastq \
+-p \
+    blocks/SRR525209_1-block-8.fastq \
+    blocks/SRR525209_2-block-8.fastq \
+-p \
+    blocks/SRR525209_1-block-80.fastq \
+    blocks/SRR525209_2-block-80.fastq \
+-p \
+    blocks/SRR525209_1-block-81.fastq \
+    blocks/SRR525209_2-block-81.fastq \
+-p \
+    blocks/SRR525209_1-block-82.fastq \
+    blocks/SRR525209_2-block-82.fastq \
+-p \
+    blocks/SRR525209_1-block-83.fastq \
+    blocks/SRR525209_2-block-83.fastq \
+-p \
+    blocks/SRR525209_1-block-84.fastq \
+    blocks/SRR525209_2-block-84.fastq \
+-p \
+    blocks/SRR525209_1-block-85.fastq \
+    blocks/SRR525209_2-block-85.fastq \
+-p \
+    blocks/SRR525209_1-block-86.fastq \
+    blocks/SRR525209_2-block-86.fastq \
+-p \
+    blocks/SRR525209_1-block-87.fastq \
+    blocks/SRR525209_2-block-87.fastq \
+-p \
+    blocks/SRR525209_1-block-88.fastq \
+    blocks/SRR525209_2-block-88.fastq \
+-p \
+    blocks/SRR525209_1-block-89.fastq \
+    blocks/SRR525209_2-block-89.fastq \
+-p \
+    blocks/SRR525209_1-block-9.fastq \
+    blocks/SRR525209_2-block-9.fastq \
+-p \
+    blocks/SRR525209_1-block-90.fastq \
+    blocks/SRR525209_2-block-90.fastq \
+-p \
+    blocks/SRR525209_1-block-91.fastq \
+    blocks/SRR525209_2-block-91.fastq \
+-p \
+    blocks/SRR525209_1-block-92.fastq \
+    blocks/SRR525209_2-block-92.fastq \
+-p \
+    blocks/SRR525209_1-block-93.fastq \
+    blocks/SRR525209_2-block-93.fastq \
+-p \
+    blocks/SRR525209_1-block-94.fastq \
+    blocks/SRR525209_2-block-94.fastq \
+-p \
+    blocks/SRR525209_1-block-95.fastq \
+    blocks/SRR525209_2-block-95.fastq \
+-p \
+    blocks/SRR525209_1-block-96.fastq \
+    blocks/SRR525209_2-block-96.fastq \
+-p \
+    blocks/SRR525209_1-block-97.fastq \
+    blocks/SRR525209_2-block-97.fastq \
+-p \
+    blocks/SRR525209_1-block-98.fastq \
+    blocks/SRR525209_2-block-98.fastq \
+-p \
+    blocks/SRR525209_1-block-99.fastq \
+    blocks/SRR525209_2-block-99.fastq \
+-p \
+    blocks/SRR525210_1-block-0.fastq \
+    blocks/SRR525210_2-block-0.fastq \
+-p \
+    blocks/SRR525210_1-block-1.fastq \
+    blocks/SRR525210_2-block-1.fastq \
+-p \
+    blocks/SRR525210_1-block-10.fastq \
+    blocks/SRR525210_2-block-10.fastq \
+-p \
+    blocks/SRR525210_1-block-11.fastq \
+    blocks/SRR525210_2-block-11.fastq \
+-p \
+    blocks/SRR525210_1-block-12.fastq \
+    blocks/SRR525210_2-block-12.fastq \
+-p \
+    blocks/SRR525210_1-block-13.fastq \
+    blocks/SRR525210_2-block-13.fastq \
+-p \
+    blocks/SRR525210_1-block-14.fastq \
+    blocks/SRR525210_2-block-14.fastq \
+-p \
+    blocks/SRR525210_1-block-15.fastq \
+    blocks/SRR525210_2-block-15.fastq \
+-p \
+    blocks/SRR525210_1-block-16.fastq \
+    blocks/SRR525210_2-block-16.fastq \
+-p \
+    blocks/SRR525210_1-block-17.fastq \
+    blocks/SRR525210_2-block-17.fastq \
+-p \
+    blocks/SRR525210_1-block-18.fastq \
+    blocks/SRR525210_2-block-18.fastq \
+-p \
+    blocks/SRR525210_1-block-19.fastq \
+    blocks/SRR525210_2-block-19.fastq \
+-p \
+    blocks/SRR525210_1-block-2.fastq \
+    blocks/SRR525210_2-block-2.fastq \
+-p \
+    blocks/SRR525210_1-block-20.fastq \
+    blocks/SRR525210_2-block-20.fastq \
+-p \
+    blocks/SRR525210_1-block-21.fastq \
+    blocks/SRR525210_2-block-21.fastq \
+-p \
+    blocks/SRR525210_1-block-22.fastq \
+    blocks/SRR525210_2-block-22.fastq \
+-p \
+    blocks/SRR525210_1-block-23.fastq \
+    blocks/SRR525210_2-block-23.fastq \
+-p \
+    blocks/SRR525210_1-block-24.fastq \
+    blocks/SRR525210_2-block-24.fastq \
+-p \
+    blocks/SRR525210_1-block-25.fastq \
+    blocks/SRR525210_2-block-25.fastq \
+-p \
+    blocks/SRR525210_1-block-26.fastq \
+    blocks/SRR525210_2-block-26.fastq \
+-p \
+    blocks/SRR525210_1-block-27.fastq \
+    blocks/SRR525210_2-block-27.fastq \
+-p \
+    blocks/SRR525210_1-block-28.fastq \
+    blocks/SRR525210_2-block-28.fastq \
+-p \
+    blocks/SRR525210_1-block-29.fastq \
+    blocks/SRR525210_2-block-29.fastq \
+-p \
+    blocks/SRR525210_1-block-3.fastq \
+    blocks/SRR525210_2-block-3.fastq \
+-p \
+    blocks/SRR525210_1-block-30.fastq \
+    blocks/SRR525210_2-block-30.fastq \
+-p \
+    blocks/SRR525210_1-block-31.fastq \
+    blocks/SRR525210_2-block-31.fastq \
+-p \
+    blocks/SRR525210_1-block-32.fastq \
+    blocks/SRR525210_2-block-32.fastq \
+-p \
+    blocks/SRR525210_1-block-33.fastq \
+    blocks/SRR525210_2-block-33.fastq \
+-p \
+    blocks/SRR525210_1-block-34.fastq \
+    blocks/SRR525210_2-block-34.fastq \
+-p \
+    blocks/SRR525210_1-block-35.fastq \
+    blocks/SRR525210_2-block-35.fastq \
+-p \
+    blocks/SRR525210_1-block-36.fastq \
+    blocks/SRR525210_2-block-36.fastq \
+-p \
+    blocks/SRR525210_1-block-37.fastq \
+    blocks/SRR525210_2-block-37.fastq \
+-p \
+    blocks/SRR525210_1-block-38.fastq \
+    blocks/SRR525210_2-block-38.fastq \
+-p \
+    blocks/SRR525210_1-block-39.fastq \
+    blocks/SRR525210_2-block-39.fastq \
+-p \
+    blocks/SRR525210_1-block-4.fastq \
+    blocks/SRR525210_2-block-4.fastq \
+-p \
+    blocks/SRR525210_1-block-40.fastq \
+    blocks/SRR525210_2-block-40.fastq \
+-p \
+    blocks/SRR525210_1-block-41.fastq \
+    blocks/SRR525210_2-block-41.fastq \
+-p \
+    blocks/SRR525210_1-block-42.fastq \
+    blocks/SRR525210_2-block-42.fastq \
+-p \
+    blocks/SRR525210_1-block-43.fastq \
+    blocks/SRR525210_2-block-43.fastq \
+-p \
+    blocks/SRR525210_1-block-44.fastq \
+    blocks/SRR525210_2-block-44.fastq \
+-p \
+    blocks/SRR525210_1-block-45.fastq \
+    blocks/SRR525210_2-block-45.fastq \
+-p \
+    blocks/SRR525210_1-block-46.fastq \
+    blocks/SRR525210_2-block-46.fastq \
+-p \
+    blocks/SRR525210_1-block-47.fastq \
+    blocks/SRR525210_2-block-47.fastq \
+-p \
+    blocks/SRR525210_1-block-48.fastq \
+    blocks/SRR525210_2-block-48.fastq \
+-p \
+    blocks/SRR525210_1-block-49.fastq \
+    blocks/SRR525210_2-block-49.fastq \
+-p \
+    blocks/SRR525210_1-block-5.fastq \
+    blocks/SRR525210_2-block-5.fastq \
+-p \
+    blocks/SRR525210_1-block-50.fastq \
+    blocks/SRR525210_2-block-50.fastq \
+-p \
+    blocks/SRR525210_1-block-51.fastq \
+    blocks/SRR525210_2-block-51.fastq \
+-p \
+    blocks/SRR525210_1-block-52.fastq \
+    blocks/SRR525210_2-block-52.fastq \
+-p \
+    blocks/SRR525210_1-block-53.fastq \
+    blocks/SRR525210_2-block-53.fastq \
+-p \
+    blocks/SRR525210_1-block-54.fastq \
+    blocks/SRR525210_2-block-54.fastq \
+-p \
+    blocks/SRR525210_1-block-55.fastq \
+    blocks/SRR525210_2-block-55.fastq \
+-p \
+    blocks/SRR525210_1-block-56.fastq \
+    blocks/SRR525210_2-block-56.fastq \
+-p \
+    blocks/SRR525210_1-block-57.fastq \
+    blocks/SRR525210_2-block-57.fastq \
+-p \
+    blocks/SRR525210_1-block-58.fastq \
+    blocks/SRR525210_2-block-58.fastq \
+-p \
+    blocks/SRR525210_1-block-59.fastq \
+    blocks/SRR525210_2-block-59.fastq \
+-p \
+    blocks/SRR525210_1-block-6.fastq \
+    blocks/SRR525210_2-block-6.fastq \
+-p \
+    blocks/SRR525210_1-block-60.fastq \
+    blocks/SRR525210_2-block-60.fastq \
+-p \
+    blocks/SRR525210_1-block-61.fastq \
+    blocks/SRR525210_2-block-61.fastq \
+-p \
+    blocks/SRR525210_1-block-62.fastq \
+    blocks/SRR525210_2-block-62.fastq \
+-p \
+    blocks/SRR525210_1-block-63.fastq \
+    blocks/SRR525210_2-block-63.fastq \
+-p \
+    blocks/SRR525210_1-block-64.fastq \
+    blocks/SRR525210_2-block-64.fastq \
+-p \
+    blocks/SRR525210_1-block-65.fastq \
+    blocks/SRR525210_2-block-65.fastq \
+-p \
+    blocks/SRR525210_1-block-66.fastq \
+    blocks/SRR525210_2-block-66.fastq \
+-p \
+    blocks/SRR525210_1-block-67.fastq \
+    blocks/SRR525210_2-block-67.fastq \
+-p \
+    blocks/SRR525210_1-block-68.fastq \
+    blocks/SRR525210_2-block-68.fastq \
+-p \
+    blocks/SRR525210_1-block-69.fastq \
+    blocks/SRR525210_2-block-69.fastq \
+-p \
+    blocks/SRR525210_1-block-7.fastq \
+    blocks/SRR525210_2-block-7.fastq \
+-p \
+    blocks/SRR525210_1-block-70.fastq \
+    blocks/SRR525210_2-block-70.fastq \
+-p \
+    blocks/SRR525210_1-block-71.fastq \
+    blocks/SRR525210_2-block-71.fastq \
+-p \
+    blocks/SRR525210_1-block-72.fastq \
+    blocks/SRR525210_2-block-72.fastq \
+-p \
+    blocks/SRR525210_1-block-73.fastq \
+    blocks/SRR525210_2-block-73.fastq \
+-p \
+    blocks/SRR525210_1-block-74.fastq \
+    blocks/SRR525210_2-block-74.fastq \
+-p \
+    blocks/SRR525210_1-block-75.fastq \
+    blocks/SRR525210_2-block-75.fastq \
+-p \
+    blocks/SRR525210_1-block-76.fastq \
+    blocks/SRR525210_2-block-76.fastq \
+-p \
+    blocks/SRR525210_1-block-8.fastq \
+    blocks/SRR525210_2-block-8.fastq \
+-p \
+    blocks/SRR525210_1-block-9.fastq \
+    blocks/SRR525210_2-block-9.fastq \
+-p \
+    blocks/SRR525211_1-block-0.fastq \
+    blocks/SRR525211_2-block-0.fastq \
+-p \
+    blocks/SRR525211_1-block-1.fastq \
+    blocks/SRR525211_2-block-1.fastq \
+-p \
+    blocks/SRR525211_1-block-10.fastq \
+    blocks/SRR525211_2-block-10.fastq \
+-p \
+    blocks/SRR525211_1-block-11.fastq \
+    blocks/SRR525211_2-block-11.fastq \
+-p \
+    blocks/SRR525211_1-block-12.fastq \
+    blocks/SRR525211_2-block-12.fastq \
+-p \
+    blocks/SRR525211_1-block-13.fastq \
+    blocks/SRR525211_2-block-13.fastq \
+-p \
+    blocks/SRR525211_1-block-14.fastq \
+    blocks/SRR525211_2-block-14.fastq \
+-p \
+    blocks/SRR525211_1-block-15.fastq \
+    blocks/SRR525211_2-block-15.fastq \
+-p \
+    blocks/SRR525211_1-block-16.fastq \
+    blocks/SRR525211_2-block-16.fastq \
+-p \
+    blocks/SRR525211_1-block-17.fastq \
+    blocks/SRR525211_2-block-17.fastq \
+-p \
+    blocks/SRR525211_1-block-18.fastq \
+    blocks/SRR525211_2-block-18.fastq \
+-p \
+    blocks/SRR525211_1-block-19.fastq \
+    blocks/SRR525211_2-block-19.fastq \
+-p \
+    blocks/SRR525211_1-block-2.fastq \
+    blocks/SRR525211_2-block-2.fastq \
+-p \
+    blocks/SRR525211_1-block-20.fastq \
+    blocks/SRR525211_2-block-20.fastq \
+-p \
+    blocks/SRR525211_1-block-21.fastq \
+    blocks/SRR525211_2-block-21.fastq \
+-p \
+    blocks/SRR525211_1-block-22.fastq \
+    blocks/SRR525211_2-block-22.fastq \
+-p \
+    blocks/SRR525211_1-block-23.fastq \
+    blocks/SRR525211_2-block-23.fastq \
+-p \
+    blocks/SRR525211_1-block-24.fastq \
+    blocks/SRR525211_2-block-24.fastq \
+-p \
+    blocks/SRR525211_1-block-25.fastq \
+    blocks/SRR525211_2-block-25.fastq \
+-p \
+    blocks/SRR525211_1-block-26.fastq \
+    blocks/SRR525211_2-block-26.fastq \
+-p \
+    blocks/SRR525211_1-block-27.fastq \
+    blocks/SRR525211_2-block-27.fastq \
+-p \
+    blocks/SRR525211_1-block-28.fastq \
+    blocks/SRR525211_2-block-28.fastq \
+-p \
+    blocks/SRR525211_1-block-29.fastq \
+    blocks/SRR525211_2-block-29.fastq \
+-p \
+    blocks/SRR525211_1-block-3.fastq \
+    blocks/SRR525211_2-block-3.fastq \
+-p \
+    blocks/SRR525211_1-block-30.fastq \
+    blocks/SRR525211_2-block-30.fastq \
+-p \
+    blocks/SRR525211_1-block-31.fastq \
+    blocks/SRR525211_2-block-31.fastq \
+-p \
+    blocks/SRR525211_1-block-32.fastq \
+    blocks/SRR525211_2-block-32.fastq \
+-p \
+    blocks/SRR525211_1-block-33.fastq \
+    blocks/SRR525211_2-block-33.fastq \
+-p \
+    blocks/SRR525211_1-block-34.fastq \
+    blocks/SRR525211_2-block-34.fastq \
+-p \
+    blocks/SRR525211_1-block-35.fastq \
+    blocks/SRR525211_2-block-35.fastq \
+-p \
+    blocks/SRR525211_1-block-36.fastq \
+    blocks/SRR525211_2-block-36.fastq \
+-p \
+    blocks/SRR525211_1-block-37.fastq \
+    blocks/SRR525211_2-block-37.fastq \
+-p \
+    blocks/SRR525211_1-block-38.fastq \
+    blocks/SRR525211_2-block-38.fastq \
+-p \
+    blocks/SRR525211_1-block-39.fastq \
+    blocks/SRR525211_2-block-39.fastq \
+-p \
+    blocks/SRR525211_1-block-4.fastq \
+    blocks/SRR525211_2-block-4.fastq \
+-p \
+    blocks/SRR525211_1-block-40.fastq \
+    blocks/SRR525211_2-block-40.fastq \
+-p \
+    blocks/SRR525211_1-block-41.fastq \
+    blocks/SRR525211_2-block-41.fastq \
+-p \
+    blocks/SRR525211_1-block-42.fastq \
+    blocks/SRR525211_2-block-42.fastq \
+-p \
+    blocks/SRR525211_1-block-43.fastq \
+    blocks/SRR525211_2-block-43.fastq \
+-p \
+    blocks/SRR525211_1-block-44.fastq \
+    blocks/SRR525211_2-block-44.fastq \
+-p \
+    blocks/SRR525211_1-block-45.fastq \
+    blocks/SRR525211_2-block-45.fastq \
+-p \
+    blocks/SRR525211_1-block-46.fastq \
+    blocks/SRR525211_2-block-46.fastq \
+-p \
+    blocks/SRR525211_1-block-47.fastq \
+    blocks/SRR525211_2-block-47.fastq \
+-p \
+    blocks/SRR525211_1-block-48.fastq \
+    blocks/SRR525211_2-block-48.fastq \
+-p \
+    blocks/SRR525211_1-block-49.fastq \
+    blocks/SRR525211_2-block-49.fastq \
+-p \
+    blocks/SRR525211_1-block-5.fastq \
+    blocks/SRR525211_2-block-5.fastq \
+-p \
+    blocks/SRR525211_1-block-50.fastq \
+    blocks/SRR525211_2-block-50.fastq \
+-p \
+    blocks/SRR525211_1-block-51.fastq \
+    blocks/SRR525211_2-block-51.fastq \
+-p \
+    blocks/SRR525211_1-block-52.fastq \
+    blocks/SRR525211_2-block-52.fastq \
+-p \
+    blocks/SRR525211_1-block-53.fastq \
+    blocks/SRR525211_2-block-53.fastq \
+-p \
+    blocks/SRR525211_1-block-54.fastq \
+    blocks/SRR525211_2-block-54.fastq \
+-p \
+    blocks/SRR525211_1-block-55.fastq \
+    blocks/SRR525211_2-block-55.fastq \
+-p \
+    blocks/SRR525211_1-block-56.fastq \
+    blocks/SRR525211_2-block-56.fastq \
+-p \
+    blocks/SRR525211_1-block-57.fastq \
+    blocks/SRR525211_2-block-57.fastq \
+-p \
+    blocks/SRR525211_1-block-58.fastq \
+    blocks/SRR525211_2-block-58.fastq \
+-p \
+    blocks/SRR525211_1-block-59.fastq \
+    blocks/SRR525211_2-block-59.fastq \
+-p \
+    blocks/SRR525211_1-block-6.fastq \
+    blocks/SRR525211_2-block-6.fastq \
+-p \
+    blocks/SRR525211_1-block-60.fastq \
+    blocks/SRR525211_2-block-60.fastq \
+-p \
+    blocks/SRR525211_1-block-61.fastq \
+    blocks/SRR525211_2-block-61.fastq \
+-p \
+    blocks/SRR525211_1-block-62.fastq \
+    blocks/SRR525211_2-block-62.fastq \
+-p \
+    blocks/SRR525211_1-block-63.fastq \
+    blocks/SRR525211_2-block-63.fastq \
+-p \
+    blocks/SRR525211_1-block-64.fastq \
+    blocks/SRR525211_2-block-64.fastq \
+-p \
+    blocks/SRR525211_1-block-65.fastq \
+    blocks/SRR525211_2-block-65.fastq \
+-p \
+    blocks/SRR525211_1-block-66.fastq \
+    blocks/SRR525211_2-block-66.fastq \
+-p \
+    blocks/SRR525211_1-block-67.fastq \
+    blocks/SRR525211_2-block-67.fastq \
+-p \
+    blocks/SRR525211_1-block-68.fastq \
+    blocks/SRR525211_2-block-68.fastq \
+-p \
+    blocks/SRR525211_1-block-69.fastq \
+    blocks/SRR525211_2-block-69.fastq \
+-p \
+    blocks/SRR525211_1-block-7.fastq \
+    blocks/SRR525211_2-block-7.fastq \
+-p \
+    blocks/SRR525211_1-block-70.fastq \
+    blocks/SRR525211_2-block-70.fastq \
+-p \
+    blocks/SRR525211_1-block-71.fastq \
+    blocks/SRR525211_2-block-71.fastq \
+-p \
+    blocks/SRR525211_1-block-72.fastq \
+    blocks/SRR525211_2-block-72.fastq \
+-p \
+    blocks/SRR525211_1-block-73.fastq \
+    blocks/SRR525211_2-block-73.fastq \
+-p \
+    blocks/SRR525211_1-block-74.fastq \
+    blocks/SRR525211_2-block-74.fastq \
+-p \
+    blocks/SRR525211_1-block-75.fastq \
+    blocks/SRR525211_2-block-75.fastq \
+-p \
+    blocks/SRR525211_1-block-76.fastq \
+    blocks/SRR525211_2-block-76.fastq \
+-p \
+    blocks/SRR525211_1-block-77.fastq \
+    blocks/SRR525211_2-block-77.fastq \
+-p \
+    blocks/SRR525211_1-block-78.fastq \
+    blocks/SRR525211_2-block-78.fastq \
+-p \
+    blocks/SRR525211_1-block-79.fastq \
+    blocks/SRR525211_2-block-79.fastq \
+-p \
+    blocks/SRR525211_1-block-8.fastq \
+    blocks/SRR525211_2-block-8.fastq \
+-p \
+    blocks/SRR525211_1-block-80.fastq \
+    blocks/SRR525211_2-block-80.fastq \
+-p \
+    blocks/SRR525211_1-block-81.fastq \
+    blocks/SRR525211_2-block-81.fastq \
+-p \
+    blocks/SRR525211_1-block-82.fastq \
+    blocks/SRR525211_2-block-82.fastq \
+-p \
+    blocks/SRR525211_1-block-83.fastq \
+    blocks/SRR525211_2-block-83.fastq \
+-p \
+    blocks/SRR525211_1-block-84.fastq \
+    blocks/SRR525211_2-block-84.fastq \
+-p \
+    blocks/SRR525211_1-block-85.fastq \
+    blocks/SRR525211_2-block-85.fastq \
+-p \
+    blocks/SRR525211_1-block-86.fastq \
+    blocks/SRR525211_2-block-86.fastq \
+-p \
+    blocks/SRR525211_1-block-87.fastq \
+    blocks/SRR525211_2-block-87.fastq \
+-p \
+    blocks/SRR525211_1-block-88.fastq \
+    blocks/SRR525211_2-block-88.fastq \
+-p \
+    blocks/SRR525211_1-block-89.fastq \
+    blocks/SRR525211_2-block-89.fastq \
+-p \
+    blocks/SRR525211_1-block-9.fastq \
+    blocks/SRR525211_2-block-9.fastq \
+-p \
+    blocks/SRR525212_1-block-0.fastq \
+    blocks/SRR525212_2-block-0.fastq \
+-p \
+    blocks/SRR525212_1-block-1.fastq \
+    blocks/SRR525212_2-block-1.fastq \
+-p \
+    blocks/SRR525212_1-block-2.fastq \
+    blocks/SRR525212_2-block-2.fastq \
+-p \
+    blocks/SRR525212_1-block-3.fastq \
+    blocks/SRR525212_2-block-3.fastq \
+-p \
+    blocks/SRR525213_1-block-0.fastq \
+    blocks/SRR525213_2-block-0.fastq \
+-p \
+    blocks/SRR525213_1-block-1.fastq \
+    blocks/SRR525213_2-block-1.fastq \
+-p \
+    blocks/SRR525213_1-block-10.fastq \
+    blocks/SRR525213_2-block-10.fastq \
+-p \
+    blocks/SRR525213_1-block-11.fastq \
+    blocks/SRR525213_2-block-11.fastq \
+-p \
+    blocks/SRR525213_1-block-12.fastq \
+    blocks/SRR525213_2-block-12.fastq \
+-p \
+    blocks/SRR525213_1-block-13.fastq \
+    blocks/SRR525213_2-block-13.fastq \
+-p \
+    blocks/SRR525213_1-block-14.fastq \
+    blocks/SRR525213_2-block-14.fastq \
+-p \
+    blocks/SRR525213_1-block-15.fastq \
+    blocks/SRR525213_2-block-15.fastq \
+-p \
+    blocks/SRR525213_1-block-16.fastq \
+    blocks/SRR525213_2-block-16.fastq \
+-p \
+    blocks/SRR525213_1-block-17.fastq \
+    blocks/SRR525213_2-block-17.fastq \
+-p \
+    blocks/SRR525213_1-block-18.fastq \
+    blocks/SRR525213_2-block-18.fastq \
+-p \
+    blocks/SRR525213_1-block-19.fastq \
+    blocks/SRR525213_2-block-19.fastq \
+-p \
+    blocks/SRR525213_1-block-2.fastq \
+    blocks/SRR525213_2-block-2.fastq \
+-p \
+    blocks/SRR525213_1-block-20.fastq \
+    blocks/SRR525213_2-block-20.fastq \
+-p \
+    blocks/SRR525213_1-block-21.fastq \
+    blocks/SRR525213_2-block-21.fastq \
+-p \
+    blocks/SRR525213_1-block-22.fastq \
+    blocks/SRR525213_2-block-22.fastq \
+-p \
+    blocks/SRR525213_1-block-23.fastq \
+    blocks/SRR525213_2-block-23.fastq \
+-p \
+    blocks/SRR525213_1-block-24.fastq \
+    blocks/SRR525213_2-block-24.fastq \
+-p \
+    blocks/SRR525213_1-block-25.fastq \
+    blocks/SRR525213_2-block-25.fastq \
+-p \
+    blocks/SRR525213_1-block-26.fastq \
+    blocks/SRR525213_2-block-26.fastq \
+-p \
+    blocks/SRR525213_1-block-27.fastq \
+    blocks/SRR525213_2-block-27.fastq \
+-p \
+    blocks/SRR525213_1-block-28.fastq \
+    blocks/SRR525213_2-block-28.fastq \
+-p \
+    blocks/SRR525213_1-block-29.fastq \
+    blocks/SRR525213_2-block-29.fastq \
+-p \
+    blocks/SRR525213_1-block-3.fastq \
+    blocks/SRR525213_2-block-3.fastq \
+-p \
+    blocks/SRR525213_1-block-30.fastq \
+    blocks/SRR525213_2-block-30.fastq \
+-p \
+    blocks/SRR525213_1-block-31.fastq \
+    blocks/SRR525213_2-block-31.fastq \
+-p \
+    blocks/SRR525213_1-block-32.fastq \
+    blocks/SRR525213_2-block-32.fastq \
+-p \
+    blocks/SRR525213_1-block-33.fastq \
+    blocks/SRR525213_2-block-33.fastq \
+-p \
+    blocks/SRR525213_1-block-34.fastq \
+    blocks/SRR525213_2-block-34.fastq \
+-p \
+    blocks/SRR525213_1-block-35.fastq \
+    blocks/SRR525213_2-block-35.fastq \
+-p \
+    blocks/SRR525213_1-block-36.fastq \
+    blocks/SRR525213_2-block-36.fastq \
+-p \
+    blocks/SRR525213_1-block-37.fastq \
+    blocks/SRR525213_2-block-37.fastq \
+-p \
+    blocks/SRR525213_1-block-38.fastq \
+    blocks/SRR525213_2-block-38.fastq \
+-p \
+    blocks/SRR525213_1-block-39.fastq \
+    blocks/SRR525213_2-block-39.fastq \
+-p \
+    blocks/SRR525213_1-block-4.fastq \
+    blocks/SRR525213_2-block-4.fastq \
+-p \
+    blocks/SRR525213_1-block-40.fastq \
+    blocks/SRR525213_2-block-40.fastq \
+-p \
+    blocks/SRR525213_1-block-41.fastq \
+    blocks/SRR525213_2-block-41.fastq \
+-p \
+    blocks/SRR525213_1-block-42.fastq \
+    blocks/SRR525213_2-block-42.fastq \
+-p \
+    blocks/SRR525213_1-block-43.fastq \
+    blocks/SRR525213_2-block-43.fastq \
+-p \
+    blocks/SRR525213_1-block-44.fastq \
+    blocks/SRR525213_2-block-44.fastq \
+-p \
+    blocks/SRR525213_1-block-45.fastq \
+    blocks/SRR525213_2-block-45.fastq \
+-p \
+    blocks/SRR525213_1-block-46.fastq \
+    blocks/SRR525213_2-block-46.fastq \
+-p \
+    blocks/SRR525213_1-block-47.fastq \
+    blocks/SRR525213_2-block-47.fastq \
+-p \
+    blocks/SRR525213_1-block-48.fastq \
+    blocks/SRR525213_2-block-48.fastq \
+-p \
+    blocks/SRR525213_1-block-49.fastq \
+    blocks/SRR525213_2-block-49.fastq \
+-p \
+    blocks/SRR525213_1-block-5.fastq \
+    blocks/SRR525213_2-block-5.fastq \
+-p \
+    blocks/SRR525213_1-block-50.fastq \
+    blocks/SRR525213_2-block-50.fastq \
+-p \
+    blocks/SRR525213_1-block-51.fastq \
+    blocks/SRR525213_2-block-51.fastq \
+-p \
+    blocks/SRR525213_1-block-52.fastq \
+    blocks/SRR525213_2-block-52.fastq \
+-p \
+    blocks/SRR525213_1-block-53.fastq \
+    blocks/SRR525213_2-block-53.fastq \
+-p \
+    blocks/SRR525213_1-block-54.fastq \
+    blocks/SRR525213_2-block-54.fastq \
+-p \
+    blocks/SRR525213_1-block-55.fastq \
+    blocks/SRR525213_2-block-55.fastq \
+-p \
+    blocks/SRR525213_1-block-56.fastq \
+    blocks/SRR525213_2-block-56.fastq \
+-p \
+    blocks/SRR525213_1-block-57.fastq \
+    blocks/SRR525213_2-block-57.fastq \
+-p \
+    blocks/SRR525213_1-block-58.fastq \
+    blocks/SRR525213_2-block-58.fastq \
+-p \
+    blocks/SRR525213_1-block-59.fastq \
+    blocks/SRR525213_2-block-59.fastq \
+-p \
+    blocks/SRR525213_1-block-6.fastq \
+    blocks/SRR525213_2-block-6.fastq \
+-p \
+    blocks/SRR525213_1-block-60.fastq \
+    blocks/SRR525213_2-block-60.fastq \
+-p \
+    blocks/SRR525213_1-block-61.fastq \
+    blocks/SRR525213_2-block-61.fastq \
+-p \
+    blocks/SRR525213_1-block-62.fastq \
+    blocks/SRR525213_2-block-62.fastq \
+-p \
+    blocks/SRR525213_1-block-63.fastq \
+    blocks/SRR525213_2-block-63.fastq \
+-p \
+    blocks/SRR525213_1-block-64.fastq \
+    blocks/SRR525213_2-block-64.fastq \
+-p \
+    blocks/SRR525213_1-block-65.fastq \
+    blocks/SRR525213_2-block-65.fastq \
+-p \
+    blocks/SRR525213_1-block-66.fastq \
+    blocks/SRR525213_2-block-66.fastq \
+-p \
+    blocks/SRR525213_1-block-67.fastq \
+    blocks/SRR525213_2-block-67.fastq \
+-p \
+    blocks/SRR525213_1-block-68.fastq \
+    blocks/SRR525213_2-block-68.fastq \
+-p \
+    blocks/SRR525213_1-block-69.fastq \
+    blocks/SRR525213_2-block-69.fastq \
+-p \
+    blocks/SRR525213_1-block-7.fastq \
+    blocks/SRR525213_2-block-7.fastq \
+-p \
+    blocks/SRR525213_1-block-70.fastq \
+    blocks/SRR525213_2-block-70.fastq \
+-p \
+    blocks/SRR525213_1-block-71.fastq \
+    blocks/SRR525213_2-block-71.fastq \
+-p \
+    blocks/SRR525213_1-block-72.fastq \
+    blocks/SRR525213_2-block-72.fastq \
+-p \
+    blocks/SRR525213_1-block-73.fastq \
+    blocks/SRR525213_2-block-73.fastq \
+-p \
+    blocks/SRR525213_1-block-74.fastq \
+    blocks/SRR525213_2-block-74.fastq \
+-p \
+    blocks/SRR525213_1-block-75.fastq \
+    blocks/SRR525213_2-block-75.fastq \
+-p \
+    blocks/SRR525213_1-block-76.fastq \
+    blocks/SRR525213_2-block-76.fastq \
+-p \
+    blocks/SRR525213_1-block-77.fastq \
+    blocks/SRR525213_2-block-77.fastq \
+-p \
+    blocks/SRR525213_1-block-78.fastq \
+    blocks/SRR525213_2-block-78.fastq \
+-p \
+    blocks/SRR525213_1-block-79.fastq \
+    blocks/SRR525213_2-block-79.fastq \
+-p \
+    blocks/SRR525213_1-block-8.fastq \
+    blocks/SRR525213_2-block-8.fastq \
+-p \
+    blocks/SRR525213_1-block-80.fastq \
+    blocks/SRR525213_2-block-80.fastq \
+-p \
+    blocks/SRR525213_1-block-81.fastq \
+    blocks/SRR525213_2-block-81.fastq \
+-p \
+    blocks/SRR525213_1-block-82.fastq \
+    blocks/SRR525213_2-block-82.fastq \
+-p \
+    blocks/SRR525213_1-block-83.fastq \
+    blocks/SRR525213_2-block-83.fastq \
+-p \
+    blocks/SRR525213_1-block-84.fastq \
+    blocks/SRR525213_2-block-84.fastq \
+-p \
+    blocks/SRR525213_1-block-85.fastq \
+    blocks/SRR525213_2-block-85.fastq \
+-p \
+    blocks/SRR525213_1-block-86.fastq \
+    blocks/SRR525213_2-block-86.fastq \
+-p \
+    blocks/SRR525213_1-block-87.fastq \
+    blocks/SRR525213_2-block-87.fastq \
+-p \
+    blocks/SRR525213_1-block-88.fastq \
+    blocks/SRR525213_2-block-88.fastq \
+-p \
+    blocks/SRR525213_1-block-89.fastq \
+    blocks/SRR525213_2-block-89.fastq \
+-p \
+    blocks/SRR525213_1-block-9.fastq \
+    blocks/SRR525213_2-block-9.fastq \
+-p \
+    blocks/SRR525213_1-block-90.fastq \
+    blocks/SRR525213_2-block-90.fastq \
+-p \
+    blocks/SRR525213_1-block-91.fastq \
+    blocks/SRR525213_2-block-91.fastq \
+-p \
+    blocks/SRR525213_1-block-92.fastq \
+    blocks/SRR525213_2-block-92.fastq \
+-p \
+    blocks/SRR525213_1-block-93.fastq \
+    blocks/SRR525213_2-block-93.fastq \
+-p \
+    blocks/SRR525213_1-block-94.fastq \
+    blocks/SRR525213_2-block-94.fastq \
+-p \
+    blocks/SRR525213_1-block-95.fastq \
+    blocks/SRR525213_2-block-95.fastq \
+-p \
+    blocks/SRR525213_1-block-96.fastq \
+    blocks/SRR525213_2-block-96.fastq \
+-p \
+    blocks/SRR525213_1-block-97.fastq \
+    blocks/SRR525213_2-block-97.fastq \
+-p \
+    blocks/SRR525213_1-block-98.fastq \
+    blocks/SRR525213_2-block-98.fastq \
+-p \
+    blocks/SRR525213_1-block-99.fastq \
+    blocks/SRR525213_2-block-99.fastq \
+-p \
+    blocks/SRR525214_1-block-0.fastq \
+    blocks/SRR525214_2-block-0.fastq \
+-p \
+    blocks/SRR525214_1-block-1.fastq \
+    blocks/SRR525214_2-block-1.fastq \
+-p \
+    blocks/SRR525214_1-block-10.fastq \
+    blocks/SRR525214_2-block-10.fastq \
+-p \
+    blocks/SRR525214_1-block-100.fastq \
+    blocks/SRR525214_2-block-100.fastq \
+-p \
+    blocks/SRR525214_1-block-101.fastq \
+    blocks/SRR525214_2-block-101.fastq \
+-p \
+    blocks/SRR525214_1-block-102.fastq \
+    blocks/SRR525214_2-block-102.fastq \
+-p \
+    blocks/SRR525214_1-block-103.fastq \
+    blocks/SRR525214_2-block-103.fastq \
+-p \
+    blocks/SRR525214_1-block-104.fastq \
+    blocks/SRR525214_2-block-104.fastq \
+-p \
+    blocks/SRR525214_1-block-105.fastq \
+    blocks/SRR525214_2-block-105.fastq \
+-p \
+    blocks/SRR525214_1-block-106.fastq \
+    blocks/SRR525214_2-block-106.fastq \
+-p \
+    blocks/SRR525214_1-block-107.fastq \
+    blocks/SRR525214_2-block-107.fastq \
+-p \
+    blocks/SRR525214_1-block-108.fastq \
+    blocks/SRR525214_2-block-108.fastq \
+-p \
+    blocks/SRR525214_1-block-109.fastq \
+    blocks/SRR525214_2-block-109.fastq \
+-p \
+    blocks/SRR525214_1-block-11.fastq \
+    blocks/SRR525214_2-block-11.fastq \
+-p \
+    blocks/SRR525214_1-block-110.fastq \
+    blocks/SRR525214_2-block-110.fastq \
+-p \
+    blocks/SRR525214_1-block-111.fastq \
+    blocks/SRR525214_2-block-111.fastq \
+-p \
+    blocks/SRR525214_1-block-112.fastq \
+    blocks/SRR525214_2-block-112.fastq \
+-p \
+    blocks/SRR525214_1-block-113.fastq \
+    blocks/SRR525214_2-block-113.fastq \
+-p \
+    blocks/SRR525214_1-block-114.fastq \
+    blocks/SRR525214_2-block-114.fastq \
+-p \
+    blocks/SRR525214_1-block-115.fastq \
+    blocks/SRR525214_2-block-115.fastq \
+-p \
+    blocks/SRR525214_1-block-116.fastq \
+    blocks/SRR525214_2-block-116.fastq \
+-p \
+    blocks/SRR525214_1-block-12.fastq \
+    blocks/SRR525214_2-block-12.fastq \
+-p \
+    blocks/SRR525214_1-block-13.fastq \
+    blocks/SRR525214_2-block-13.fastq \
+-p \
+    blocks/SRR525214_1-block-14.fastq \
+    blocks/SRR525214_2-block-14.fastq \
+-p \
+    blocks/SRR525214_1-block-15.fastq \
+    blocks/SRR525214_2-block-15.fastq \
+-p \
+    blocks/SRR525214_1-block-16.fastq \
+    blocks/SRR525214_2-block-16.fastq \
+-p \
+    blocks/SRR525214_1-block-17.fastq \
+    blocks/SRR525214_2-block-17.fastq \
+-p \
+    blocks/SRR525214_1-block-18.fastq \
+    blocks/SRR525214_2-block-18.fastq \
+-p \
+    blocks/SRR525214_1-block-19.fastq \
+    blocks/SRR525214_2-block-19.fastq \
+-p \
+    blocks/SRR525214_1-block-2.fastq \
+    blocks/SRR525214_2-block-2.fastq \
+-p \
+    blocks/SRR525214_1-block-20.fastq \
+    blocks/SRR525214_2-block-20.fastq \
+-p \
+    blocks/SRR525214_1-block-21.fastq \
+    blocks/SRR525214_2-block-21.fastq \
+-p \
+    blocks/SRR525214_1-block-22.fastq \
+    blocks/SRR525214_2-block-22.fastq \
+-p \
+    blocks/SRR525214_1-block-23.fastq \
+    blocks/SRR525214_2-block-23.fastq \
+-p \
+    blocks/SRR525214_1-block-24.fastq \
+    blocks/SRR525214_2-block-24.fastq \
+-p \
+    blocks/SRR525214_1-block-25.fastq \
+    blocks/SRR525214_2-block-25.fastq \
+-p \
+    blocks/SRR525214_1-block-26.fastq \
+    blocks/SRR525214_2-block-26.fastq \
+-p \
+    blocks/SRR525214_1-block-27.fastq \
+    blocks/SRR525214_2-block-27.fastq \
+-p \
+    blocks/SRR525214_1-block-28.fastq \
+    blocks/SRR525214_2-block-28.fastq \
+-p \
+    blocks/SRR525214_1-block-29.fastq \
+    blocks/SRR525214_2-block-29.fastq \
+-p \
+    blocks/SRR525214_1-block-3.fastq \
+    blocks/SRR525214_2-block-3.fastq \
+-p \
+    blocks/SRR525214_1-block-30.fastq \
+    blocks/SRR525214_2-block-30.fastq \
+-p \
+    blocks/SRR525214_1-block-31.fastq \
+    blocks/SRR525214_2-block-31.fastq \
+-p \
+    blocks/SRR525214_1-block-32.fastq \
+    blocks/SRR525214_2-block-32.fastq \
+-p \
+    blocks/SRR525214_1-block-33.fastq \
+    blocks/SRR525214_2-block-33.fastq \
+-p \
+    blocks/SRR525214_1-block-34.fastq \
+    blocks/SRR525214_2-block-34.fastq \
+-p \
+    blocks/SRR525214_1-block-35.fastq \
+    blocks/SRR525214_2-block-35.fastq \
+-p \
+    blocks/SRR525214_1-block-36.fastq \
+    blocks/SRR525214_2-block-36.fastq \
+-p \
+    blocks/SRR525214_1-block-37.fastq \
+    blocks/SRR525214_2-block-37.fastq \
+-p \
+    blocks/SRR525214_1-block-38.fastq \
+    blocks/SRR525214_2-block-38.fastq \
+-p \
+    blocks/SRR525214_1-block-39.fastq \
+    blocks/SRR525214_2-block-39.fastq \
+-p \
+    blocks/SRR525214_1-block-4.fastq \
+    blocks/SRR525214_2-block-4.fastq \
+-p \
+    blocks/SRR525214_1-block-40.fastq \
+    blocks/SRR525214_2-block-40.fastq \
+-p \
+    blocks/SRR525214_1-block-41.fastq \
+    blocks/SRR525214_2-block-41.fastq \
+-p \
+    blocks/SRR525214_1-block-42.fastq \
+    blocks/SRR525214_2-block-42.fastq \
+-p \
+    blocks/SRR525214_1-block-43.fastq \
+    blocks/SRR525214_2-block-43.fastq \
+-p \
+    blocks/SRR525214_1-block-44.fastq \
+    blocks/SRR525214_2-block-44.fastq \
+-p \
+    blocks/SRR525214_1-block-45.fastq \
+    blocks/SRR525214_2-block-45.fastq \
+-p \
+    blocks/SRR525214_1-block-46.fastq \
+    blocks/SRR525214_2-block-46.fastq \
+-p \
+    blocks/SRR525214_1-block-47.fastq \
+    blocks/SRR525214_2-block-47.fastq \
+-p \
+    blocks/SRR525214_1-block-48.fastq \
+    blocks/SRR525214_2-block-48.fastq \
+-p \
+    blocks/SRR525214_1-block-49.fastq \
+    blocks/SRR525214_2-block-49.fastq \
+-p \
+    blocks/SRR525214_1-block-5.fastq \
+    blocks/SRR525214_2-block-5.fastq \
+-p \
+    blocks/SRR525214_1-block-50.fastq \
+    blocks/SRR525214_2-block-50.fastq \
+-p \
+    blocks/SRR525214_1-block-51.fastq \
+    blocks/SRR525214_2-block-51.fastq \
+-p \
+    blocks/SRR525214_1-block-52.fastq \
+    blocks/SRR525214_2-block-52.fastq \
+-p \
+    blocks/SRR525214_1-block-53.fastq \
+    blocks/SRR525214_2-block-53.fastq \
+-p \
+    blocks/SRR525214_1-block-54.fastq \
+    blocks/SRR525214_2-block-54.fastq \
+-p \
+    blocks/SRR525214_1-block-55.fastq \
+    blocks/SRR525214_2-block-55.fastq \
+-p \
+    blocks/SRR525214_1-block-56.fastq \
+    blocks/SRR525214_2-block-56.fastq \
+-p \
+    blocks/SRR525214_1-block-57.fastq \
+    blocks/SRR525214_2-block-57.fastq \
+-p \
+    blocks/SRR525214_1-block-58.fastq \
+    blocks/SRR525214_2-block-58.fastq \
+-p \
+    blocks/SRR525214_1-block-59.fastq \
+    blocks/SRR525214_2-block-59.fastq \
+-p \
+    blocks/SRR525214_1-block-6.fastq \
+    blocks/SRR525214_2-block-6.fastq \
+-p \
+    blocks/SRR525214_1-block-60.fastq \
+    blocks/SRR525214_2-block-60.fastq \
+-p \
+    blocks/SRR525214_1-block-61.fastq \
+    blocks/SRR525214_2-block-61.fastq \
+-p \
+    blocks/SRR525214_1-block-62.fastq \
+    blocks/SRR525214_2-block-62.fastq \
+-p \
+    blocks/SRR525214_1-block-63.fastq \
+    blocks/SRR525214_2-block-63.fastq \
+-p \
+    blocks/SRR525214_1-block-64.fastq \
+    blocks/SRR525214_2-block-64.fastq \
+-p \
+    blocks/SRR525214_1-block-65.fastq \
+    blocks/SRR525214_2-block-65.fastq \
+-p \
+    blocks/SRR525214_1-block-66.fastq \
+    blocks/SRR525214_2-block-66.fastq \
+-p \
+    blocks/SRR525214_1-block-67.fastq \
+    blocks/SRR525214_2-block-67.fastq \
+-p \
+    blocks/SRR525214_1-block-68.fastq \
+    blocks/SRR525214_2-block-68.fastq \
+-p \
+    blocks/SRR525214_1-block-69.fastq \
+    blocks/SRR525214_2-block-69.fastq \
+-p \
+    blocks/SRR525214_1-block-7.fastq \
+    blocks/SRR525214_2-block-7.fastq \
+-p \
+    blocks/SRR525214_1-block-70.fastq \
+    blocks/SRR525214_2-block-70.fastq \
+-p \
+    blocks/SRR525214_1-block-71.fastq \
+    blocks/SRR525214_2-block-71.fastq \
+-p \
+    blocks/SRR525214_1-block-72.fastq \
+    blocks/SRR525214_2-block-72.fastq \
+-p \
+    blocks/SRR525214_1-block-73.fastq \
+    blocks/SRR525214_2-block-73.fastq \
+-p \
+    blocks/SRR525214_1-block-74.fastq \
+    blocks/SRR525214_2-block-74.fastq \
+-p \
+    blocks/SRR525214_1-block-75.fastq \
+    blocks/SRR525214_2-block-75.fastq \
+-p \
+    blocks/SRR525214_1-block-76.fastq \
+    blocks/SRR525214_2-block-76.fastq \
+-p \
+    blocks/SRR525214_1-block-77.fastq \
+    blocks/SRR525214_2-block-77.fastq \
+-p \
+    blocks/SRR525214_1-block-78.fastq \
+    blocks/SRR525214_2-block-78.fastq \
+-p \
+    blocks/SRR525214_1-block-79.fastq \
+    blocks/SRR525214_2-block-79.fastq \
+-p \
+    blocks/SRR525214_1-block-8.fastq \
+    blocks/SRR525214_2-block-8.fastq \
+-p \
+    blocks/SRR525214_1-block-80.fastq \
+    blocks/SRR525214_2-block-80.fastq \
+-p \
+    blocks/SRR525214_1-block-81.fastq \
+    blocks/SRR525214_2-block-81.fastq \
+-p \
+    blocks/SRR525214_1-block-82.fastq \
+    blocks/SRR525214_2-block-82.fastq \
+-p \
+    blocks/SRR525214_1-block-83.fastq \
+    blocks/SRR525214_2-block-83.fastq \
+-p \
+    blocks/SRR525214_1-block-84.fastq \
+    blocks/SRR525214_2-block-84.fastq \
+-p \
+    blocks/SRR525214_1-block-85.fastq \
+    blocks/SRR525214_2-block-85.fastq \
+-p \
+    blocks/SRR525214_1-block-86.fastq \
+    blocks/SRR525214_2-block-86.fastq \
+-p \
+    blocks/SRR525214_1-block-87.fastq \
+    blocks/SRR525214_2-block-87.fastq \
+-p \
+    blocks/SRR525214_1-block-88.fastq \
+    blocks/SRR525214_2-block-88.fastq \
+-p \
+    blocks/SRR525214_1-block-89.fastq \
+    blocks/SRR525214_2-block-89.fastq \
+-p \
+    blocks/SRR525214_1-block-9.fastq \
+    blocks/SRR525214_2-block-9.fastq \
+-p \
+    blocks/SRR525214_1-block-90.fastq \
+    blocks/SRR525214_2-block-90.fastq \
+-p \
+    blocks/SRR525214_1-block-91.fastq \
+    blocks/SRR525214_2-block-91.fastq \
+-p \
+    blocks/SRR525214_1-block-92.fastq \
+    blocks/SRR525214_2-block-92.fastq \
+-p \
+    blocks/SRR525214_1-block-93.fastq \
+    blocks/SRR525214_2-block-93.fastq \
+-p \
+    blocks/SRR525214_1-block-94.fastq \
+    blocks/SRR525214_2-block-94.fastq \
+-p \
+    blocks/SRR525214_1-block-95.fastq \
+    blocks/SRR525214_2-block-95.fastq \
+-p \
+    blocks/SRR525214_1-block-96.fastq \
+    blocks/SRR525214_2-block-96.fastq \
+-p \
+    blocks/SRR525214_1-block-97.fastq \
+    blocks/SRR525214_2-block-97.fastq \
+-p \
+    blocks/SRR525214_1-block-98.fastq \
+    blocks/SRR525214_2-block-98.fastq \
+-p \
+    blocks/SRR525214_1-block-99.fastq \
+    blocks/SRR525214_2-block-99.fastq \
+-p \
+    blocks/SRR525215_1-block-0.fastq \
+    blocks/SRR525215_2-block-0.fastq \
+-p \
+    blocks/SRR525215_1-block-1.fastq \
+    blocks/SRR525215_2-block-1.fastq \
+-p \
+    blocks/SRR525215_1-block-2.fastq \
+    blocks/SRR525215_2-block-2.fastq \
+&> SRA056234-Picea-glauca-2012-12-25-mp2-1.out \
+
