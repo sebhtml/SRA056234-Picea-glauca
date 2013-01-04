@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -N SRA056234-Picea-glauca-2012-12-25-mp2-1
-#PBS -o SRA056234-Picea-glauca-2012-12-25-mp2-1.stdout
-#PBS -e SRA056234-Picea-glauca-2012-12-25-mp2-1.stderr
+#PBS -N SRA056234-Picea-glauca-2013-01-04-mp2-6
+#PBS -o SRA056234-Picea-glauca-2013-01-04-mp2-6.stdout
+#PBS -e SRA056234-Picea-glauca-2013-01-04-mp2-6.stderr
 #PBS -q qwork@mp2
 #PBS -l nodes=171:ppn=1
-#PBS -l walltime=120:00:00
+#PBS -l walltime=00:120:00:00
 #PBS -M sebastien.boisvert.3@ulaval.ca
 #PBS -m bea
 cd $PBS_O_WORKDIR
@@ -16,7 +16,7 @@ cd $PBS_O_WORKDIR
 . /mnt/scratch_mp2/corbeil/corbeil_group/software/NGS-Pipelines/LoadModules.sh
 
 mpiexec -n 4096 -bynode -bind-to-core \
-Ray -k 31 -o SRA056234-Picea-glauca-2012-12-25-mp2-1 \
+Ray -k 31 -o SRA056234-Picea-glauca-2013-01-04-mp2-6 \
 -read-write-checkpoints blocks.ray-k31-4096 \
 -route-messages -connection-type polytope -routing-graph-degree 126 \
 -p \
@@ -6451,5 +6451,4 @@ Ray -k 31 -o SRA056234-Picea-glauca-2012-12-25-mp2-1 \
 -p \
     blocks/SRR525215_1-block-2.fastq \
     blocks/SRR525215_2-block-2.fastq \
-&> SRA056234-Picea-glauca-2012-12-25-mp2-1.out \
 
