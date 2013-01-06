@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -N SRA056234-Picea-glauca-2013-01-04-mp2-6
-#PBS -o SRA056234-Picea-glauca-2013-01-04-mp2-6.stdout
-#PBS -e SRA056234-Picea-glauca-2013-01-04-mp2-6.stderr
+#PBS -N SRA056234-Picea-glauca-2013-01-06-mp2-9
+#PBS -o SRA056234-Picea-glauca-2013-01-06-mp2-9.stdout
+#PBS -e SRA056234-Picea-glauca-2013-01-06-mp2-9.stderr
 #PBS -q qwork@mp2
 #PBS -l nodes=171:ppn=1
 #PBS -l walltime=00:120:00:00
@@ -13,10 +13,14 @@ cd $PBS_O_WORKDIR
 # 171*24 = 4104
 # 63*2 = 126
 
+# 176 * 32 = 5632 GiB
+# 171 * 32 = 5472 GiB
+# 300 * 32 = 9600 GiB
+
 . /mnt/scratch_mp2/corbeil/corbeil_group/software/NGS-Pipelines/LoadModules.sh
 
 mpiexec -n 4096 -bynode -bind-to-core \
-Ray -k 31 -o SRA056234-Picea-glauca-2013-01-04-mp2-6 \
+Ray -k 31 -o SRA056234-Picea-glauca-2013-01-06-mp2-9 \
 -read-write-checkpoints blocks.ray-k31-4096 \
 -route-messages -connection-type polytope -routing-graph-degree 126 \
 -p \
