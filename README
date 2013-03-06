@@ -22,3 +22,6 @@ ray: a1e1db808f3162959ebb771e1fd0e315f19a57f0
 RayPlatform: bca919fb19f534e8b605b153a6d63bd5a1576369
 
 
+I wish to thank SciNet and Argonne for help and documentation.
+
+\see http://dcmf.anl-external.org/docs/mpi:dcmfd/mpiio_vars.html
